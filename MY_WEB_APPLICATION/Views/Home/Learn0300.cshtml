@@ -1,0 +1,96 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="item in todos1">{{ item }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-for="item of todos1">{{ item }}</li>
+		</ul>
+
+		<hr />
+		<hr />
+
+		<ul>
+			<li v-for="item in todos2">{{ item.text }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-for="item of todos2">{{ item.text }}</li>
+		</ul>
+
+		<hr />
+		<hr />
+
+		<div v-show="display1">
+			<ul>
+				<li v-for="item in todos2">{{ item.text }}</li>
+			</ul>
+		</div>
+
+		<hr />
+
+		<div v-if="display2">
+			<ul>
+				<li v-for="item of todos2">{{ item.text }}</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		var app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				todos1: [
+					'Learn Vue',
+					'Learn JavaScript',
+					'Build something awesome',
+				],
+
+				todos2: [
+					{ text: 'Learn Vue', },
+					{ text: 'Learn JavaScript', },
+					{ text: 'Build something awesome', },
+				],
+
+				//display1: true,
+				//display2: true,
+
+				display1: false,
+				display2: false,
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<div class="alert alert-danger" v-if="errorMessages && errorMessages.length > 0">
+				<ul>
+					<li v-for="item in errorMessages">{{ item }}</li>
+				</ul>
+			</div>
+
+			<div class="alert alert-info" v-if="informationMessages && informationMessages.length > 0">
+				<ul>
+					<li v-for="item in informationMessages">{{ item }}</li>
+				</ul>
+			</div>
+
+			Name: <input type="text" v-model="name" />
+
+			<button type="button" v-on:click="doSomething()">Do Something!</button>
+		</div>
+
+		<div id="myLoadingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLoadingModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myLoadingModalLabel">Loading!</h4>
+					</div>
+
+					<div class="modal-body">
+						Please Wait...
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/axios.min.js"></script>
+
+	<script>
+
+		var app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				name: null,
+
+				isSuccess: false,
+				errorMessages: null,
+				informationMessages: null,
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					$('div#myLoadingModal').modal({ backdrop: false, keyboard: false, })
+
+					this.isSuccess = false
+					this.errorMessages = null
+					this.informationMessages = null
+
+					var requestUrl = '/Home/DoSomething5400'
+
+					var requestData = { name: this.name }
+
+					axios.post(requestUrl, requestData)
+
+						.then(response => {
+
+							this.isSuccess = response.data.IsSuccess
+							this.errorMessages = response.data.ErrorMessages
+							this.informationMessages = response.data.InformationMessages
+
+						})
+						.catch(error => {
+
+							console.log(error)
+
+						})
+						.finally(() => {
+
+							$('div#myLoadingModal').modal('toggle')
+
+						})
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

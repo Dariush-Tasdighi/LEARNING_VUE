@@ -1,0 +1,52 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<button type="button" v-on:click="doSomething">Click Me!</button>
+		<br />
+		<button type="button" v-on:click="doSomething()">Click Me!</button>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		var app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					alert('Hello, World!')
+
+				},
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

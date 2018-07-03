@@ -1,0 +1,308 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+
+					<h3 class="panel-title">
+						People
+					</h3>
+
+				</div>
+
+				<div class="panel-body">
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Search
+							</h3>
+						</div>
+
+						<div id="search" class="panel-body">
+
+							<div class="form-horizontal">
+
+								<div class="row form-group">
+									<div class="col-sm-9 col-sm-offset-3">
+										<button type="button" class="btn btn-primary" v-on:click="search">Search</button>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="panel panel-default">
+
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Result
+							</h3>
+						</div>
+
+						<div class="panel-body">
+
+							<div class="row">
+								<div class="col-xs-12 table-responsive">
+									<table class="table table-bordered table-condensed table-striped table-hover">
+										<tr>
+											<th>
+												#
+											</th>
+											<th>
+												First Name
+											</th>
+											<th>
+												Last Name
+											</th>
+										</tr>
+
+										<tr v-for="(item, index) in grid.items" v-bind:key="item.id">
+											<td>
+												{{ (grid.pageIndex * grid.pageSize) + index + 1 }}
+											</td>
+											<td>
+												{{ item.firstName }}
+											</td>
+											<td>
+												{{ item.lastName }}
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="panel-footer" v-if="grid.items && grid.items.length > 0">
+
+							<div class="row">
+								<div class="col-xs-2">
+									<button type="button" v-on:click="displayFirst" title="First"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+									<button type="button" v-on:click="displayPrevious" title="Previous"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+									<button type="button" v-on:click="displayNext" title="Next"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+									<button type="button" v-on:click="displayLast" title="Last"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+								</div>
+
+								<div class="col-xs-4">
+									<div class="row">
+										<div class="col-sm-6">
+											Page Size
+										</div>
+										<div class="col-sm-6">
+											<select v-model="grid.pageSize" v-on:change="changePageSize" class="form-control">
+												<option v-for="item in grid.pageSizes" v-bind:value="item">{{ item }}</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xs-3">
+									Page
+									{{ grid.pageIndex + 1 }}
+									of
+									{{ grid.lastPageIndex + 1 }}
+								</div>
+
+								<div class="col-xs-3">
+									Record Count:
+									{{ grid.recordCount }}
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div id="loadingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="loadingModalLabel">Loading!</h4>
+					</div>
+
+					<div class="modal-body">
+						Please Wait...
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/axios.min.js"></script>
+
+	<script>
+
+		var app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				isSuccess: false,
+				responseData: null,
+				errorMessages: null,
+				informationMessages: null,
+
+				grid: {
+
+					items: null,
+
+					pageSize: 5,
+					pageIndex: 0,
+					recordCount: 0,
+					lastPageIndex: 0,
+					pageSizes: [5, 10, 20, 50, 100],
+
+				},
+			},
+
+			methods: {
+
+				search: function () {
+
+					this.displayFirst()
+
+				},
+
+				displayFirst: function () {
+
+					this.grid.pageIndex = 0
+					this.getData()
+
+				},
+
+				displayPrevious: function () {
+
+					if (this.grid.pageIndex > 0) {
+
+						this.grid.pageIndex--
+						this.getData()
+
+					}
+
+				},
+
+				displayNext: function () {
+
+					if (this.grid.pageIndex < this.grid.lastPageIndex) {
+
+						this.grid.pageIndex++
+						this.getData()
+
+					}
+
+				},
+
+				displayLast: function () {
+
+					this.grid.pageIndex = this.grid.lastPageIndex
+					this.getData()
+
+				},
+
+				changePageSize: function () {
+
+					this.displayFirst()
+
+				},
+
+				getData: function () {
+
+					$('div#loadingModal').modal({
+
+						keyboard: false,
+						backdrop: false,
+
+					})
+
+					this.grid.items = null
+					this.grid.recordCount = 0
+
+					var requestData = {
+
+						pageSize: this.grid.pageSize,
+						pageIndex: this.grid.pageIndex,
+
+					}
+
+					var requestUrl = '/Home/GetData6000'
+
+					axios.post(requestUrl, requestData)
+
+						.then(response => {
+
+							this.isSuccess = response.data.isSuccess
+							this.errorMessages = response.data.errorMessages
+							this.informationMessages = response.data.informationMessages
+
+							if (this.isSuccess) {
+
+								this.grid.items = response.data.items
+								this.grid.recordCount = response.data.count
+
+								if (this.grid.recordCount % this.grid.pageSize === 0) {
+
+									this.grid.lastPageIndex =
+										Math.floor(this.grid.recordCount / this.grid.pageSize) - 1
+
+								}
+								else {
+
+									this.grid.lastPageIndex =
+										Math.floor(this.grid.recordCount / this.grid.pageSize)
+
+								}
+
+							}
+
+						})
+						.catch(error => {
+
+							console.log(error)
+
+						})
+						.finally(() => {
+
+							$('div#loadingModal').modal('toggle')
+
+						})
+
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

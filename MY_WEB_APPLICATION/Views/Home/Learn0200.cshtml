@@ -1,0 +1,54 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<h3 v-if="display1">
+			{{ message }}
+		</h3>
+
+		<h3 v-show="display2">
+			{{ message }}
+		</h3>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		var app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				//display1: true,
+				//display2: true,
+
+				display1: false,
+				display2: false,
+
+				message: 'Hello World!',
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
