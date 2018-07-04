@@ -16,6 +16,9 @@
 </head>
 <body>
 	<div id="app">
+		Name: <input type="text" v-model="employee.name" />
+		Family: <input type="text" v-model="employee.family" />
+
 		<button type="button" v-on:click="getMessage()">Get Message</button>
 
 		<h1 v-if="message">
@@ -36,6 +39,10 @@
 
 			data: {
 
+				employee: {
+					name: null,
+					family: null,
+				},
 				message: null,
 
 			},
@@ -44,17 +51,14 @@
 
 				getMessage: function () {
 
-					var requestUrl = '/HOME/GETMessage5001'
-					//var requestUrl = '/Home/GetMessage5000'
-					//var requestUrl = '/HOME/GETMessage5010'
+					var requestUrl = '/Home/GetMessage5350'
+					var requestData = this.employee
 
-					axios.get(requestUrl)
+					axios.post(requestUrl, requestData)
 
 						.then(response => {
 
-							//this.message = response.data
 							this.message = response.data.Message
-							//this.message = response.data.message
 
 						})
 						.catch(error => {

@@ -113,6 +113,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\global-components.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -129,6 +130,7 @@
     </Compile>
     <Compile Include="Infrastructure\BaseController.cs" />
     <Compile Include="Infrastructure\JsonNetResult.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +167,8 @@
     <Content Include="Views\Home\Learn6100.cshtml" />
     <Content Include="Views\Home\Learn6200.cshtml" />
     <Content Include="Views\Home\Learn0650.cshtml" />
+    <Content Include="Views\Home\Learn5350.cshtml" />
+    <Content Include="Views\Home\Learn5700.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

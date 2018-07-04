@@ -7,6 +7,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
+
 	<title>Index</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -43,14 +44,15 @@
 
 				getMessage: function () {
 
-					var requestUrl = '/Home/GetMessage5100'
+					//var requestUrl = '/Home/GetMessage5100'
+					//var requestUrl = '/Home/GetMessage5110'
+					var requestUrl = '/Home/GetMessage5120'
 
 					axios.post(requestUrl, null)
 
 						.then(response => {
 
 							this.message = response.data.Message
-							//this.message = response.data.message
 
 						})
 						.catch(error => {
@@ -61,7 +63,8 @@
 						.finally(() => {
 
 						})
-				}
+
+				},
 
 			},
 

@@ -5,5 +5,13 @@
 		public BaseController() : base()
 		{
 		}
+
+		protected JsonNetResult JsonNet(object data)
+		{
+			var result =
+				new JsonNetResult() { Data = data };
+
+			return (result);
+		}
 	}
 }

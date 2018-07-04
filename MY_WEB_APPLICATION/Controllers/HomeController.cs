@@ -89,6 +89,14 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.JsonResult GetMessage5000()
 		{
+			var data = "Hello, World";
+
+			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult GetMessage5010()
+		{
 			var data =
 				new { Message = "Hello, World" };
 
@@ -103,6 +111,27 @@ namespace MY_WEB_APPLICATION.Controllers
 
 		[System.Web.Mvc.HttpPost]
 		public System.Web.Mvc.JsonResult GetMessage5100()
+		{
+			var data =
+				new { Message = "Hello, World" };
+
+			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult GetMessage5110()
+		{
+			var data =
+				new { Message = "Hello, World" };
+
+			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+		}
+
+		/// <summary>
+		/// Tanx Mr. Ali Ashrafi
+		/// In this case GetMessage5120 accept GET and POST
+		/// </summary>
+		public System.Web.Mvc.JsonResult GetMessage5120()
 		{
 			var data =
 				new { Message = "Hello, World" };
@@ -136,6 +165,39 @@ namespace MY_WEB_APPLICATION.Controllers
 		{
 			var data =
 				new { Message = $"Welcome { name }!" };
+
+			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult GetMessage5310(string name, string family)
+		{
+			var data =
+				new { Message = $"Welcome { name } { family }!" };
+
+			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult GetMessage5320(Models.Employee employee)
+		{
+			var data =
+				new { Message = $"Welcome { employee.Name } { employee.Family }!" };
+
+			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn5350()
+		{
+			return (View());
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult GetMessage5350(Models.Employee employee)
+		{
+			var data =
+				new { Message = $"Welcome { employee.Name } { employee.Family }!" };
 
 			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
 		}
@@ -216,7 +278,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				result.AddInformationMessage("Information Message 2");
 				result.AddInformationMessage("Information Message 3");
 			}
-			catch (System.Exception ex)
+			catch //(System.Exception ex)
 			{
 				// Log(ex)
 
@@ -265,7 +327,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				result.AddInformationMessage("Information Message 2");
 				result.AddInformationMessage("Information Message 3");
 			}
-			catch (System.Exception ex)
+			catch //(System.Exception ex)
 			{
 				// Log(ex)
 
@@ -282,6 +344,63 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 				Data = result,
 			});
+		}
+
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn5700()
+		{
+			return (View());
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething5700(Models.Person inputViewModel)
+		{
+			System.Threading.Thread.Sleep(5000);
+
+			ViewModels.General.JsonResultViewModel<Models.Person>
+				result = new ViewModels.General.JsonResultViewModel<Models.Person>();
+
+			try
+			{
+				Models.Person person = new Models.Person()
+				{
+					LastName = inputViewModel.LastName,
+					FirstName = inputViewModel.FirstName,
+				};
+
+				result.Data = person;
+
+				result.IsSuccess = true;
+
+				result.AddErrorMessage("Error Message 1");
+				result.AddErrorMessage("Error Message 2");
+
+				result.AddInformationMessage("Information Message 1");
+				result.AddInformationMessage("Information Message 2");
+				result.AddInformationMessage("Information Message 3");
+			}
+			catch //(System.Exception ex)
+			{
+				// Log(ex)
+
+				result.ClearErrorMessages();
+				result.ClearInformationMessage();
+
+				result.AddErrorMessage("Unexpected Error!");
+			}
+			finally
+			{
+			}
+
+			//return (new Infrastructure.JsonNetResult
+			//{
+			//	Data = result,
+			//});
+
+			//return (Json(data: result, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+
+			return (JsonNet(data: result));
 		}
 
 		private System.Collections.Generic.IList<Models.Person> people;

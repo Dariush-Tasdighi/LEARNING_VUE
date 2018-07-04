@@ -7,6 +7,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
+
 	<title>Index</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -15,7 +16,58 @@
 </head>
 <body>
 	<div id="app">
-		{{ message }}
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-xs-12 table-responsive">
+					<table class="table table-bordered table-condensed table-striped table-hover">
+						<tr>
+							<th>
+								#
+							</th>
+							<th>
+								Name
+							</th>
+							<th>
+								Price
+							</th>
+							<th>
+								Count
+							</th>
+							<th>
+
+							</th>
+							<th>
+								Sub Total
+							</th>
+						</tr>
+
+						<tr v-for="item in items" v-bind:key="item.id">
+							<td></td>
+							<td>
+								{{ item.name }}
+							</td>
+							<td>
+								{{ item.price }}
+							</td>
+							<td>
+								{{ item.count }}
+							</td>
+							<td>
+								<button type="button" class="btn btn-primary btn-xs" v-on:click="plus(item)">+</button>
+								<button type="button" class="btn btn-primary btn-xs" v-on:click="minus(item)">-</button>
+							</td>
+							<td>
+								{{ item.price * item.count }}
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -30,7 +82,37 @@
 
 			data: {
 
-				message: 'Hello World!',
+				items: [
+					{ id: 1, name: 'Product (1)', price: 10, count: 1 },
+					{ id: 2, name: 'Product (2)', price: 20, count: 1 },
+					{ id: 3, name: 'Product (3)', price: 30, count: 1 },
+					{ id: 4, name: 'Product (4)', price: 40, count: 1 },
+					{ id: 5, name: 'Product (5)', price: 50, count: 1 },
+				],
+
+			},
+
+			methods: {
+
+				plus: function (item) {
+
+					if (item.count < 10) {
+
+						item.count++
+
+					}
+
+				},
+
+				minus: function (item) {
+
+					if (item.count > 0) {
+
+						item.count--
+
+					}
+
+				},
 
 			},
 

@@ -7,6 +7,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
+
 	<title>Index</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -53,7 +54,6 @@
 						.then(response => {
 
 							this.message = response.data.Message
-							//this.message = response.data.message
 
 						})
 						.catch(error => {
@@ -64,7 +64,8 @@
 						.finally(() => {
 
 						})
-				}
+
+				},
 
 			},
 

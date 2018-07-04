@@ -7,6 +7,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
+
 	<title>Index</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -16,6 +17,7 @@
 <body>
 	<div id="app">
 		Name: <input type="text" v-model="name" />
+		Family: <input type="text" v-model="family" />
 
 		<button type="button" v-on:click="getMessage()">Get Message</button>
 
@@ -38,6 +40,7 @@
 			data: {
 
 				name: null,
+				family: null,
 				message: null,
 
 			},
@@ -46,16 +49,20 @@
 
 				getMessage: function () {
 
-					var requestUrl = '/Home/GetMessage5300'
+					//var requestUrl = '/Home/GetMessage5300'
+					//var requestData = { name: this.name }
 
-					var requestData = { name: this.name }
+					//var requestUrl = '/Home/GetMessage5310'
+					//var requestData = { name: this.name, family: this.family }
+
+					var requestUrl = '/Home/GetMessage5320'
+					var requestData = { name: this.name, family: this.family }
 
 					axios.post(requestUrl, requestData)
 
 						.then(response => {
 
 							this.message = response.data.Message
-							//this.message = response.data.message
 
 						})
 						.catch(error => {
@@ -66,7 +73,8 @@
 						.finally(() => {
 
 						})
-				}
+
+				},
 
 			},
 
