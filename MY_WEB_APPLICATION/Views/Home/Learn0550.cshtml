@@ -16,13 +16,11 @@
 </head>
 <body>
 	<div id="app">
-		<ul>
-			<todo-item></todo-item>
-			<todo-item></todo-item>
-			<todo-item></todo-item>
-			<todo-item></todo-item>
-			<todo-item></todo-item>
-		</ul>
+		Welcome {{ fullName }}!
+		<br />
+		<input type="text" v-model="fullName" />
+		<br />
+		<input type="text" v-model="fullName" />
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -31,15 +29,15 @@
 
 	<script>
 
-		Vue.component('todo-item', {
-
-			template: '<li>This is a todo</li>',
-
-		})
-
 		new Vue({
 
 			el: '#app',
+
+			data: {
+
+				fullName: 'Mr. Dariush Tasdighi',
+
+			},
 
 		})
 

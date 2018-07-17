@@ -45,6 +45,12 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0550()
+		{
+			return (View());
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0600()
 		{
 			return (View());
