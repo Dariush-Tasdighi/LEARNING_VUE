@@ -19,8 +19,14 @@
 
 		<div class="container">
 
+			<loading-modal></loading-modal>
 			<display-error-messages v-bind:messages="errorMessages"></display-error-messages>
 			<display-information-messages v-bind:messages="informationMessages"></display-information-messages>
+
+			@*دستورات ذیل کار نمی‌کند*@
+			@*<loading-modal />*@
+			@*<display-error-messages v-bind:messages="errorMessages" />
+				<display-information-messages v-bind:messages="informationMessages" />*@
 
 			<div class="row">
 				<div class="col-sm-6">
@@ -62,20 +68,6 @@
 
 		</div>
 
-		<div id="myLoadingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLoadingModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title" id="myLoadingModalLabel">Loading!</h4>
-					</div>
-
-					<div class="modal-body">
-						Please Wait...
-					</div>
-				</div>
-			</div>
-		</div>
-
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -112,7 +104,7 @@
 
 //		})
 
-		var app = new Vue({
+		new Vue({
 
 			el: '#app',
 

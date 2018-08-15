@@ -9,6 +9,12 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Alaki()
+		{
+			return (View());
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Index()
 		{
 			return (View());
@@ -51,6 +57,18 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0575()
+		{
+			return (View());
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0583()
+		{
+			return (View());
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0600()
 		{
 			return (View());
@@ -70,6 +88,12 @@ namespace MY_WEB_APPLICATION.Controllers
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0800()
+		{
+			return (View());
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0850()
 		{
 			return (View());
 		}

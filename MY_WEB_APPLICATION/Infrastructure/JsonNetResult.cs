@@ -16,14 +16,17 @@
 
 		public JsonNetResult() : base()
 		{
-			Formatting = Newtonsoft.Json.Formatting.None;
+			Formatting =
+				Newtonsoft.Json.Formatting.None;
 
-			SerializerSettings = new Newtonsoft.Json.JsonSerializerSettings();
+			SerializerSettings =
+				new Newtonsoft.Json.JsonSerializerSettings();
+
 			SerializerSettings.ContractResolver =
 				new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
 
-			//JsonRequestBehavior = System.Web.Mvc.JsonRequestBehavior.DenyGet;
-			JsonRequestBehavior = System.Web.Mvc.JsonRequestBehavior.AllowGet;
+			JsonRequestBehavior =
+				System.Web.Mvc.JsonRequestBehavior.AllowGet;
 		}
 
 		public override void ExecuteResult(System.Web.Mvc.ControllerContext context)
@@ -40,7 +43,8 @@
 			//		("This request has been blocked because sensitive information could be disclosed to third party web sites when this is used in a GET request. To allow GET requests, set JsonRequestBehavior to AllowGet."));
 			//}
 
-			System.Web.HttpResponseBase response = context.HttpContext.Response;
+			System.Web.HttpResponseBase
+				response = context.HttpContext.Response;
 
 			if (string.IsNullOrWhiteSpace(ContentType) == false)
 			{

@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div id="app">
-		{{ message }}
+		<something v-bind:message="message1"></something>
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -25,39 +25,35 @@
 
 	<script>
 
-		//new Vue()
+		Vue.component('something', {
 
-		//new Vue({
+			props: ['message'],
 
-		//	el: '#app',
+			data: function() {
 
-		//	data: {
+				return ({
 
-		//		message: 'Hello World!'
+					message2: 'Tasdighi'
 
-		//	}
+				})
 
-		//})
+			},
 
-		//new Vue({
+			//template: 'Hello, {{ message }}!',
+			template: '<div>Hello, {{ message }} {{ message2 }}!</div>',
 
-		//	el: '#app',
+			// TODO: چک شود
+			//template: '<template>Hello, {{ message }}!</template>',
 
-		//	data: {
+		})
 
-		//		message: 'Hello World!'
-
-		//	}
-
-		//});
-
-		var vm = new Vue({
+		new Vue({
 
 			el: '#app',
 
 			data: {
 
-				message: 'Hello World!',
+				message1: 'Dariush'
 
 			},
 

@@ -23,3 +23,22 @@ Vue.component('display-information-messages', {
 </div>`,
 
 })
+
+Vue.component('loading-modal', {
+
+	template:
+		`<div id="myLoadingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLoadingModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myLoadingModalLabel">Loading!</h4>
+					</div>
+
+					<div class="modal-body">
+						Please Wait...
+					</div>
+				</div>
+			</div>
+		</div>`,
+
+})

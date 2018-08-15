@@ -170,6 +170,10 @@
     <Content Include="Views\Home\Learn5350.cshtml" />
     <Content Include="Views\Home\Learn5700.cshtml" />
     <Content Include="Views\Home\Learn0550.cshtml" />
+    <Content Include="Views\Home\Learn0575.cshtml" />
+    <Content Include="Views\Home\Learn0583.cshtml" />
+    <Content Include="Views\Home\Learn0850.cshtml" />
+    <Content Include="Views\Home\Alaki.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

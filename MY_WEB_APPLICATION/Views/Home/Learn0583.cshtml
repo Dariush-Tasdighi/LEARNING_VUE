@@ -1,0 +1,108 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		Welcome {{ fullName }}!
+		<br />
+		<button type="button" @@click="doSomething()">Click Me!</button>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		var vm = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				fullName: 'Mr. Dariush Tasdighi',
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					this.fullName = 'Mr. Ali Reza Sadeghi'
+
+				},
+
+			},
+
+			beforeCreate: function () {
+
+				console.log('Before Created!')
+
+			},
+
+			created: function () {
+
+				console.log('Created!')
+
+			},
+
+			beforeMount: function () {
+
+				console.log('Before Mount!')
+
+			},
+
+			mounted: function () {
+
+				console.log('Mounted!')
+
+			},
+
+			beforeUpdate: function () {
+
+				console.log('Before Update!')
+
+			},
+
+			updated: function () {
+
+				console.log('Updated!')
+
+			},
+
+			beforeDestroy: function () {
+
+				console.log('Before Destroy!')
+
+			},
+
+			destroyed: function () {
+
+				console.log('Destroyed!')
+
+			},
+
+		})
+
+		setTimeout(function () {
+
+			vm.$destroy();
+
+		}, 10000);
+
+	</script>
+</body>
+</html>
