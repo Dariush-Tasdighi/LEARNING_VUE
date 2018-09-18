@@ -18,14 +18,14 @@
 	<div id="app">
 		<ul>
 			<todo-item v-for="item in todos"
-					   v-bind:item-todo="item"></todo-item>
+					   v-bind:todo="item"></todo-item>
 		</ul>
 
 		<hr />
 
 		<ul>
 			<todo-item v-for="item in todos"
-					   v-bind:item-todo="item"
+					   v-bind:todo="item"
 					   v-bind:key="item.id"></todo-item>
 		</ul>
 	</div>
@@ -38,9 +38,9 @@
 
 		Vue.component('todo-item', {
 
-			props: ['itemTodo'],
+			props: ['todo'],
 
-			template: '<li>{{ itemTodo.id }} - {{ itemTodo.text }}</li>',
+			template: '<li>{{ todo.id }} - {{ todo.text }}</li>',
 
 		})
 

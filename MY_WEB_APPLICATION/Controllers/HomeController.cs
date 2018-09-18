@@ -8,112 +8,136 @@ namespace MY_WEB_APPLICATION.Controllers
 		{
 		}
 
-		[System.Web.Mvc.HttpGet]
-		public System.Web.Mvc.ViewResult Alaki()
-		{
-			return (View());
-		}
+		//[System.Web.Mvc.HttpGet]
+		//public System.Web.Mvc.ViewResult Alaki()
+		//{
+		//	return View();
+		//}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Index()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0100()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0200()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0300()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0400()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0500()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0550()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0575()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0583()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0600()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0650()
 		{
-			return (View());
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0675()
+		{
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0700()
 		{
-			return (View());
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0750()
+		{
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0800()
 		{
-			return (View());
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0825()
+		{
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0850()
 		{
-			return (View());
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0875()
+		{
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0900()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn1000()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5000()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -136,7 +160,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5100()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -172,7 +196,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5200()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -187,7 +211,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5300()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -220,7 +244,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5350()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -235,7 +259,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5400()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -278,7 +302,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5500()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -327,7 +351,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5600()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -380,7 +404,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5700()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -464,7 +488,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn6000()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -529,7 +553,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn6100()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -608,7 +632,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn6200()
 		{
-			return (View());
+			return View();
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -686,6 +710,12 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 				Data = result,
 			});
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn6300()
+		{
+			return View();
 		}
 	}
 }

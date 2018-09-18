@@ -17,11 +17,11 @@
 <body>
 	<div id="app">
 		<h3 v-if="display1">
-			{{ message }}
+			{{ message1 }}
 		</h3>
 
 		<h3 v-show="display2">
-			{{ message }}
+			{{ message2 }}
 		</h3>
 	</div>
 
@@ -43,7 +43,8 @@
 				display1: false,
 				display2: false,
 
-				message: 'Hello World!',
+				message1: 'Hello World (1)!',
+				message2: 'Hello World (2)!',
 
 			},
 

@@ -16,18 +16,10 @@
 </head>
 <body>
 	<div id="app">
-		<ul>
-			<todo-item v-for="item in todos"
-					   v-bind:item-todo="item"></todo-item>
-		</ul>
-
+		Dollars:
+		<input type="number" v-model="dollars" />
 		<hr />
-
-		<ul>
-			<todo-item v-for="item in todos"
-					   v-bind:item-todo="item"
-					   v-bind:key="item.id"></todo-item>
-		</ul>
+		<currency-converter v-bind:input-dollars="dollars"></currency-converter>
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -36,11 +28,33 @@
 
 	<script>
 
-		Vue.component('todo-item', {
+		Vue.component('currencyConverter', {
 
-			props: ['itemTodo'],
+			props: ['inputDollars'],
 
-			template: '<li>{{ itemTodo.id }} - {{ itemTodo.text }}</li>',
+			data: function() {
+
+				return ({
+
+					result: 0,
+					rate: 150000,
+
+				})
+
+			},
+
+			methods: {
+
+				calculate: function () {
+
+					this.result =
+						this.rate * this.inputDollars;
+
+				},
+
+			},
+
+			template: '<div><button type="button" v-on:click="calculate()">Calculate</button><br />Result: {{ result }}</div>',
 
 		})
 
@@ -50,11 +64,7 @@
 
 			data: {
 
-				todos: [
-					{ id: 1, text: 'Learn Vue', },
-					{ id: 2, text: 'Learn JavaScript', },
-					{ id: 3, text: 'Build something awesome', },
-				],
+				dollars: 100
 
 			},
 
