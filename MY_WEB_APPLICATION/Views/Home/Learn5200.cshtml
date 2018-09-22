@@ -16,8 +16,11 @@
 </head>
 <body>
 	<div id="app">
-		Name: <input type="text" v-model="name" />
+		Name
+		<br />
+		<input type="text" v-model="name" />
 
+		<br />
 		<button type="button" v-on:click="getMessage()">Get Message</button>
 
 		<h1 v-if="message">
@@ -47,7 +50,8 @@
 
 				getMessage: function () {
 
-					var requestUrl = '/Home/GetMessage5200?name=' + this.name
+					let requestUrl =
+						'/Home/GetMessage5200?name=' + this.name
 
 					axios.get(requestUrl)
 

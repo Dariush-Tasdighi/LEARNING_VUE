@@ -44,17 +44,17 @@
 
 				getMessage: function () {
 
-					var requestUrl = '/HOME/GETMessage5001'
-					//var requestUrl = '/Home/GetMessage5000'
-					//var requestUrl = '/HOME/GETMessage5010'
+					//let requestUrl = '/Home/GetMessage5000'
+					//let requestUrl = '/HOME/GETMessage5010'
+					let requestUrl = '/HOME/GETMessage5001'
 
 					axios.get(requestUrl)
 
 						.then(response => {
 
 							//this.message = response.data
-							this.message = response.data.Message
-							//this.message = response.data.message
+							//this.message = response.data.Message
+							this.message = response.data.message
 
 						})
 						.catch(error => {

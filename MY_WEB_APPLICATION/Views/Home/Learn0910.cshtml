@@ -1,0 +1,67 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 table-responsive">
+					<table class="table table-bordered table-condensed table-striped table-hover">
+						<tr>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Count</th>
+							<th>Sub Total</th>
+						</tr>
+						<tr v-for="item in items">
+							<td>{{ item.name }}</td>
+							<td>{{ item.price }}</td>
+							<td>{{ item.count }}</td>
+							<td>{{ item.count * item.price }}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		new Vue({
+
+			el: '#app',
+
+			data: {
+
+				items: [
+					{ id: 1, name: 'Product (1)', price: 10, count: 1 },
+					{ id: 2, name: 'Product (2)', price: 20, count: 1 },
+					{ id: 3, name: 'Product (3)', price: 30, count: 1 },
+					{ id: 4, name: 'Product (4)', price: 40, count: 1 },
+					{ id: 5, name: 'Product (5)', price: 50, count: 1 },
+				],
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

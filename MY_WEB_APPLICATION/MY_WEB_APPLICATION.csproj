@@ -154,8 +154,6 @@
     <Content Include="Views\Home\Learn0400.cshtml" />
     <Content Include="Views\Home\Learn0600.cshtml" />
     <Content Include="Views\Home\Learn0700.cshtml" />
-    <Content Include="Views\Home\Learn1000.cshtml" />
-    <Content Include="Views\Home\Learn0900.cshtml" />
     <Content Include="Views\Home\Learn0800.cshtml" />
     <Content Include="Views\Home\Learn5000.cshtml" />
     <Content Include="Views\Home\Learn5100.cshtml" />
@@ -174,11 +172,18 @@
     <Content Include="Views\Home\Learn0575.cshtml" />
     <Content Include="Views\Home\Learn0583.cshtml" />
     <Content Include="Views\Home\Learn0850.cshtml" />
-    <Content Include="Views\Home\Alaki.cshtml" />
     <Content Include="Views\Home\Learn0675.cshtml" />
     <Content Include="Views\Home\Learn0750.cshtml" />
     <Content Include="Views\Home\Learn0825.cshtml" />
     <Content Include="Views\Home\Learn0875.cshtml" />
+    <Content Include="Views\Home\Alaki.cshtml" />
+    <Content Include="Views\Home\Learn0900.cshtml" />
+    <Content Include="Views\Home\Learn0910.cshtml" />
+    <Content Include="Views\Home\Learn0920.cshtml" />
+    <Content Include="Views\Home\Learn0930.cshtml" />
+    <Content Include="Views\Home\Learn0940.cshtml" />
+    <Content Include="Views\Home\Learn0950.cshtml" />
+    <Content Include="Views\Home\Learn0960.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

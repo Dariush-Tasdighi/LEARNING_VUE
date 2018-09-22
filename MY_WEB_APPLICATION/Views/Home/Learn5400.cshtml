@@ -30,7 +30,12 @@
 				</ul>
 			</div>
 
-			Name: <input type="text" v-model="name" />
+			Name
+			<br />
+			<input type="text" v-model="name" />
+
+			<br />
+			<br />
 
 			<button type="button" v-on:click="doSomething()">Do Something!</button>
 		</div>
@@ -83,7 +88,6 @@
 					this.informationMessages = null
 
 					var requestUrl = '/Home/DoSomething5400'
-
 					var requestData = { name: this.name }
 
 					axios.post(requestUrl, requestData)

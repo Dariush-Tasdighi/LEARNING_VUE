@@ -16,8 +16,19 @@
 </head>
 <body>
 	<div id="app">
-		Name: <input type="text" v-model="name" />
-		Family: <input type="text" v-model="family" />
+		Name
+		<br />
+		<input type="text" v-model="name" />
+
+		<br />
+		<br />
+
+		Family
+		<br />
+		<input type="text" v-model="family" />
+
+		<br />
+		<br />
 
 		<button type="button" v-on:click="getMessage()">Get Message</button>
 
@@ -49,14 +60,17 @@
 
 				getMessage: function () {
 
-					//var requestUrl = '/Home/GetMessage5300'
-					//var requestData = { name: this.name }
+					//let requestUrl = '/Home/GetMessage5300'
+					//let requestData = { name: this.name }
 
-					//var requestUrl = '/Home/GetMessage5310'
-					//var requestData = { name: this.name, family: this.family }
+					//let requestUrl = '/HOME/GETMessage5300'
+					//let requestData = { Name: this.name }
 
-					var requestUrl = '/Home/GetMessage5320'
-					var requestData = { name: this.name, family: this.family }
+					//let requestUrl = '/Home/GetMessage5310'
+					//let requestData = { name: this.name, family: this.family }
+
+					let requestUrl = '/Home/GetMessage5320'
+					let requestData = { name: this.name, family: this.family }
 
 					axios.post(requestUrl, requestData)
 

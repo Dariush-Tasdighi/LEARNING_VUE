@@ -16,33 +16,23 @@
 </head>
 <body>
 	<div id="app">
-		<div>
-			<table border="1">
-				<thead>
-					<tr>
-						<th>Row Number</th>
-						<th>Product Name</th>
-						<th>Price</th>
-						<th>Count</th>
-						<th>Sub Total</th>
-						<th>Sum/Sub</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr v-for="item in items">
-						<td> # </td>
-						<td> {{ item.name }} </td>
-						<td> {{ item.price }} </td>
-						<td> {{ item.count }} </td>
-						<td @@> {{ item.count * item.price }} </td>
-						<td> <button type="button" @@click="plus(item)"> + </button> | <button type="button" @@click="minus(item)"> - </button> </td>
-					</tr>
-				</tbody>
-				<tfoot>
-
-				</tfoot>
-			</table>
-		</div>
+		<table>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Count</th>
+				<th>Sub Total</th>
+			</tr>
+			<tr v-for="item in items">
+				<td></td>
+				<td>{{item.name}}</td>
+				<td>{{item.price}}</td>
+				<td>{{item.count}}</td>
+				<td>{{item.count * item.price}}</td>
+			</tr>
+		</table>
+		
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -58,24 +48,12 @@
 			data: {
 
 				items: [
-					{ id: 1, name: 'Product (1)', price: '10', count: 1 },
-					{ id: 2, name: 'Product (2)', price: '20', count: 1 },
-					{ id: 3, name: 'Product (3)', price: '30', count: 1 },
-					{ id: 4, name: 'Product (4)', price: '40', count: 1 },
-					{ id: 5, name: 'Product (5)', price: '50', count: 1 },
+					{ id: 1, name: 'name 1', price: 10, count: 1 },
+					{ id: 2, name: 'name 2', price: 20, count: 1 },
+					{ id: 3, name: 'name 3', price: 30, count: 1 },
+					{ id: 4, name: 'name 4', price: 40, count: 1 },
+					{ id: 5, name: 'name 5', price: 50, count: 1 },
 				],
-
-			},
-
-			plus: function (item) {
-
-				if (item.count <= 10) {
-					item.count++
-				}
-
-				if (item.count > 5) {
-					$('#subTotal').text(item)
-				}
 
 			},
 

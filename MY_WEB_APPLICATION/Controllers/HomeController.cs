@@ -129,6 +129,42 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0910()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0920()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0930()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0940()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0950()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0960()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn1000()
 		{
 			return View();
@@ -145,7 +181,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		{
 			var data = "Hello, World";
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -154,7 +190,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = "Hello, World" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -169,7 +205,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = "Hello, World" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -178,7 +214,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = "Hello, World" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		/// <summary>
@@ -190,7 +226,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = "Hello, World" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -205,7 +241,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = $"Welcome { name }!" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -220,7 +256,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = $"Welcome { name }!" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -229,7 +265,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = $"Welcome { name } { family }!" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpPost]
@@ -238,7 +274,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = $"Welcome { employee.Name } { employee.Family }!" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -253,7 +289,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			var data =
 				new { Message = $"Welcome { employee.Name } { employee.Family }!" };
 
-			return (Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -296,7 +332,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 			}
 
-			return (Json(data: result, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: result, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
