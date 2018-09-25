@@ -114,6 +114,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\dtx-grid-vue.js" />
+    <Content Include="Scripts\dtx-components.js" />
     <Content Include="Scripts\global-components.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -176,7 +178,6 @@
     <Content Include="Views\Home\Learn0750.cshtml" />
     <Content Include="Views\Home\Learn0825.cshtml" />
     <Content Include="Views\Home\Learn0875.cshtml" />
-    <Content Include="Views\Home\Alaki.cshtml" />
     <Content Include="Views\Home\Learn0900.cshtml" />
     <Content Include="Views\Home\Learn0910.cshtml" />
     <Content Include="Views\Home\Learn0920.cshtml" />
@@ -184,6 +185,10 @@
     <Content Include="Views\Home\Learn0940.cshtml" />
     <Content Include="Views\Home\Learn0950.cshtml" />
     <Content Include="Views\Home\Learn0960.cshtml" />
+    <Content Include="Views\Home\Learn7000.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\Learn7100.cshtml" />
+    <Content Include="Views\Home\Learn7200.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -8,11 +8,11 @@ namespace MY_WEB_APPLICATION.Controllers
 		{
 		}
 
-		//[System.Web.Mvc.HttpGet]
-		//public System.Web.Mvc.ViewResult Alaki()
-		//{
-		//	return View();
-		//}
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Test()
+		{
+			return View();
+		}
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Index()
@@ -659,10 +659,10 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 			}
 
-			return (new Infrastructure.JsonNetResult
+			return new Infrastructure.JsonNetResult
 			{
 				Data = result,
-			});
+			};
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -672,9 +672,10 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpPost]
-		public System.Web.Mvc.JsonResult GetData6200(ViewModels.Home.GetData6200InputViewModel inputViewModel)
+		public System.Web.Mvc.JsonResult GetData6200
+			(ViewModels.Home.GetData6200InputViewModel inputViewModel)
 		{
-			System.Threading.Thread.Sleep(2000);
+			System.Threading.Thread.Sleep(1000);
 
 			ViewModels.General.JsonResultForGridViewModel<Models.Person>
 				result = new ViewModels.General.JsonResultForGridViewModel<Models.Person>();
@@ -721,6 +722,9 @@ namespace MY_WEB_APPLICATION.Controllers
 
 				result.IsSuccess = true;
 
+				result.ErrorMessages.Add("Error (1)!");
+				result.ErrorMessages.Add("Error (2)!");
+
 				result.InformationMessages.Add("Information (1)!");
 				result.InformationMessages.Add("Information (2)!");
 				result.InformationMessages.Add("Information (3)!");
@@ -742,14 +746,26 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 			}
 
-			return (new Infrastructure.JsonNetResult
+			return new Infrastructure.JsonNetResult
 			{
 				Data = result,
-			});
+			};
 		}
 
 		[System.Web.Mvc.HttpGet]
-		public System.Web.Mvc.ViewResult Learn6300()
+		public System.Web.Mvc.ViewResult Learn7000()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn7100()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn7200()
 		{
 			return View();
 		}

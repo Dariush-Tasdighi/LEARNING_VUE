@@ -1,0 +1,66 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="modal modal-mask" style="display: block">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<slot name="header"></slot>
+				</div>
+
+				<div class="modal-body">
+					<slot name="body"></slot>
+				</div>
+
+				<div class="modal-footer">
+					<slot name="footer"></slot>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="app">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/axios.min.js"></script>
+	@*<script src="~/Scripts/global-components.js"></script>*@
+
+	<script>
+
+		var vm = new Vue({
+
+			el: '#app',
+
+			data: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
