@@ -323,8 +323,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 				// Log(ex)
 
-				result.ClearErrorMessages();
-				result.ClearInformationMessage();
+				result.ClearMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -332,7 +331,8 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 			}
 
-			return Json(data: result, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+			return Json(data: result,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -373,7 +373,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				// Log(ex)
 
 				result.ClearErrorMessages();
-				result.ClearInformationMessage();
+				result.ClearInformationMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -381,7 +381,8 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 			}
 
-			return (Json(data: result, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
+			return Json(data: result,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -422,7 +423,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				// Log(ex)
 
 				result.ClearErrorMessages();
-				result.ClearInformationMessage();
+				result.ClearInformationMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -430,12 +431,11 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 			}
 
-			return (new Infrastructure.JsonNetResult
+			return new Infrastructure.JsonNetResult
 			{
 				Data = result,
-			});
+			};
 		}
-
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn5700()
@@ -475,7 +475,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				// Log(ex)
 
 				result.ClearErrorMessages();
-				result.ClearInformationMessage();
+				result.ClearInformationMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -493,9 +493,15 @@ namespace MY_WEB_APPLICATION.Controllers
 			return (JsonNet(data: result));
 		}
 
-		private System.Collections.Generic.IList<Models.Person> people;
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn5800()
+		{
+			return View();
+		}
 
-		protected System.Collections.Generic.IList<Models.Person> People
+		private static System.Collections.Generic.IList<Models.Person> people;
+
+		protected static System.Collections.Generic.IList<Models.Person> People
 		{
 			get
 			{
@@ -504,7 +510,7 @@ namespace MY_WEB_APPLICATION.Controllers
 					people =
 						new System.Collections.Generic.List<Models.Person>();
 
-					for (int index = 0; index < 115; index++)
+					for (int index = 1; index <= 113; index++)
 					{
 						Models.Person person =
 							new Models.Person()
@@ -517,8 +523,14 @@ namespace MY_WEB_APPLICATION.Controllers
 					}
 				}
 
-				return (people);
+				return people;
 			}
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn5900()
+		{
+			return View();
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -571,8 +583,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				result.Items = null;
 				result.IsSuccess = false;
 
-				result.ClearErrorMessages();
-				result.ClearInformationMessage();
+				result.ClearMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -580,10 +591,10 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 			}
 
-			return (new Infrastructure.JsonNetResult
+			return new Infrastructure.JsonNetResult
 			{
 				Data = result,
-			});
+			};
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -651,7 +662,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				result.IsSuccess = false;
 
 				result.ClearErrorMessages();
-				result.ClearInformationMessage();
+				result.ClearInformationMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -738,7 +749,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				result.IsSuccess = false;
 
 				result.ClearErrorMessages();
-				result.ClearInformationMessage();
+				result.ClearInformationMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -766,6 +777,12 @@ namespace MY_WEB_APPLICATION.Controllers
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn7200()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn7300()
 		{
 			return View();
 		}

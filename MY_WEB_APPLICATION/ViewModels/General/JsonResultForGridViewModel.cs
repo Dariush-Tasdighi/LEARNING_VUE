@@ -4,11 +4,6 @@
 	{
 		public JsonResultForGridViewModel() : base()
 		{
-			ErrorMessages =
-				new System.Collections.Generic.List<string>();
-
-			InformationMessages =
-				new System.Collections.Generic.List<string>();
 		}
 
 		// **********

@@ -22,7 +22,7 @@
 				int result =
 					PageIndex * PageSize;
 
-				return (result);
+				return result;
 			}
 		}
 		// **********
@@ -32,7 +32,7 @@
 		{
 			get
 			{
-				return (PageSize);
+				return PageSize;
 			}
 		}
 		// **********

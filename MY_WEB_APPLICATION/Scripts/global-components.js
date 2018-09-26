@@ -1,4 +1,5 @@
-﻿Vue.component('display-error-messages', {
+﻿//Vue.component('displayErrorMessages', {
+Vue.component('display-error-messages', {
 
 	props: ['messages'],
 
@@ -11,6 +12,7 @@
 
 })
 
+//Vue.component('displayInformationMessages', {
 Vue.component('display-information-messages', {
 
 	props: ['messages'],

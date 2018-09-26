@@ -1,0 +1,148 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+
+		<div class="container">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Panel title</h3>
+				</div>
+
+				<div class="panel-body">
+					Panel content
+				</div>
+
+				<div class="panel-footer">
+					Panel content
+				</div>
+			</div>
+
+			<hr />
+
+			<dtx-simple-panel></dtx-simple-panel>
+
+			<hr />
+
+			<dtx-panel>
+				<div slot="header">
+					Header
+				</div>
+			</dtx-panel>
+
+			<hr />
+
+			<dtx-panel>
+				<div slot="header">
+					Header
+				</div>
+				<div slot="body">
+					<table class="table table-bordered table-condensed table-striped table-hover">
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+						</tr>
+						<tr>
+							<td>Dariush</td>
+							<td>Tasdighi</td>
+						</tr>
+						<tr>
+							<td>Pirouz</td>
+							<td>Niknejad</td>
+						</tr>
+					</table>
+				</div>
+			</dtx-panel>
+
+			<hr />
+
+		</div>
+
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/axios.min.js"></script>
+	<script src="~/Scripts/global-components.js"></script>
+
+	<script>
+
+		Vue.component('dtx-simple-panel', {
+
+			template:
+				`
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Panel title</h3>
+						</div>
+
+						<div class="panel-body">
+							Panel content
+						</div>
+
+						<div class="panel-footer">
+							Panel content
+						</div>
+					</div>
+					`,
+
+		})
+
+		Vue.component('dtx-panel', {
+
+			template:
+				`
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<slot name="header"></slot>
+							</h3>
+						</div>
+
+						<div class="panel-body">
+							<slot name="body"></slot>
+						</div>
+
+						<div class="panel-footer">
+							<slot name="footer"></slot>
+						</div>
+					</div>
+					`,
+
+		})
+
+		new Vue({
+
+			el: '#app',
+
+			data: {
+
+
+			},
+
+			methods: {
+
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

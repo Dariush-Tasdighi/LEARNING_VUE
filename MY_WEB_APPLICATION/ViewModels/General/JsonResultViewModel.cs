@@ -33,12 +33,18 @@
 			InformationMessages.Add(message);
 		}
 
+		public void ClearMessages()
+		{
+			ClearErrorMessages();
+			ClearInformationMessages();
+		}
+
 		public void ClearErrorMessages()
 		{
 			ErrorMessages.Clear();
 		}
 
-		public void ClearInformationMessage()
+		public void ClearInformationMessages()
 		{
 			InformationMessages.Clear();
 		}
