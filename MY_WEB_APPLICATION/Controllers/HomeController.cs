@@ -507,6 +507,9 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 				if (people == null)
 				{
+					System.Random random =
+						new System.Random(System.Environment.TickCount);
+
 					people =
 						new System.Collections.Generic.List<Models.Person>();
 
@@ -517,6 +520,9 @@ namespace MY_WEB_APPLICATION.Controllers
 							{
 								LastName = $"Last Name { index }",
 								FirstName = $"First Name { index }",
+
+								Age = random.Next(20, 100),
+								Salary = random.Next(1000000, 9000000),
 							};
 
 						people.Add(person);
@@ -783,6 +789,12 @@ namespace MY_WEB_APPLICATION.Controllers
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn7300()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn7400()
 		{
 			return View();
 		}

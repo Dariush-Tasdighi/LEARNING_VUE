@@ -114,6 +114,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\dtx-grid-vue.1.0.2.js" />
+    <Content Include="Scripts\dtx-grid-vue.1.0.1.js" />
     <Content Include="Scripts\dtx-grid-vue.1.0.0.js" />
     <Content Include="Scripts\dtx-grid-vue.js" />
     <Content Include="Scripts\dtx-components.js" />
@@ -194,6 +196,7 @@
     <Content Include="Views\Home\Learn7300.cshtml" />
     <Content Include="Views\Home\Learn5800.cshtml" />
     <Content Include="Views\Home\Learn5900.cshtml" />
+    <Content Include="Views\Home\Learn7400.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
