@@ -323,7 +323,7 @@ namespace MY_WEB_APPLICATION.Controllers
 			{
 				// Log(ex)
 
-				result.ClearMessages();
+				result.ClearNotHiddenMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -589,7 +589,7 @@ namespace MY_WEB_APPLICATION.Controllers
 				result.Items = null;
 				result.IsSuccess = false;
 
-				result.ClearMessages();
+				result.ClearNotHiddenMessages();
 
 				result.AddErrorMessage("Unexpected Error!");
 			}
@@ -692,7 +692,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		public System.Web.Mvc.JsonResult GetData6200
 			(ViewModels.Home.GetData6200InputViewModel inputViewModel)
 		{
-			System.Threading.Thread.Sleep(1000);
+			System.Threading.Thread.Sleep(500);
 
 			ViewModels.General.JsonResultForGridViewModel<Models.Person>
 				result = new ViewModels.General.JsonResultForGridViewModel<Models.Person>();
@@ -739,12 +739,14 @@ namespace MY_WEB_APPLICATION.Controllers
 
 				result.IsSuccess = true;
 
-				result.ErrorMessages.Add("Error (1)!");
-				result.ErrorMessages.Add("Error (2)!");
+				//result.ErrorMessages.Add("Error (1)!");
 
-				result.InformationMessages.Add("Information (1)!");
-				result.InformationMessages.Add("Information (2)!");
-				result.InformationMessages.Add("Information (3)!");
+				result.HiddenMessages.Add("Hidden (1)!");
+				result.HiddenMessages.Add("Hidden (2)!");
+
+				//result.InformationMessages.Add("Information (1)!");
+				//result.InformationMessages.Add("Information (2)!");
+				//result.InformationMessages.Add("Information (3)!");
 			}
 			catch // (System.Exception ex)
 			{

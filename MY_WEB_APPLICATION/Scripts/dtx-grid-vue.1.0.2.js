@@ -1,34 +1,225 @@
 ﻿Vue.component('dtx-grid-column', {
 
-	props: ['settings', 'column'],
+	props: ['settings', 'parameters', 'column'],
 
 	template:
 		`
-		<th>
-			{{ column.title }}
+		<th @click="sort()">
+			{{ column.title }} <span v-html="displayArrow()"></span>
 		</th>
 		`,
+
+	methods: {
+
+		displayArrow: function () {
+
+			// **************************************************
+			if ((this.column.sortable === undefined) ||
+				(this.column.sortable === null) ||
+				(this.column.sortable !== true)
+			) {
+
+				this.column.sortable = false
+				return null
+
+			}
+			// **************************************************
+
+			// **************************************************
+			if ((this.parameters === undefined) ||
+				(this.parameters === null) ||
+				(this.parameters.sort === undefined) ||
+				(this.parameters.sort === null) ||
+				(this.parameters.sort.key === undefined) ||
+				(this.parameters.sort.key === null) ||
+				(this.parameters.sort.direction === undefined) ||
+				(this.parameters.sort.direction === null)
+			) {
+
+				this.parameters.sort.key = null
+				this.parameters.sort.direction = null
+
+				return null
+
+			}
+			// **************************************************
+
+			// **************************************************
+			if ((this.column.sortKey === undefined) ||
+				(this.column.sortKey === null)
+			) {
+
+				this.column.sortKey = this.column.name
+
+			}
+			// **************************************************
+
+			// **************************************************
+			if ((this.parameters.sort.key !== this.column.sortKey)) {
+
+				return null
+
+			}
+			// **************************************************
+
+			// **************************************************
+			if (this.parameters.sort.direction === 0) {
+
+				return '<span class="glyphicon glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>'
+
+			}
+			else {
+
+				return '<span class="glyphicon glyphicon glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>'
+
+			}
+			// **************************************************
+
+		},
+
+		sort: function () {
+
+			// **************************************************
+			if ((this.column.sortable === undefined) ||
+				(this.column.sortable === null) ||
+				(this.column.sortable !== true)
+			) {
+
+				this.column.sortable = false
+				return
+
+			}
+			// **************************************************
+
+			// **************************************************
+			// **************************************************
+			// **************************************************
+			if ((this.parameters.sort.key === undefined) ||
+				(this.parameters.sort.key === null)) {
+
+				this.parameters.sort.key = null
+				this.parameters.sort.direction = null
+
+			}
+			// **************************************************
+
+			// **************************************************
+			if (this.parameters.sort.direction === undefined) {
+
+				this.parameters.sort.direction = null
+
+			}
+			// **************************************************
+			// **************************************************
+			// **************************************************
+
+			// **************************************************
+			if ((this.column.sortKey === undefined) ||
+				(this.column.sortKey === null)
+			) {
+
+				this.column.sortKey = this.column.name
+
+			}
+			// **************************************************
+
+			// **************************************************
+			let firstSortDirection
+
+			if ((this.column.firstSortDirection === undefined) ||
+				(this.column.firstSortDirection === null)
+			) {
+
+				firstSortDirection = 0
+
+			}
+			else {
+
+				if ((this.column.firstSortDirection === 0) ||
+					(this.column.firstSortDirection === 1)
+				) {
+
+					firstSortDirection = this.column.firstSortDirection
+
+				}
+				else {
+
+					firstSortDirection = 0
+
+				}
+			}
+			// **************************************************
+
+			// **************************************************
+			if (this.parameters.sort.key !== this.column.sortKey) {
+
+				this.parameters.sort.direction = firstSortDirection
+
+			}
+			else {
+
+				if (this.parameters.sort.direction === null) {
+
+					this.parameters.sort.direction = firstSortDirection
+
+				}
+				else {
+
+					if (this.parameters.sort.direction === firstSortDirection) {
+
+						if (firstSortDirection === 0) {
+
+							this.parameters.sort.direction = 1
+
+						}
+						else {
+
+							this.parameters.sort.direction = 0
+
+						}
+
+					}
+					else {
+
+						this.parameters.sort.key = null
+						this.parameters.sort.direction = null
+
+					}
+
+				}
+
+			}
+			// **************************************************
+
+			// **************************************************
+			this.parameters.sort.key = this.column.sortKey
+			// **************************************************
+
+
+			console.log('Sort Key: [' + this.parameters.sort.key + ']')
+			console.log('Sort Direction: [' + this.parameters.sort.direction + ']')
+
+		},
+
+	},
 
 })
 
 Vue.component('dtx-grid-header', {
 
-	props: ['settings'],
-
-	data: function () {
-
-		return {
-
-
-
-		}
-
-	},
+	props: ['settings', 'parameters'],
 
 	template:
 		`<tr>
 			<th v-if="settings.displayRowNumber">#</th>
-			<dtx-grid-column v-for="column in settings.columns" v-bind:settings="settings" v-bind:column="column"></dtx-grid-column>
+
+			<dtx-grid-column
+				v-for="column in settings.columns"
+				v-bind:settings="settings"
+				v-bind:parameters="parameters"
+				v-bind:column="column"
+				>
+			</dtx-grid-column>
 		</tr>`,
 
 })
@@ -36,18 +227,6 @@ Vue.component('dtx-grid-header', {
 Vue.component('dtx-grid-footer', {
 
 	props: ['settings', 'parameters'],
-
-	data: function () {
-
-		return {
-
-
-
-		}
-
-	},
-
-	//  v-if="parameters.items && parameters.length > 0"
 
 	template:
 		`
@@ -153,16 +332,6 @@ Vue.component('dtx-grid-row', {
 
 	props: ['settings', 'parameters', 'item', 'index'],
 
-	data: function () {
-
-		return {
-
-
-
-		}
-
-	},
-
 	template:
 		`
 				<tr>
@@ -221,9 +390,11 @@ Vue.component('dtx-grid-vue', {
 
 				isSuccess: false,
 				responseData: null,
-				errorMessages: null,
-				informationMessages: null,
 				displayLoadingModal: false,
+
+				errorMessages: null,
+				hiddenMessages: null,
+				informationMessages: null,
 
 				items: null,
 
@@ -233,12 +404,21 @@ Vue.component('dtx-grid-vue', {
 				lastPageIndex: 0,
 				pageSizes: [5, 10, 20, 50, 100],
 
+				sort: {
+
+					key: null,
+					direction: null,
+
+				}
+
 			},
 
 			requestData: {
 
 				pageSize: 0,
 				pageIndex: 0,
+				sortKey: null,
+				sortDirection: null,
 
 			},
 
@@ -251,9 +431,20 @@ Vue.component('dtx-grid-vue', {
 		<div class="row">
 			<div class="col-xs-12">
 
-				<dtx-loading-modal v-if="parameters.displayLoadingModal"></dtx-loading-modal>
-				<display-error-messages v-bind:messages="parameters.errorMessages"></display-error-messages>
-				<display-information-messages v-bind:messages="parameters.informationMessages"></display-information-messages>
+				<dtx-loading-modal
+					v-if="parameters.displayLoadingModal"
+					>
+				</dtx-loading-modal>
+
+				<display-error-messages
+					v-bind:messages="parameters.errorMessages"
+					>
+				</display-error-messages>
+
+				<display-information-messages
+					v-bind:messages="parameters.informationMessages"
+					>
+				</display-information-messages>
 
 				<slot name="search"></slot>
 
@@ -261,18 +452,33 @@ Vue.component('dtx-grid-vue', {
 					<div class="col-xs-12 table-responsive">
 						<table class="table table-bordered table-condensed table-striped table-hover">
 							<thead>
-								<dtx-grid-header v-bind:settings="settings" v-bind:parameters="parameters"></dtx-grid-header>
+								<dtx-grid-header
+									v-bind:settings="settings"
+									v-bind:parameters="parameters"
+									>
+								</dtx-grid-header>
 							</thead>
 
 							<tbody>
-								<dtx-grid-row v-for="(item, index) in parameters.items" v-bind:settings="settings" v-bind:parameters="parameters" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></dtx-grid-row>
+								<dtx-grid-row
+									v-for="(item, index) in parameters.items"
+									v-bind:settings="settings"
+									v-bind:parameters="parameters"
+									v-bind:item="item"
+									v-bind:index="index"
+									v-bind:key="item.id"
+									>
+								</dtx-grid-row>
 							</tbody>
 						</table>
 					</div>
 				</div>
 
-				<dtx-grid-footer v-bind:settings="settings" v-bind:parameters="parameters"></dtx-grid-footer>
-
+				<dtx-grid-footer
+					v-bind:settings="settings"
+					v-bind:parameters="parameters"
+					>
+				</dtx-grid-footer>
 			</div>
 		</div>
 
@@ -284,15 +490,19 @@ Vue.component('dtx-grid-vue', {
 
 			this.parameters.items = null
 			this.parameters.recordCount = 0
-
 			this.parameters.isSuccess = false
+
 			this.parameters.errorMessages = null
+			this.parameters.hiddenMessages = null
 			this.parameters.informationMessages = null
 
 			this.parameters.displayLoadingModal = true
 
 			this.requestData.pageSize = this.parameters.pageSize
 			this.requestData.pageIndex = this.parameters.pageIndex
+
+			this.requestData.sortKey = this.parameters.sort.key
+			this.requestData.sortDirection = this.parameters.sort.direction
 
 			let searchItems =
 				this.settings.searchItems
@@ -313,7 +523,19 @@ Vue.component('dtx-grid-vue', {
 
 					this.parameters.isSuccess = response.data.isSuccess
 					this.parameters.errorMessages = response.data.errorMessages
+					this.parameters.hiddenMessages = response.data.hiddenMessages
 					this.parameters.informationMessages = response.data.informationMessages
+
+					if ((this.parameters.hiddenMessages !== undefined) &&
+						(this.parameters.hiddenMessages !== null)) {
+
+						for (let index = 0; index <= this.parameters.hiddenMessages.length - 1; index++) {
+
+							console.log(this.parameters.hiddenMessages[index])
+
+						}
+
+					}
 
 					if (this.parameters.isSuccess) {
 
@@ -362,7 +584,7 @@ Vue.component('dtx-grid-vue', {
 
 	beforeCreate: function () {
 
-		console.log('Before Created!')
+		//console.log('Before Created!')
 
 		// Cannot read property 'settings' of undefined
 		//if (this.settings.loadFirstPageAutomatically) {
@@ -375,7 +597,7 @@ Vue.component('dtx-grid-vue', {
 
 	created: function () {
 
-		console.log('Created!')
+		//console.log('Created!')
 
 		// Cannot read property 'settings' of undefined
 		if (this.settings.loadFirstPageAutomatically) {
@@ -388,37 +610,37 @@ Vue.component('dtx-grid-vue', {
 
 	beforeMount: function () {
 
-		console.log('Before Mount!')
+		//console.log('Before Mount!')
 
 	},
 
 	mounted: function () {
 
-		console.log('Mounted!')
+		//console.log('Mounted!')
 
 	},
 
 	beforeUpdate: function () {
 
-		console.log('Before Update!')
+		//console.log('Before Update!')
 
 	},
 
 	updated: function () {
 
-		console.log('Updated!')
+		//console.log('Updated!')
 
 	},
 
 	beforeDestroy: function () {
 
-		console.log('Before Destroy!')
+		//console.log('Before Destroy!')
 
 	},
 
 	destroyed: function () {
 
-		console.log('Destroyed!')
+		//console.log('Destroyed!')
 
 	},
 
