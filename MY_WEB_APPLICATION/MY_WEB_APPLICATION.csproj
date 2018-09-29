@@ -114,6 +114,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\dtx-grid-vue.1.0.3.js" />
     <Content Include="Scripts\dtx-grid-vue.1.0.2.js" />
     <Content Include="Scripts\dtx-grid-vue.1.0.1.js" />
     <Content Include="Scripts\dtx-grid-vue.1.0.0.js" />
@@ -136,12 +137,13 @@
     </Compile>
     <Compile Include="Infrastructure\BaseController.cs" />
     <Compile Include="Infrastructure\JsonNetResult.cs" />
+    <Compile Include="Infrastructure\Utility.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\General\GetData.cs" />
+    <Compile Include="ViewModels\General\InputGridViewModel.cs" />
     <Compile Include="ViewModels\General\JsonResultViewModel.cs" />
     <Compile Include="ViewModels\General\JsonResultForGridViewModel.cs" />
     <Compile Include="ViewModels\General\JsonResultWithDataViewModel.cs" />
@@ -197,6 +199,7 @@
     <Content Include="Views\Home\Learn5800.cshtml" />
     <Content Include="Views\Home\Learn5900.cshtml" />
     <Content Include="Views\Home\Learn7400.cshtml" />
+    <Content Include="Views\Home\Learn7500.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

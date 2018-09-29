@@ -1,6 +1,6 @@
 ﻿namespace ViewModels.Home
 {
-	public class GetData6200InputViewModel : General.GetData
+	public class GetData6200InputViewModel : General.InputGridViewModel
 	{
 		public GetData6200InputViewModel() : base()
 		{

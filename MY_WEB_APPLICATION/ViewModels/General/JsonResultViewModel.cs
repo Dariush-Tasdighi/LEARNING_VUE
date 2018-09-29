@@ -37,7 +37,7 @@
 
 		public void AddHiddenMessage(string message)
 		{
-			ErrorMessages.Add(message);
+			HiddenMessages.Add(message);
 		}
 
 		public void AddInformationMessage(string message)

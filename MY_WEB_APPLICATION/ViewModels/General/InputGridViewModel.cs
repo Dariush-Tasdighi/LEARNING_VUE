@@ -1,8 +1,8 @@
 ﻿namespace ViewModels.General
 {
-	public class GetData : object
+	public class InputGridViewModel : object
 	{
-		public GetData() : base()
+		public InputGridViewModel() : base()
 		{
 		}
 
@@ -12,6 +12,14 @@
 
 		// **********
 		public int PageIndex { get; set; }
+		// **********
+
+		// **********
+		public string sortFieldName { get; set; }
+		// **********
+
+		// **********
+		public string sortDirection { get; set; }
 		// **********
 
 		// **********

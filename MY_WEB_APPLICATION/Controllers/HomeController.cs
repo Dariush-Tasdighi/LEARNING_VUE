@@ -546,7 +546,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpPost]
-		public System.Web.Mvc.JsonResult GetData6000(ViewModels.General.GetData inputViewModel)
+		public System.Web.Mvc.JsonResult GetData6000(ViewModels.General.InputGridViewModel inputViewModel)
 		{
 			System.Threading.Thread.Sleep(2000);
 
@@ -610,7 +610,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpPost]
-		public System.Web.Mvc.JsonResult GetData6100(ViewModels.General.GetData inputViewModel)
+		public System.Web.Mvc.JsonResult GetData6100(ViewModels.General.InputGridViewModel inputViewModel)
 		{
 			System.Threading.Thread.Sleep(2000);
 
@@ -722,10 +722,71 @@ namespace MY_WEB_APPLICATION.Controllers
 				int count =
 					data.Count();
 
-				data =
-					data
-					.OrderBy(current => current.FirstName)
-					;
+				if (string.IsNullOrWhiteSpace(inputViewModel.sortFieldName))
+				{
+					data = data.OrderBy(current => current.InsertDateTime);
+				}
+				else
+				{
+					switch (inputViewModel.sortFieldName.ToUpper())
+					{
+						case "AGE":
+						{
+							if (inputViewModel.sortDirection == "0")
+							{
+								data = data.OrderBy(current => current.Age);
+							}
+							else
+							{
+								data = data.OrderByDescending(current => current.Age);
+							}
+
+							break;
+						}
+
+						case "SALARY":
+						{
+							if (inputViewModel.sortDirection == "0")
+							{
+								data = data.OrderBy(current => current.Salary);
+							}
+							else
+							{
+								data = data.OrderByDescending(current => current.Salary);
+							}
+
+							break;
+						}
+
+						case "FIRSTNAME":
+						{
+							if (inputViewModel.sortDirection == "0")
+							{
+								data = data.OrderBy(current => current.FirstName);
+							}
+							else
+							{
+								data = data.OrderByDescending(current => current.FirstName);
+							}
+
+							break;
+						}
+
+						case "LASTNAME":
+						{
+							if (inputViewModel.sortDirection == "0")
+							{
+								data = data.OrderBy(current => current.LastName);
+							}
+							else
+							{
+								data = data.OrderByDescending(current => current.LastName);
+							}
+
+							break;
+						}
+					}
+				}
 
 				var partialResult =
 					data
@@ -739,16 +800,16 @@ namespace MY_WEB_APPLICATION.Controllers
 
 				result.IsSuccess = true;
 
-				//result.ErrorMessages.Add("Error (1)!");
+				result.AddErrorMessage("Error (1)!");
 
-				result.HiddenMessages.Add("Hidden (1)!");
-				result.HiddenMessages.Add("Hidden (2)!");
+				result.AddHiddenMessage("Hidden (1)!");
+				result.AddHiddenMessage("Hidden (2)!");
 
-				//result.InformationMessages.Add("Information (1)!");
-				//result.InformationMessages.Add("Information (2)!");
-				//result.InformationMessages.Add("Information (3)!");
+				result.AddInformationMessage("Information (1)!");
+				result.AddInformationMessage("Information (2)!");
+				result.AddInformationMessage("Information (3)!");
 			}
-			catch // (System.Exception ex)
+			catch (System.Exception ex)
 			{
 				// Log(ex)
 
@@ -756,9 +817,9 @@ namespace MY_WEB_APPLICATION.Controllers
 				result.Items = null;
 				result.IsSuccess = false;
 
-				result.ClearErrorMessages();
-				result.ClearInformationMessages();
+				result.ClearNotHiddenMessages();
 
+				result.AddHiddenMessage(ex.Message);
 				result.AddErrorMessage("Unexpected Error!");
 			}
 			finally
@@ -797,6 +858,12 @@ namespace MY_WEB_APPLICATION.Controllers
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn7400()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn7500()
 		{
 			return View();
 		}
