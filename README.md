@@ -1,3 +1,3 @@
 # LEARNING_VUE
 
-See LearningDtxGridVue Controller and Views for learning DtxGridVue
+See LearningDtxGridVueController Controller and Views for learning DtxGridVue
