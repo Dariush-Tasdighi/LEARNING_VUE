@@ -867,5 +867,11 @@ namespace MY_WEB_APPLICATION.Controllers
 		{
 			return View();
 		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn7600()
+		{
+			return View();
+		}
 	}
 }

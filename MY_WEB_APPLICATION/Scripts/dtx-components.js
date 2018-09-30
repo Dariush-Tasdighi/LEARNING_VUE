@@ -82,48 +82,48 @@ Vue.component('dtx-modal', {
 
 })
 
-Vue.component('dtx-loading-modal', {
+//Vue.component('dtx-loading-modal', {
 
-	data: function () {
+//	data: function () {
 
-		return {
+//		return {
 
-			showModal: true,
+//			showModal: true,
 
-		}
+//		}
 
-	},
+//	},
 
-	template:
-		`
-		<dtx-modal>
-			<h3 slot="header" class="modal-title">
-				Loading...
-			</h3>
+//	template:
+//		`
+//		<dtx-modal>
+//			<h3 slot="header" class="modal-title">
+//				Loading...
+//			</h3>
 
-			<div slot="body">
-				Please Wait!
-			</div>
-		</dtx-modal>
-		`,
+//			<div slot="body">
+//				Please Wait!
+//			</div>
+//		</dtx-modal>
+//		`,
 
-	methods: {
+//	methods: {
 
-		openModal() {
+//		openModal() {
 
-			this.showModal = true;
+//			this.showModal = true;
 
-		},
+//		},
 
-		closeModal() {
+//		closeModal() {
 
-			this.showModal = false;
+//			this.showModal = false;
 
-		},
+//		},
 
-		submitAndClose() {
-		}
+//		submitAndClose() {
+//		}
 
-	}
+//	}
 
-})
+//})

@@ -93,13 +93,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Documents\Readme.txt" />
+    <Content Include="Content\bootstrap-rtl.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Site.fa-IR.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Yekan.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -113,7 +116,15 @@
     <Content Include="Scripts\axios.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-rtl.css.map" />
+    <Content Include="fonts\Yekan.eot" />
+    <Content Include="fonts\Yekan.ttf" />
+    <Content Include="fonts\Yekan.woff" />
+    <Content Include="fonts\YekanWeb-Regular.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\dtx-grid-vue-culture.fa-IR.js" />
+    <Content Include="Scripts\dtx-grid-vue-culture.js" />
+    <Content Include="Scripts\dtx-grid-vue.1.0.4.js" />
     <Content Include="Scripts\dtx-grid-vue.1.0.3.js" />
     <Content Include="Scripts\dtx-grid-vue.1.0.2.js" />
     <Content Include="Scripts\dtx-grid-vue.1.0.1.js" />
@@ -132,6 +143,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LearningDtxGridVueController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +212,18 @@
     <Content Include="Views\Home\Learn5900.cshtml" />
     <Content Include="Views\Home\Learn7400.cshtml" />
     <Content Include="Views\Home\Learn7500.cshtml" />
+    <Content Include="Views\Home\Learn7600.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0100.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0200.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0300.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0400.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0500.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0600.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0700.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0800.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_0900.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_1000.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_1100.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

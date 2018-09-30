@@ -1,0 +1,15 @@
+﻿@font-face {
+	font-family: 'webYekan';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	src: url('../fonts/YekanWeb-Regular.woff') format('woff');
+}
+
+body {
+	/*direction: rtl;
+	font-weight: normal;
+	text-align: justify;*/
+	margin-top: 16px;
+	font-family: "webYekan", Tahoma, Arial;
+}

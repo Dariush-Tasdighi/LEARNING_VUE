@@ -1,0 +1,84 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn 800</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<dtx-grid-vue v-bind:settings="settings"></dtx-grid-vue>
+		</div>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/axios.min.js"></script>
+
+	<script src="~/Scripts/dtx-components.js"></script>
+	<script src="~/Scripts/dtx-grid-vue-culture.js"></script>
+	<script src="~/Scripts/dtx-grid-vue.1.0.4.js"></script>
+
+	<script>
+
+		new Vue({
+
+			el: '#app',
+
+			data: {
+
+				settings: {
+
+					cultrue: dtxGridVueCulture,
+					url: '/LearningDtxGridVue/GetData',
+
+					displayRowNumber: true,
+					loadFirstPageAutomatically: true,
+
+					displayErrorMessages: false,
+					displayInformationMessages: false,
+
+					columns: [
+						{
+							fieldName: 'firstName',
+							title: 'First Name',
+						},
+						{
+							fieldName: 'lastName',
+							title: 'Last Name',
+							sortable: true,
+						},
+						{
+							fieldName: 'age',
+							title: 'Age',
+							sortable: true,
+						},
+						{
+							fieldName: 'salary',
+							title: 'Salary',
+							sortable: true,
+							firstSortDirection: 1,
+							sortFieldName: 'FirstName', // New!
+						},
+					],
+
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
