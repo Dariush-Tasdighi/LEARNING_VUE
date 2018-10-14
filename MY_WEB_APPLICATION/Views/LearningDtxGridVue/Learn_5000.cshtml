@@ -8,15 +8,29 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Learn 1100</title>
+	<title>Learn 5000</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-	<link href="~/Content/Site.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.fa-IR.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="container">
 		<div id="app">
+
+			<div class="row">
+				<div class="col-xs-12">
+					<ul>
+						<li v-for="item in settings.items">
+							{{ item['lastName'] }} - {{ item['isSelected'] }}
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<hr />
+
 			<dtx-grid-vue v-bind:settings="settings">
 
 				<template slot="search">
@@ -25,14 +39,14 @@
 
 						<div class="row form-group">
 							<label for="firstName" class="col-sm-2 control-label">
-								First Name
+								نام
 							</label>
 							<div class="col-sm-4">
 								<input type="Search" id="firstName" class="form-control" placeholder="" v-model="settings.searchItems.firstName" />
 							</div>
 
 							<label for="lastName" class="col-sm-2 control-label">
-								Last Name
+								نام خانوادگی
 							</label>
 							<div class="col-sm-4">
 								<input type="Search" id="lastName" class="form-control" placeholder="" v-model="settings.searchItems.lastName" />
@@ -53,7 +67,7 @@
 	<script src="~/Scripts/axios.min.js"></script>
 
 	<script src="~/Scripts/Dtx/dtx-components.js"></script>
-	<script src="~/Scripts/Dtx/dtx-grid-vue-culture.js"></script>
+	<script src="~/Scripts/Dtx/dtx-grid-vue-culture.fa-IR.js"></script>
 	<script src="~/Scripts/Dtx/dtx-grid-vue.js"></script>
 
 	<script>
@@ -69,7 +83,11 @@
 					cultrue: dtxGridVueCulture,
 					url: '/LearningDtxGridVue/GetData',
 
+					rtl: true,
+					isSelectable: true,
+
 					displayRowNumber: true,
+					displayColumnSettings: true,
 					loadFirstPageAutomatically: true,
 
 					displayErrorMessages: false,
@@ -80,17 +98,24 @@
 
 					columns: [
 						{
+							fieldName: 'isActive',
+							title: 'فعال',
+							isSortable: true,
+							isCheckbox: true,
+						},
+						{
 							fieldName: 'firstName',
-							title: 'First Name',
+							title: 'نام',
+							isHidden: true,
 						},
 						{
 							fieldName: 'lastName',
-							title: 'Last Name',
+							title: 'نام خانوادگی',
 							isSortable: true,
 						},
 						{
 							fieldName: 'age',
-							title: 'Age',
+							title: 'سن',
 							isSortable: true,
 							template: function (item) {
 
@@ -103,14 +128,14 @@
 						},
 						{
 							fieldName: 'salary',
-							title: 'Salary',
+							title: 'حقوق',
 							isSortable: true,
 							firstSortDirection: 1,
 							sortFieldName: 'FirstName',
+							isHidden: true,
 						},
 					],
 
-					// New!
 					searchItems: {
 						lastName: null,
 						firstName: null,

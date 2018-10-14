@@ -24,6 +24,8 @@ namespace MY_WEB_APPLICATION.Controllers
 						Models.Person person =
 							new Models.Person()
 							{
+								IsActive = index % 2 == 0,
+
 								LastName = $"Last Name { index }",
 								FirstName = $"First Name { index }",
 
@@ -55,6 +57,11 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		public System.Web.Mvc.ViewResult Learn_0200()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_0250()
 		{
 			return View();
 		}
@@ -104,9 +111,59 @@ namespace MY_WEB_APPLICATION.Controllers
 			return View();
 		}
 
+		public System.Web.Mvc.ViewResult Learn_1200()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_1300()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_1400()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_1500()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_1600()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_1700()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_1800()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_1900()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_2000()
+		{
+			return View();
+		}
+
+		public System.Web.Mvc.ViewResult Learn_5000()
+		{
+			return View();
+		}
+
 		[System.Web.Mvc.HttpPost]
 		public System.Web.Mvc.JsonResult GetData
-			(ViewModels.Home.GetData6200InputViewModel inputViewModel)
+			(ViewModels.LearningDtxGridVue.InputGetDataViewModel inputViewModel)
 		{
 			System.Threading.Thread.Sleep(500);
 
@@ -146,6 +203,20 @@ namespace MY_WEB_APPLICATION.Controllers
 				{
 					switch (inputViewModel.sortFieldName.ToUpper())
 					{
+						case "ISACTIVE":
+						{
+							if (inputViewModel.sortDirection == "0")
+							{
+								data = data.OrderBy(current => current.IsActive);
+							}
+							else
+							{
+								data = data.OrderByDescending(current => current.IsActive);
+							}
+
+							break;
+						}
+
 						case "AGE":
 						{
 							if (inputViewModel.sortDirection == "0")
@@ -198,6 +269,13 @@ namespace MY_WEB_APPLICATION.Controllers
 							{
 								data = data.OrderByDescending(current => current.LastName);
 							}
+
+							break;
+						}
+
+						default:
+						{
+							data = data.OrderBy(current => current.InsertDateTime);
 
 							break;
 						}

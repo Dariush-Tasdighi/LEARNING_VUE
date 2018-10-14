@@ -8,7 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Learn 900</title>
+	<title>Learn 1300</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
@@ -17,7 +17,33 @@
 <body>
 	<div class="container">
 		<div id="app">
-			<dtx-grid-vue v-bind:settings="settings"></dtx-grid-vue>
+			<dtx-grid-vue v-bind:settings="settings">
+
+				<template slot="search">
+
+					<div class="form-horizontal">
+
+						<div class="row form-group">
+							<label for="firstName" class="col-sm-2 control-label">
+								First Name
+							</label>
+							<div class="col-sm-4">
+								<input type="Search" id="firstName" class="form-control" placeholder="" v-model="settings.searchItems.firstName" />
+							</div>
+
+							<label for="lastName" class="col-sm-2 control-label">
+								Last Name
+							</label>
+							<div class="col-sm-4">
+								<input type="Search" id="lastName" class="form-control" placeholder="" v-model="settings.searchItems.lastName" />
+							</div>
+						</div>
+
+					</div>
+
+				</template>
+
+			</dtx-grid-vue>
 		</div>
 	</div>
 
@@ -54,6 +80,14 @@
 
 					columns: [
 						{
+							fieldName: 'isActive',
+							title: 'Active',
+							isSortable: true,
+
+							// New!
+							isCheckbox: true,
+						},
+						{
 							fieldName: 'firstName',
 							title: 'First Name',
 						},
@@ -66,17 +100,28 @@
 							fieldName: 'age',
 							title: 'Age',
 							isSortable: true,
+							template: function (item) {
+
+								let result =
+									'<span style="color: red;"><b>' + item.age + '</b></span>'
+
+								return result
+
+							}
 						},
 						{
 							fieldName: 'salary',
 							title: 'Salary',
 							isSortable: true,
 							firstSortDirection: 1,
-
-							// New!
 							sortFieldName: 'FirstName',
 						},
 					],
+
+					searchItems: {
+						lastName: null,
+						firstName: null,
+					},
 
 				},
 

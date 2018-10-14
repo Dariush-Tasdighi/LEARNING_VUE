@@ -15,9 +15,13 @@
 	<link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-	<div id="app">
-		<div class="container">
-			<dtx-grid-vue v-bind:settings="settings"></dtx-grid-vue>
+	<div class="container">
+		<div id="app">
+			<dtx-grid-vue v-bind:settings="settings1"></dtx-grid-vue>
+			<hr />
+			<dtx-grid-vue v-bind:settings="settings2"></dtx-grid-vue>
+			<hr />
+			<dtx-grid-vue v-bind:settings="settings3"></dtx-grid-vue>
 		</div>
 	</div>
 
@@ -26,9 +30,9 @@
 	<script src="~/Scripts/vue.min.js"></script>
 	<script src="~/Scripts/axios.min.js"></script>
 
-	<script src="~/Scripts/dtx-components.js"></script>
-	<script src="~/Scripts/dtx-grid-vue-culture.js"></script>
-	<script src="~/Scripts/dtx-grid-vue.1.0.4.js"></script>
+	<script src="~/Scripts/Dtx/dtx-components.js"></script>
+	<script src="~/Scripts/Dtx/dtx-grid-vue-culture.js"></script>
+	<script src="~/Scripts/Dtx/dtx-grid-vue.js"></script>
 
 	<script>
 
@@ -38,13 +42,10 @@
 
 			data: {
 
-				settings: {
+				settings1: {
 
 					cultrue: dtxGridVueCulture,
 					url: '/LearningDtxGridVue/GetData',
-
-					displayErrorMessages: true, // New!
-					displayInformationMessages: true, // New!
 
 					columns: [
 						{ fieldName: 'firstName', title: 'First Name', },
@@ -53,7 +54,38 @@
 						{ fieldName: 'salary', title: 'Salary', },
 					],
 
-				}
+				},
+
+				settings2: {
+
+					cultrue: dtxGridVueCulture,
+					url: '/LearningDtxGridVue/GetData',
+
+					// New!
+					pageSizes: [10, 20, 50],
+
+					columns: [
+						{ fieldName: 'firstName', title: 'First Name', },
+						{ fieldName: 'lastName', title: 'Last Name', },
+					],
+
+				},
+
+				settings3: {
+
+					cultrue: dtxGridVueCulture,
+					url: '/LearningDtxGridVue/GetData',
+
+					// New!
+					pageSize: 20,
+					pageSizes: [10, 20, 50, 100],
+
+					columns: [
+						{ fieldName: 'firstName', title: 'First Name', },
+						{ fieldName: 'lastName', title: 'Last Name', },
+					],
+
+				},
 
 			},
 

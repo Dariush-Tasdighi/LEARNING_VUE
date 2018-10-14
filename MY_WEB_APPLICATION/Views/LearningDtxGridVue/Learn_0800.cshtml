@@ -15,8 +15,8 @@
 	<link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-	<div id="app">
-		<div class="container">
+	<div class="container">
+		<div id="app">
 			<dtx-grid-vue v-bind:settings="settings"></dtx-grid-vue>
 		</div>
 	</div>
@@ -26,9 +26,9 @@
 	<script src="~/Scripts/vue.min.js"></script>
 	<script src="~/Scripts/axios.min.js"></script>
 
-	<script src="~/Scripts/dtx-components.js"></script>
-	<script src="~/Scripts/dtx-grid-vue-culture.js"></script>
-	<script src="~/Scripts/dtx-grid-vue.1.0.4.js"></script>
+	<script src="~/Scripts/Dtx/dtx-components.js"></script>
+	<script src="~/Scripts/Dtx/dtx-grid-vue-culture.js"></script>
+	<script src="~/Scripts/Dtx/dtx-grid-vue.js"></script>
 
 	<script>
 
@@ -49,6 +49,9 @@
 					displayErrorMessages: false,
 					displayInformationMessages: false,
 
+					pageSize: 10,
+					pageSizes: [5, 10, 20, 50, 100],
+
 					columns: [
 						{
 							fieldName: 'firstName',
@@ -57,23 +60,24 @@
 						{
 							fieldName: 'lastName',
 							title: 'Last Name',
-							sortable: true,
+							isSortable: true,
 						},
 						{
 							fieldName: 'age',
 							title: 'Age',
-							sortable: true,
+							isSortable: true,
 						},
 						{
 							fieldName: 'salary',
 							title: 'Salary',
-							sortable: true,
+							isSortable: true,
+
+							// New!
 							firstSortDirection: 1,
-							sortFieldName: 'FirstName', // New!
 						},
 					],
 
-				}
+				},
 
 			},
 

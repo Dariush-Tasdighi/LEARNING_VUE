@@ -12,5 +12,8 @@
 	wait: 'Please Wait!',
 	loading: 'Loading...',
 	pageSize: 'Page Size',
+	close: 'Close',
+	columns: 'Columns',
+	select: 'Select',
 
 }

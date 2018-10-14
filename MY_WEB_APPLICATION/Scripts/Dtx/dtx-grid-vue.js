@@ -1,25 +1,47 @@
-﻿Vue.component('dtx-grid-column', {
+﻿// Version: 1.1.0
+
+Vue.component('dtx-grid-column', {
 
 	props: ['settings', 'parameters', 'column'],
 
 	template:
 		`
-		<th @click="sort()">
-			{{ column.title }} <span v-html="displayArrow()"></span>
+		<th @click="sort()" v-bind:style="getHeaderStyle()">
+			{{ column.title }}
+			<span v-html="displayArrow()"></span>
+			<span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"
+				v-if="settings.displayColumnSettings"
+				v-on:click="$parent.$parent.openColumnSettingsModal"
+				></span>
 		</th>
 		`,
 
 	methods: {
 
+		getHeaderStyle: function () {
+
+			if (this.column.isSortable) {
+
+				return { cursor: 'pointer' }
+
+			}
+			else {
+
+				return null
+
+			}
+
+		},
+
 		displayArrow: function () {
 
 			// **************************************************
-			if ((this.column.sortable === undefined) ||
-				(this.column.sortable === null) ||
-				(this.column.sortable !== true)
+			if ((this.column.isSortable === undefined) ||
+				(this.column.isSortable === null) ||
+				(this.column.isSortable !== true)
 			) {
 
-				this.column.sortable = false
+				this.column.isSortable = false
 				return null
 
 			}
@@ -80,12 +102,12 @@
 		sort: function () {
 
 			// **************************************************
-			if ((this.column.sortable === undefined) ||
-				(this.column.sortable === null) ||
-				(this.column.sortable !== true)
+			if ((this.column.isSortable === undefined) ||
+				(this.column.isSortable === null) ||
+				(this.column.isSortable !== true)
 			) {
 
-				this.column.sortable = false
+				this.column.isSortable = false
 				return
 
 			}
@@ -211,9 +233,22 @@ Vue.component('dtx-grid-header', {
 		`<tr>
 			<th v-if="settings.displayRowNumber">
 				{{ this.settings.cultrue.rowNumberTitle }}
+				<span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"
+					v-if="settings.displayColumnSettings"
+					v-on:click="$parent.openColumnSettingsModal"
+					></span>
+			</th>
+
+			<th v-if="settings.isSelectable">
+				{{ this.settings.cultrue.select }}
+				<span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"
+					v-if="settings.displayColumnSettings"
+					v-on:click="$parent.openColumnSettingsModal"
+					></span>
 			</th>
 
 			<dtx-grid-column
+				v-if="$parent.displayColumn(column)"
 				v-for="column in settings.columns"
 				v-bind:settings="settings"
 				v-bind:parameters="parameters"
@@ -281,8 +316,8 @@ Vue.component('dtx-grid-footer', {
 								{{ this.settings.cultrue.pageSize }}
 							</div>
 							<div class="col-sm-6">
-								<select v-model="parameters.pageSize" v-on:change="$parent.changePageSize" class="form-control" style="height: 26px;padding-top: 1px;padding-bottom: 1px;">
-									<option v-for="item in parameters.pageSizes" v-bind:value="item">{{ item }}</option>
+								<select v-model="settings.pageSize" v-on:change="$parent.changePageSize" class="form-control" style="height: 26px;padding-top: 1px;padding-bottom: 1px;">
+									<option v-for="item in settings.pageSizes" v-bind:value="item">{{ item }}</option>
 								</select>
 							</div>
 						</div>
@@ -311,11 +346,22 @@ Vue.component('dtx-grid-row', {
 	template:
 		`
 				<tr>
-					<td v-if="settings.displayRowNumber">
-						{{ (parameters.pageIndex * parameters.pageSize) + index + 1 }}
+					<td
+						v-if="settings.displayRowNumber"
+						>
+						{{ (parameters.pageIndex * settings.pageSize) + index + 1 }}
 					</td>
 
-					<td v-for="column in settings.columns">
+					<td
+						v-if="settings.isSelectable"
+						>
+						<input type="checkbox" v-model="item.isSelected" />
+					</td>
+
+					<td
+						v-if="$parent.displayColumn(column)"
+						v-for="column in settings.columns"
+						>
 						<span v-html="getCellValue(column)"></span>
 					</td>
 				</tr>
@@ -344,6 +390,23 @@ Vue.component('dtx-grid-row', {
 				result =
 					this.item[column.fieldName]
 
+				if (column.isCheckbox === true) {
+
+					if ((result === 1) || (result === true)) {
+
+						//result = '<input type="checkbox" disabled="disabled" checked="checked" />'
+						result = '<span class="glyphicon glyphicon-check" aria-hidden="true"></span>'
+
+					}
+					else {
+
+						//result = '<input type="checkbox" disabled="disabled" />'
+						result = '<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>'
+
+					}
+
+				}
+
 			}
 
 			return result
@@ -364,21 +427,14 @@ Vue.component('dtx-grid-vue', {
 
 			parameters: {
 
-				isSuccess: false,
 				responseData: null,
+
 				displayLoadingModal: false,
+				displayColumnSettingsModal: false,
 
-				errorMessages: null,
-				hiddenMessages: null,
-				informationMessages: null,
-
-				items: null,
-
-				pageSize: 5,
 				pageIndex: 0,
 				recordCount: 0,
 				lastPageIndex: 0,
-				pageSizes: [5, 10, 20, 50, 100],
 
 				sort: {
 
@@ -407,6 +463,27 @@ Vue.component('dtx-grid-vue', {
 		<div class="row">
 			<div class="col-xs-12">
 
+				<dtx-modal v-if="parameters.displayColumnSettingsModal">
+					<h3 slot="header" class="modal-title">
+						{{ this.settings.cultrue.columns }}
+					</h3>
+
+					<div slot="body">
+						<ul>
+							<li style="cursor: pointer;"
+								v-for="column in settings.columns"
+								v-on:click="toggleColumnVisibility(column)">
+								<span v-html="displayCheckbox(column)"></span>
+								{{ column.title }}
+							</li>
+						</ul>
+					</div>
+
+					<div slot="footer">
+						<button type="button" v-on:click="closeColumnSettingsModal">{{ this.settings.cultrue.close }}</button>
+					</div>
+				</dtx-modal>
+
 				<dtx-modal v-if="parameters.displayLoadingModal">
 					<h3 slot="header" class="modal-title">
 						{{ this.settings.cultrue.loading }}
@@ -419,13 +496,13 @@ Vue.component('dtx-grid-vue', {
 
 				<display-error-messages
 					v-if="settings.displayErrorMessages"
-					v-bind:messages="parameters.errorMessages"
+					v-bind:messages="settings.errorMessages"
 					>
 				</display-error-messages>
 
 				<display-information-messages
 					v-if="settings.displayInformationMessages"
-					v-bind:messages="parameters.informationMessages"
+					v-bind:messages="settings.informationMessages"
 					>
 				</display-information-messages>
 
@@ -444,7 +521,7 @@ Vue.component('dtx-grid-vue', {
 
 							<tbody>
 								<dtx-grid-row
-									v-for="(item, index) in parameters.items"
+									v-for="(item, index) in settings.items"
 									v-bind:settings="settings"
 									v-bind:parameters="parameters"
 									v-bind:item="item"
@@ -468,6 +545,55 @@ Vue.component('dtx-grid-vue', {
 		`,
 
 	methods: {
+
+		openColumnSettingsModal: function (event) {
+
+			this.parameters.displayColumnSettingsModal = true
+
+			if (event.stopPropagation) {
+
+				event.stopPropagation()
+
+			} else {
+
+				event.cancelBubble = true
+
+			}
+
+		},
+
+		closeColumnSettingsModal: function () {
+
+			this.parameters.displayColumnSettingsModal = false
+
+		},
+
+		displayCheckbox: function (column) {
+
+			if (column.isHidden) {
+
+				return '<span class="glyphicon glyphicon glyphicon-unchecked" aria-hidden="true"></span>'
+
+			}
+			else {
+
+				return '<span class="glyphicon glyphicon glyphicon glyphicon-check" aria-hidden="true"></span>'
+
+			}
+
+		},
+
+		toggleColumnVisibility: function (column) {
+
+			column.isHidden = !column.isHidden
+
+		},
+
+		displayColumn: function (column) {
+
+			return !column.isHidden
+
+		},
 
 		changePageSize: function () {
 
@@ -527,17 +653,19 @@ Vue.component('dtx-grid-vue', {
 
 		getData: function () {
 
-			this.parameters.items = null
-			this.parameters.recordCount = 0
-			this.parameters.isSuccess = false
+			this.settings.items = null
+			this.settings.isSuccess = false
 
-			this.parameters.errorMessages = null
-			this.parameters.hiddenMessages = null
-			this.parameters.informationMessages = null
+			this.settings.errorMessages = null
+			this.settings.hiddenMessages = null
+			this.settings.informationMessages = null
+
+			this.parameters.recordCount = 0
 
 			this.parameters.displayLoadingModal = true
+			this.parameters.displayColumnSettingsModal = false
 
-			this.requestData.pageSize = this.parameters.pageSize
+			this.requestData.pageSize = this.settings.pageSize
 			this.requestData.pageIndex = this.parameters.pageIndex
 
 			this.requestData.sortFieldName = this.parameters.sort.fieldName
@@ -560,48 +688,66 @@ Vue.component('dtx-grid-vue', {
 
 				.then(response => {
 
-					this.parameters.isSuccess = response.data.isSuccess
-					this.parameters.errorMessages = response.data.errorMessages
-					this.parameters.hiddenMessages = response.data.hiddenMessages
-					this.parameters.informationMessages = response.data.informationMessages
+					this.settings.isSuccess = response.data.isSuccess
+					this.settings.errorMessages = response.data.errorMessages
+					this.settings.hiddenMessages = response.data.hiddenMessages
+					this.settings.informationMessages = response.data.informationMessages
 
-					if ((this.parameters.hiddenMessages !== undefined) &&
-						(this.parameters.hiddenMessages !== null)) {
+					if ((this.settings.hiddenMessages !== undefined) &&
+						(this.settings.hiddenMessages !== null)) {
 
-						for (let index = 0; index <= this.parameters.hiddenMessages.length - 1; index++) {
+						for (let index = 0; index <= this.settings.hiddenMessages.length - 1; index++) {
 
-							console.log(this.parameters.hiddenMessages[index])
+							console.log(this.settings.hiddenMessages[index])
 
 						}
 
 					}
 
-					if (this.parameters.isSuccess) {
+					if (this.settings.isSuccess) {
 
-						this.parameters.items = response.data.items
+						this.settings.items = response.data.items
 						this.parameters.recordCount = response.data.count
 
-						//if (this.parameters.recordCount % this.parameters.pageSize === 0) {
+						// **************************************************
+						for (let index = 0; index <= this.settings.items.length - 1; index++) {
 
-						//	this.parameters.lastPageIndex =
-						//		Math.floor(this.parameters.recordCount / this.parameters.pageSize) - 1
+							let item = this.settings.items[index]
 
-						//}
-						//else {
+							if ((item.isSelected === undefined) ||
+								(item.isSelected === null)) {
 
-						//	this.parameters.lastPageIndex =
-						//		Math.floor(this.parameters.recordCount / this.parameters.pageSize)
+								Vue.set(item, 'isSelected', false)
 
-						//}
+							}
+							else {
 
+								if ((item.isSelected !== true) && (item.isSelected !== false)) {
+
+									column.isSelected = false
+
+								}
+
+							}
+						}
+						// **************************************************
+
+						// **************************************************
 						this.parameters.lastPageIndex =
-							Math.floor(this.parameters.recordCount / this.parameters.pageSize)
+							Math.floor(this.parameters.recordCount / this.settings.pageSize)
 
-						if (this.parameters.recordCount % this.parameters.pageSize === 0) {
+						if (this.parameters.recordCount % this.settings.pageSize === 0) {
 
 							this.parameters.lastPageIndex--
 
 						}
+
+						if (this.parameters.lastPageIndex < 0) {
+
+							this.parameters.lastPageIndex = 0
+
+						}
+						// **************************************************
 
 					}
 
@@ -621,24 +767,252 @@ Vue.component('dtx-grid-vue', {
 
 	},
 
-	//beforeCreate: function () {
+	beforeCreate: function () {
 
-	//	//console.log('Before Created!')
+		//console.log('Before Created!')
 
-	//	// Cannot read property 'settings' of undefined
-	//	//if (this.settings.loadFirstPageAutomatically) {
+		// Cannot read property 'settings' of undefined
+		//if (this.settings.loadFirstPageAutomatically) {
 
-	//	//	this.parameters.pageIndex = 0
-	//	//	this.getData()
-	//	//}
+		//	this.parameters.pageIndex = 0
+		//	this.getData()
+		//}
 
-	//},
+	},
 
 	created: function () {
 
 		//console.log('Created!')
 
-		// Cannot read property 'settings' of undefined
+		// **************************************************
+		if (this.settings.pageSizes === undefined) {
+
+			Vue.set(this.settings, 'pageSizes', [5, 10, 20, 50, 100, 200, 500])
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.pageSize === undefined) {
+
+			Vue.set(this.settings, 'pageSize', this.settings.pageSizes[0])
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.items === undefined) {
+
+			Vue.set(this.settings, 'items', null)
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.isSuccess === undefined) {
+
+			Vue.set(this.settings, 'isSuccess', false)
+
+		}
+		else {
+
+			if (!(this.settings.isSuccess === true || this.settings.isSuccess === false)) {
+
+				this.settings.isSuccess = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.errorMessages === undefined) {
+
+			Vue.set(this.settings, 'errorMessages', null)
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.hiddenMessages === undefined) {
+
+			Vue.set(this.settings, 'hiddenMessages', null)
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.informationMessages === undefined) {
+
+			Vue.set(this.settings, 'informationMessages', null)
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.isSelectable === undefined) {
+
+			Vue.set(this.settings, 'isSelectable', false)
+
+		}
+		else {
+
+			if (!(this.settings.isSelectable === true || this.settings.isSelectable === false)) {
+
+				this.settings.isSelectable = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.displayRowNumber === undefined) {
+
+			Vue.set(this.settings, 'displayRowNumber', false)
+
+		}
+		else {
+
+			if (!(this.settings.displayRowNumber === true || this.settings.displayRowNumber === false)) {
+
+				this.settings.displayRowNumber = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.loadFirstPageAutomatically === undefined) {
+
+			Vue.set(this.settings, 'loadFirstPageAutomatically', false)
+
+		}
+		else {
+
+			if (!(this.settings.loadFirstPageAutomatically === true || this.settings.loadFirstPageAutomatically === false)) {
+
+				this.settings.loadFirstPageAutomatically = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.displayErrorMessages === undefined) {
+
+			Vue.set(this.settings, 'displayErrorMessages', false)
+
+		}
+		else {
+
+			if (!(this.settings.displayErrorMessages === true || this.settings.displayErrorMessages === false)) {
+
+				this.settings.displayErrorMessages = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.displayColumnSettings === undefined) {
+
+			Vue.set(this.settings, 'displayColumnSettings', false)
+
+		}
+		else {
+
+			if (!(this.settings.displayColumnSettings === true || this.settings.displayColumnSettings === false)) {
+
+				this.settings.displayColumnSettings = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.displayInformationMessages === undefined) {
+
+			Vue.set(this.settings, 'displayInformationMessages', false)
+
+		}
+		else {
+
+			if (!(this.settings.displayInformationMessages === true || this.settings.displayInformationMessages === false)) {
+
+				this.settings.displayInformationMessages = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		// **************************************************
+		// **************************************************
+		for (let index = 0; index <= this.settings.columns.length - 1; index++) {
+
+			let column = this.settings.columns[index]
+
+			// **************************************************
+			if (column.isHidden === undefined) {
+
+				Vue.set(column, 'isHidden', false)
+
+			}
+			else {
+
+				if (!(column.isHidden === true || column.isHidden === false)) {
+
+					column.isHidden = false
+
+				}
+
+			}
+			// **************************************************
+
+			// **************************************************
+			if (column.isCheckbox === undefined) {
+
+				Vue.set(column, 'isCheckbox', false)
+
+			}
+			else {
+
+				if (!(column.isCheckbox === true || column.isCheckbox === false)) {
+
+					column.isCheckbox = false
+
+				}
+
+			}
+			// **************************************************
+
+			// **************************************************
+			if (column.isSortable === undefined) {
+
+				Vue.set(column, 'isSortable', false)
+
+			}
+			else {
+
+				if (!(column.isSortable === true || column.isSortable === false)) {
+
+					column.isSortable = false
+
+				}
+
+			}
+			// **************************************************
+		}
+		// **************************************************
+		// **************************************************
+		// **************************************************
+
 		if (this.settings.loadFirstPageAutomatically) {
 
 			this.parameters.pageIndex = 0
