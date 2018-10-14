@@ -13,23 +13,11 @@
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
 	<link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
-	<link href="~/Content/Site.fa-IR.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.fa-IR.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="container">
 		<div id="app">
-
-			<div class="row">
-				<div class="col-xs-12">
-					<ul>
-						<li v-for="item in settings.items">
-							{{ item['lastName'] }} - {{ item['isSelected'] }}
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<hr />
 
 			<dtx-grid-vue v-bind:settings="settings">
 
@@ -58,6 +46,8 @@
 				</template>
 
 			</dtx-grid-vue>
+
+			<hr />
 		</div>
 	</div>
 

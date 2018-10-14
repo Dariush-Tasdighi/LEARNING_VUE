@@ -316,7 +316,7 @@ Vue.component('dtx-grid-footer', {
 								{{ this.settings.cultrue.pageSize }}
 							</div>
 							<div class="col-sm-6">
-								<select v-model="settings.pageSize" v-on:change="$parent.changePageSize" class="form-control" style="height: 26px;padding-top: 1px;padding-bottom: 1px;">
+								<select v-model="settings.pageSize" v-on:change="$parent.changePageSize" class="form-control" style="height: 30px;padding-top: 0px;padding-bottom: 0px;">
 									<option v-for="item in settings.pageSizes" v-bind:value="item">{{ item }}</option>
 								</select>
 							</div>

@@ -99,6 +99,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\NewSite.fa-IR.css" />
     <Content Include="Content\Site.fa-IR.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -121,6 +122,14 @@
     <Content Include="fonts\Yekan.ttf" />
     <Content Include="fonts\Yekan.woff" />
     <Content Include="fonts\YekanWeb-Regular.woff" />
+    <Content Include="fonts\Samim-Bold-FD.eot" />
+    <Content Include="fonts\Samim-Bold-FD.ttf" />
+    <Content Include="fonts\Samim-Bold-FD.woff" />
+    <Content Include="fonts\Samim-Bold-FD.woff2" />
+    <Content Include="fonts\Samim-FD.eot" />
+    <Content Include="fonts\Samim-FD.ttf" />
+    <Content Include="fonts\Samim-FD.woff" />
+    <Content Include="fonts\Samim-FD.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Dtx\dtx-grid-vue-culture.fa-IR.js" />
     <Content Include="Scripts\Dtx\dtx-grid-vue-culture.js" />
