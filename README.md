@@ -1,6 +1,6 @@
-# LEARNING_VUE
+# Learning DtxGridVue (DTX Data Grid Vuejs)
 
-See LearningDtxGridVueController Controller and Views for learning DtxGridVue
+See LearningDtxGridVueController and its related Views for learning DtxGridVue
 
 	<div id="app">
 		<div class="container">
