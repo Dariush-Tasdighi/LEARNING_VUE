@@ -1,4 +1,4 @@
-﻿// Version: 1.1.1
+﻿// Version: 1.1.2
 
 Vue.component('dtx-grid-column', {
 
@@ -772,10 +772,46 @@ Vue.component('dtx-grid-vue', {
 		exportToExcel: function () {
 
 			// Actual delimiter characters for CSV format
-			let colDelim = ','
+			let colDelim
 			let rowDelim = '\r\n'
 
-			let csv = 'sep=,' + rowDelim
+			let BOM = "\uFEFF"
+
+			// NOK
+			//let csv = ''
+
+			// OK
+			//let csv = BOM
+
+			// NOK
+			//let csv = BOM + 'sep=,' + rowDelim
+
+			// So So!
+			//let csv = BOM + rowDelim + 'sep=,' + rowDelim
+
+			// NOK
+			//let csv = 'sep=,' + BOM + rowDelim
+
+			// So So!
+			//let csv = BOM + ' ' + 'sep=,' + rowDelim
+
+			// NOK
+			//let csv = BOM + '\t'
+
+			let csv = ''
+
+			if (this.settings.rtl) {
+
+				csv = BOM
+				colDelim = '؛'
+
+			}
+			else {
+
+				colDelim = ','
+				csv = 'sep=,' + rowDelim
+
+			}
 
 			// **************************************************
 			let columns =
@@ -866,7 +902,7 @@ Vue.component('dtx-grid-vue', {
 		// **************************************************
 		if (this.settings.pageSizes === undefined) {
 
-			Vue.set(this.settings, 'pageSizes', [5, 10, 20, 50, 100, 200, 500])
+			Vue.set(this.settings, 'pageSizes', [10, 20, 50, 100, 200, 500, 1000])
 
 		}
 		// **************************************************
@@ -898,6 +934,23 @@ Vue.component('dtx-grid-vue', {
 			if (!(this.settings.isSuccess === true || this.settings.isSuccess === false)) {
 
 				this.settings.isSuccess = false
+
+			}
+
+		}
+		// **************************************************
+
+		// **************************************************
+		if (this.settings.rtl === undefined) {
+
+			Vue.set(this.settings, 'rtl', false)
+
+		}
+		else {
+
+			if (!(this.settings.rtl === true || this.settings.rtl === false)) {
+
+				this.settings.rtl = false
 
 			}
 
