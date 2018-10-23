@@ -237,6 +237,7 @@
     <Content Include="Views\LearningDtxGridVue\Learn_1600.cshtml" />
     <Content Include="Views\LearningDtxGridVue\Learn_1700.cshtml" />
     <Content Include="Views\LearningDtxGridVue\Learn_5000.cshtml" />
+    <Content Include="Views\LearningDtxGridVue\Learn_1800.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

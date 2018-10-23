@@ -1,4 +1,4 @@
-﻿// Version: 1.1.0
+﻿// Version: 1.1.1
 
 Vue.component('dtx-grid-column', {
 
@@ -270,6 +270,10 @@ Vue.component('dtx-grid-footer', {
 
 						<button type="button" v-on:click="$parent.refresh" v-bind:title="this.settings.cultrue.refresh">
 							<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						</button>
+
+						<button type="button" v-on:click="$parent.exportToExcel" v-bind:title="this.settings.cultrue.exportToExcel">
+							<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
 						</button>
 
 						<template v-if="settings.rtl">
@@ -762,6 +766,81 @@ Vue.component('dtx-grid-vue', {
 					this.parameters.displayLoadingModal = false
 
 				})
+
+		},
+
+		exportToExcel: function () {
+
+			// Actual delimiter characters for CSV format
+			let colDelim = ','
+			let rowDelim = '\r\n'
+
+			let csv = 'sep=,' + rowDelim
+
+			// **************************************************
+			let columns =
+				this.settings.columns
+
+			let headingsArray = []
+
+			for (i = 0; i < columns.length; i++) {
+
+				let column = columns[i]
+
+				if (column.isHidden === false) {
+
+					headingsArray.push('"' + column.title + '"')
+
+				}
+
+			}
+
+			csv += headingsArray.join(colDelim) + rowDelim
+			// **************************************************
+
+			// **************************************************
+			let items =
+				this.settings.items
+
+			for (i = 0; i < items.length; i++) {
+
+				let item = items[i]
+
+				let columnsArray = []
+
+				for (j = 0; j < columns.length; j++) {
+
+					let column = columns[j]
+
+					if (column.isHidden === false) {
+
+						columnsArray.push('"' + item[column.fieldName] + '"')
+
+					}
+
+				}
+
+				csv += columnsArray.join(colDelim) + rowDelim
+
+			}
+			// **************************************************
+
+			// Data URI
+			let csvData =
+				'data:application/csv;charset=utf-8,' + encodeURIComponent(csv)
+
+			//this trick will generate a temp <a /> tag
+			let link = document.createElement('a')
+			link.href = csvData
+
+			//set the visibility hidden so it will not effect on your web-layout
+			link.style = "visibility:hidden"
+			link.download = 'export.csv'
+
+			//this part will append the anchor tag and remove it after automatic click
+			document.body.appendChild(link)
+			link.click()
+			document.body.removeChild(link)
 
 		},
 

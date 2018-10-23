@@ -15,5 +15,6 @@
 	close: 'بستن',
 	columns: 'ستون‌ها',
 	select: 'انتخاب',
+	exportToExcel: 'خروجی اکسل',
 
 }

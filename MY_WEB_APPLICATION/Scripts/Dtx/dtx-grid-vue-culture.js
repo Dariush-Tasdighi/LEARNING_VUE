@@ -15,5 +15,6 @@
 	close: 'Close',
 	columns: 'Columns',
 	select: 'Select',
+	exportToExcel: 'Export to Excel',
 
 }
