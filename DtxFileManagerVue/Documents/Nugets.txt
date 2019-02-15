@@ -1,0 +1,7 @@
+﻿REFERENCES:
+
+	System.Web.Extensions.dll
+
+NUGETS:
+
+	Install-Package DotNetZip

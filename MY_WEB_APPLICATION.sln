@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MY_WEB_APPLICATION", "MY_WEB_APPLICATION\MY_WEB_APPLICATION.csproj", "{5F0561F6-85DC-468F-A717-DC5747DDBE79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.FileManager", "DtxFileManagerVue\Dtx.FileManager.csproj", "{4261A6AE-3359-4EF3-BF21-0C81009DAE56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5F0561F6-85DC-468F-A717-DC5747DDBE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F0561F6-85DC-468F-A717-DC5747DDBE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F0561F6-85DC-468F-A717-DC5747DDBE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4261A6AE-3359-4EF3-BF21-0C81009DAE56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4261A6AE-3359-4EF3-BF21-0C81009DAE56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4261A6AE-3359-4EF3-BF21-0C81009DAE56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4261A6AE-3359-4EF3-BF21-0C81009DAE56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
