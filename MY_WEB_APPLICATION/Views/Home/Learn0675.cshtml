@@ -19,20 +19,6 @@
 		<div>
 			{{ message1 }}
 		</div>
-		@*<div>
-				{{ message2 }}
-			</div>*@
-		<ul>
-			<todo-item></todo-item>
-		</ul>
-	</div>
-
-	<hr />
-
-	<div id="app2">
-		@*<div>
-				{{ message1 }}
-			</div>*@
 		<div>
 			{{ message2 }}
 		</div>
@@ -41,15 +27,46 @@
 		</ul>
 	</div>
 
+	<hr />
+
+	<div id="app2">
+		<div>
+			{{ message1 }}
+		</div>
+		<div>
+			{{ message2 }}
+		</div>
+		<ul>
+			<todo-item></todo-item>
+		</ul>
+	</div>
+
+	<hr />
+
+	<div class="app3">
+		<div>
+			{{ message3 }}
+		</div>
+	</div>
+
+	<hr />
+
+	<div class="app3">
+		<div>
+			{{ message3 }}
+		</div>
+	</div>
+
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/vue.min.js"></script>
+
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 
 		Vue.component('todo-item', {
 
-			template: '<li>This is a todo</li>',
+			template: '<li>This is a todo item!</li>',
 
 		})
 
@@ -72,6 +89,18 @@
 			data: {
 
 				message2: 'Message (2)'
+
+			},
+
+		})
+
+		new Vue({
+
+			el: '.app3',
+
+			data: {
+
+				message3: 'Message (3)'
 
 			},
 

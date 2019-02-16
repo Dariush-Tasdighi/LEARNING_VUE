@@ -30,13 +30,13 @@
 		<hr />
 
 		<ul>
-			<li v-for="item in todos2">{{ item.text }}</li>
+			<li v-for="item in todos2"><b>{{ item.id }}</b> - {{ item.text }}</li>
 		</ul>
 
 		<hr />
 
 		<ul>
-			<li v-for="item of todos2">{{ item.text }}</li>
+			<li v-for="item of todos2"><b>{{ item.id }}</b> - {{ item.text }}</li>
 		</ul>
 
 		<hr />
@@ -59,7 +59,8 @@
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/vue.min.js"></script>
+
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 
@@ -76,9 +77,9 @@
 				],
 
 				todos2: [
-					{ text: 'Learn Vue', },
-					{ text: 'Learn JavaScript', },
-					{ text: 'Build something awesome', },
+					{ id: 1, text: 'Learn Vue', },
+					{ id: 2, text: 'Learn JavaScript', },
+					{ id: 3, text: 'Build something awesome', },
 				],
 
 				//display1: true,

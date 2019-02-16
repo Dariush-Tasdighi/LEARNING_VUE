@@ -140,6 +140,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\vue.js.BAK" />
+    <None Include="Scripts\vue.min.js.BAK" />
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\vue.min.js" />
     <Content Include="Web.config" />
@@ -239,6 +241,7 @@
     <Content Include="Views\LearningDtxGridVue\Learn_5000.cshtml" />
     <Content Include="Views\LearningDtxGridVue\Learn_1800.cshtml" />
     <Content Include="Views\Home\Learn6300.cshtml" />
+    <Content Include="Views\Home\Temp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

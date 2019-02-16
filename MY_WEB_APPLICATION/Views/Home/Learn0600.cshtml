@@ -17,19 +17,34 @@
 <body>
 	<div id="app">
 		<ul>
+			@*کار می‌کند*@
 			<todo-item></todo-item>
+
+			@*کار می‌کند*@
+			<todo-item />
+
+			@*کار نمی‌کند*@
+			<todoItem></todoItem>
+
+			@*کار نمی‌کند*@
+			<todoItem />
 		</ul>
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/vue.min.js"></script>
+
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 
+		// توصیه می‌شود که اسامی
+		// Componenet
+		// از حداقل دو کلمه استفاده شود
+
 		Vue.component('todo-item', {
 
-			template: '<li>This is a todo</li>',
+			template: '<li>This is a todo item!</li>',
 
 		})
 
