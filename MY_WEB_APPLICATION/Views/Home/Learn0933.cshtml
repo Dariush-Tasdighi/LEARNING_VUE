@@ -1,0 +1,84 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Index</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		<h4>
+			After display in browser! Activate Inspect! Breakpoint in [z] function! Click on doSomething button and Debug it!
+		</h4>
+		<div class="container">
+			<div class="row">
+				<input type="text" v-model="x" />
+				<input type="text" v-model="y" />
+				<br />
+				{{ z }}
+				@*<br />
+					{{ z() }}*@
+				<br />
+				<button type="button" v-on:click="doSomething()">Do something!</button>
+				<br />
+				{{ t }}
+			</div>
+		</div>
+	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		new Vue({
+
+			el: '#app',
+
+			data: {
+
+				x: 5,
+				y: 10,
+				t: 100,
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					this.t++
+
+				},
+
+			},
+
+			computed: {
+
+				z: function () {
+
+					let result =
+						this.x + this.y
+
+					return result
+
+				},
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

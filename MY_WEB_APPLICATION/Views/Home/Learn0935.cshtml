@@ -16,12 +16,14 @@
 </head>
 <body>
 	<div id="app">
+		<h4>
+			After display in browser! Activate Inspect! Breakpoint in getSubTotal function! Click on + or - and Debug it!
+		</h4>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 table-responsive">
 					<table class="table table-bordered table-condensed table-striped table-hover">
 						<tr>
-							<th>#</th>
 							<th>Name</th>
 							<th>Price</th>
 							<th>Count</th>
@@ -29,8 +31,7 @@
 							<th></th>
 							<th>Sub Total</th>
 						</tr>
-						<tr v-for="(item, index) in items" v-bind:key="item.id">
-							<td>{{ index + 1 }}</td>
+						<tr v-for="item in items">
 							<td>{{ item.name }}</td>
 							<td>{{ item.price }}</td>
 							<td>{{ item.count }}</td>
@@ -41,10 +42,6 @@
 								<button type="button" class="btn btn-primary btn-xs btn-block" v-on:click="minus(item)">-</button>
 							</td>
 							<td>{{ getSubTotal(item) }}</td>
-						</tr>
-						<tr>
-							<td colspan="6"></td>
-							<td>{{ getTotal() }}</td>
 						</tr>
 					</table>
 				</div>
@@ -97,6 +94,12 @@
 
 				},
 
+			},
+
+			// Note: Does Not Work! Because we have Computed Properties! not Computed Methods!
+			// It means that computed properties should not have input parameter(s)!
+			computed: {
+
 				getSubTotal: function (item) {
 
 					if (item.count <= 5) {
@@ -116,38 +119,7 @@
 
 					}
 
-				},
-
-				getTotal: function () {
-
-					//let result = 0
-
-					//for (var index = 0; index < this.items.length; index++) {
-
-					//	let subTotal =
-					//		this.items[index].count * this.items[index].price
-
-					//	result += subTotal
-
-					//}
-
-					//return result
-
-					let result = 0
-
-					for (var index = 0; index < this.items.length; index++) {
-
-						let subTotal =
-							this.getSubTotal(this.items[index])
-
-						result += subTotal
-
-					}
-
-					return result
-
-
-				},
+				}
 
 			},
 

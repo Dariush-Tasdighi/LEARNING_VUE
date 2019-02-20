@@ -16,7 +16,13 @@
 </head>
 <body>
 	<div id="app">
-		<something v-bind:message="message1"></something>
+		Welcome {{ fullName }}!
+		<br />
+		Welcome {{ fullName | uppercase }}!
+		<br />
+		Welcome {{ fullName | lowercase }}!
+		<br />
+		<input type="text" v-model="fullName" />
 	</div>
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -26,34 +32,13 @@
 
 	<script>
 
-		Vue.component('something', {
-
-			props: ['message'],
-
-			data: function() {
-
-				return ({
-
-					message2: 'Tasdighi'
-
-				})
-
-			},
-
-			template: '<div>Hello, {{ message }} {{ message2 }}!</div>',
-
-			// TODO: چک شود
-			//template: '<template>Hello, {{ message }}!</template>',
-
-		})
-
 		new Vue({
 
 			el: '#app',
 
 			data: {
 
-				message1: 'Dariush'
+				fullName: 'Mr. Dariush Tasdighi',
 
 			},
 

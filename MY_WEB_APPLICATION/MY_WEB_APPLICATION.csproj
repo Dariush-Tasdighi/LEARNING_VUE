@@ -201,7 +201,6 @@
     <Content Include="Views\Home\Learn0850.cshtml" />
     <Content Include="Views\Home\Learn0675.cshtml" />
     <Content Include="Views\Home\Learn0750.cshtml" />
-    <Content Include="Views\Home\Learn0825.cshtml" />
     <Content Include="Views\Home\Learn0875.cshtml" />
     <Content Include="Views\Home\Learn0900.cshtml" />
     <Content Include="Views\Home\Learn0910.cshtml" />
@@ -242,6 +241,12 @@
     <Content Include="Views\LearningDtxGridVue\Learn_1800.cshtml" />
     <Content Include="Views\Home\Learn6300.cshtml" />
     <Content Include="Views\Home\Temp.cshtml" />
+    <Content Include="Views\Home\Learn0050.cshtml" />
+    <Content Include="Views\Home\Learn0525.cshtml" />
+    <Content Include="Views\Home\Learn0935.cshtml" />
+    <Content Include="Views\Home\Learn0932.cshtml" />
+    <Content Include="Views\Home\Learn0933.cshtml" />
+    <Content Include="Views\Home\Learn0970.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

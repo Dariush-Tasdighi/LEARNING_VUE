@@ -29,7 +29,7 @@
 							<th></th>
 							<th>Sub Total</th>
 						</tr>
-						<tr v-for="(item, index) in items">
+						<tr v-for="(item, index) in items" v-bind:key="index">
 							<td>{{ index + 1 }}</td>
 							<td>{{ item.name }}</td>
 							<td>{{ item.price }}</td>
@@ -50,7 +50,8 @@
 
 	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/vue.min.js"></script>
+
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 

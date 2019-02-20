@@ -21,6 +21,12 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0050()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0100()
 		{
 			return View();
@@ -46,6 +52,12 @@ namespace MY_WEB_APPLICATION.Controllers
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0500()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0525()
 		{
 			return View();
 		}
@@ -147,6 +159,24 @@ namespace MY_WEB_APPLICATION.Controllers
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0932()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0933()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0935()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0940()
 		{
 			return View();
@@ -160,6 +190,12 @@ namespace MY_WEB_APPLICATION.Controllers
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn0960()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn0970()
 		{
 			return View();
 		}

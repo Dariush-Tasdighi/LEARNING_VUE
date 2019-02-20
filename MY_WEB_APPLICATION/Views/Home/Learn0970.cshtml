@@ -44,7 +44,8 @@
 						</tr>
 						<tr>
 							<td colspan="6"></td>
-							<td>{{ getTotal() }}</td>
+							@*<td>{{ getTotal() }}</td>*@
+							<td>{{ getTotal }}</td>
 						</tr>
 					</table>
 				</div>
@@ -117,6 +118,10 @@
 					}
 
 				},
+
+			},
+
+			computed: {
 
 				getTotal: function () {
 
