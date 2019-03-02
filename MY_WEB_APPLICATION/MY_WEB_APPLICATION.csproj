@@ -167,6 +167,7 @@
     <Compile Include="ViewModels\General\JsonResultWithDataViewModel.cs" />
     <Compile Include="ViewModels\Home\GetData6200InputViewModel.cs" />
     <Compile Include="ViewModels\LearningDtxGridVue\InputGetDataViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -254,7 +255,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{1e6b938a-4e7e-4c89-a435-904566416e81}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

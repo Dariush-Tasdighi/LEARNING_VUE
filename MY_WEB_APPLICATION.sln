@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MY_WEB_APPLICATION", "MY_WE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.FileManager", "DtxFileManagerVue\Dtx.FileManager.csproj", "{4261A6AE-3359-4EF3-BF21-0C81009DAE56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{1E6B938A-4E7E-4C89-A435-904566416E81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4261A6AE-3359-4EF3-BF21-0C81009DAE56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4261A6AE-3359-4EF3-BF21-0C81009DAE56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4261A6AE-3359-4EF3-BF21-0C81009DAE56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6B938A-4E7E-4C89-A435-904566416E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6B938A-4E7E-4C89-A435-904566416E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6B938A-4E7E-4C89-A435-904566416E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6B938A-4E7E-4C89-A435-904566416E81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

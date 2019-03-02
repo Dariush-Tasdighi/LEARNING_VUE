@@ -215,7 +215,7 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.JsonResult GetMessage5000()
 		{
-			var data = "Hello, World";
+			string data = "Hello, World";
 
 			return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
@@ -223,6 +223,14 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.JsonResult GetMessage5010()
 		{
+			// **************************************************
+			//ViewModels.MessageViewModel viewModel = new ViewModels.MessageViewModel();
+
+			//viewModel.Message = "Hello, World!";
+
+			//return Json(data: viewModel, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+			// **************************************************
+
 			var data =
 				new { Message = "Hello, World" };
 
