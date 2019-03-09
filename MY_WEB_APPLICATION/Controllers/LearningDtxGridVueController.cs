@@ -195,17 +195,17 @@ namespace MY_WEB_APPLICATION.Controllers
 				int count =
 					data.Count();
 
-				if (string.IsNullOrWhiteSpace(inputViewModel.sortFieldName))
+				if (string.IsNullOrWhiteSpace(inputViewModel.SortFieldName))
 				{
 					data = data.OrderBy(current => current.InsertDateTime);
 				}
 				else
 				{
-					switch (inputViewModel.sortFieldName.ToUpper())
+					switch (inputViewModel.SortFieldName.ToUpper())
 					{
 						case "ISACTIVE":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.IsActive);
 							}
@@ -219,7 +219,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						case "AGE":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.Age);
 							}
@@ -233,7 +233,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						case "SALARY":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.Salary);
 							}
@@ -247,7 +247,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						case "FIRSTNAME":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.FirstName);
 							}
@@ -261,7 +261,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						case "LASTNAME":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.LastName);
 							}

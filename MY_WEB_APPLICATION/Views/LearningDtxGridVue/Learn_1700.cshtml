@@ -22,7 +22,8 @@
 				<div class="col-xs-12">
 					<ul>
 						<li v-for="item in settings.items">
-							Title: {{ item['lastName'] }} - Selected {{ item['isSelected'] }}
+							@*Title: {{ item['lastName'] }} - Selected {{ item['isSelected'] }}*@
+							Title: {{ item.lastName }} - Selected {{ item.isSelected }}
 						</li>
 					</ul>
 				</div>

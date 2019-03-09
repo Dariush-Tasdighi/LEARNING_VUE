@@ -330,6 +330,8 @@ namespace MY_WEB_APPLICATION.Controllers
 		[System.Web.Mvc.HttpPost]
 		public System.Web.Mvc.JsonResult GetMessage5350(Models.Employee employee)
 		{
+			System.Threading.Thread.Sleep(5000);
+
 			var data =
 				new { Message = $"Welcome { employee.Name } { employee.Family }!" };
 
@@ -534,7 +536,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 			//return (Json(data: result, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet));
 
-			return (JsonNet(data: result));
+			return JsonNet(data: result);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -766,17 +768,17 @@ namespace MY_WEB_APPLICATION.Controllers
 				int count =
 					data.Count();
 
-				if (string.IsNullOrWhiteSpace(inputViewModel.sortFieldName))
+				if (string.IsNullOrWhiteSpace(inputViewModel.SortFieldName))
 				{
 					data = data.OrderBy(current => current.InsertDateTime);
 				}
 				else
 				{
-					switch (inputViewModel.sortFieldName.ToUpper())
+					switch (inputViewModel.SortFieldName.ToUpper())
 					{
 						case "AGE":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.Age);
 							}
@@ -790,7 +792,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						case "SALARY":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.Salary);
 							}
@@ -804,7 +806,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						case "FIRSTNAME":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.FirstName);
 							}
@@ -818,7 +820,7 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						case "LASTNAME":
 						{
-							if (inputViewModel.sortDirection == "0")
+							if (inputViewModel.SortDirection == "0")
 							{
 								data = data.OrderBy(current => current.LastName);
 							}

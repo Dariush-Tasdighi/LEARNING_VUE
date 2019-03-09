@@ -15,11 +15,11 @@
 		// **********
 
 		// **********
-		public string sortFieldName { get; set; }
+		public string SortFieldName { get; set; }
 		// **********
 
 		// **********
-		public string sortDirection { get; set; }
+		public string SortDirection { get; set; }
 		// **********
 
 		// **********
