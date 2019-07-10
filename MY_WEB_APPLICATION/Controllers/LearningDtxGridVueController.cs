@@ -197,7 +197,9 @@ namespace MY_WEB_APPLICATION.Controllers
 
 				if (string.IsNullOrWhiteSpace(inputViewModel.SortFieldName))
 				{
-					data = data.OrderBy(current => current.InsertDateTime);
+					data =
+						data
+						.OrderByDescending(current => current.InsertDateTime);
 				}
 				else
 				{
@@ -207,11 +209,15 @@ namespace MY_WEB_APPLICATION.Controllers
 						{
 							if (inputViewModel.SortDirection == "0")
 							{
-								data = data.OrderBy(current => current.IsActive);
+								data =
+									data
+									.OrderBy(current => current.IsActive);
 							}
 							else
 							{
-								data = data.OrderByDescending(current => current.IsActive);
+								data =
+									data
+									.OrderByDescending(current => current.IsActive);
 							}
 
 							break;
@@ -221,11 +227,15 @@ namespace MY_WEB_APPLICATION.Controllers
 						{
 							if (inputViewModel.SortDirection == "0")
 							{
-								data = data.OrderBy(current => current.Age);
+								data =
+									data
+									.OrderBy(current => current.Age);
 							}
 							else
 							{
-								data = data.OrderByDescending(current => current.Age);
+								data =
+									data
+									.OrderByDescending(current => current.Age);
 							}
 
 							break;
@@ -235,11 +245,15 @@ namespace MY_WEB_APPLICATION.Controllers
 						{
 							if (inputViewModel.SortDirection == "0")
 							{
-								data = data.OrderBy(current => current.Salary);
+								data =
+									data
+									.OrderBy(current => current.Salary);
 							}
 							else
 							{
-								data = data.OrderByDescending(current => current.Salary);
+								data =
+									data
+									.OrderByDescending(current => current.Salary);
 							}
 
 							break;
@@ -249,11 +263,15 @@ namespace MY_WEB_APPLICATION.Controllers
 						{
 							if (inputViewModel.SortDirection == "0")
 							{
-								data = data.OrderBy(current => current.FirstName);
+								data =
+									data
+									.OrderBy(current => current.FirstName);
 							}
 							else
 							{
-								data = data.OrderByDescending(current => current.FirstName);
+								data =
+									data
+									.OrderByDescending(current => current.FirstName);
 							}
 
 							break;
@@ -263,11 +281,15 @@ namespace MY_WEB_APPLICATION.Controllers
 						{
 							if (inputViewModel.SortDirection == "0")
 							{
-								data = data.OrderBy(current => current.LastName);
+								data =
+									data
+									.OrderBy(current => current.LastName);
 							}
 							else
 							{
-								data = data.OrderByDescending(current => current.LastName);
+								data =
+									data
+									.OrderByDescending(current => current.LastName);
 							}
 
 							break;
@@ -275,7 +297,9 @@ namespace MY_WEB_APPLICATION.Controllers
 
 						default:
 						{
-							data = data.OrderBy(current => current.InsertDateTime);
+							data =
+								data
+								.OrderBy(current => current.InsertDateTime);
 
 							break;
 						}
@@ -294,14 +318,14 @@ namespace MY_WEB_APPLICATION.Controllers
 
 				result.IsSuccess = true;
 
-				result.AddErrorMessage("Error (1)!");
+				//result.AddErrorMessage("Error (1)!");
 
-				result.AddHiddenMessage("Hidden (1)!");
-				result.AddHiddenMessage("Hidden (2)!");
+				//result.AddHiddenMessage("Hidden (1)!");
+				//result.AddHiddenMessage("Hidden (2)!");
 
-				result.AddInformationMessage("Information (1)!");
-				result.AddInformationMessage("Information (2)!");
-				result.AddInformationMessage("Information (3)!");
+				//result.AddInformationMessage("Information (1)!");
+				//result.AddInformationMessage("Information (2)!");
+				//result.AddInformationMessage("Information (3)!");
 			}
 			catch (System.Exception ex)
 			{
