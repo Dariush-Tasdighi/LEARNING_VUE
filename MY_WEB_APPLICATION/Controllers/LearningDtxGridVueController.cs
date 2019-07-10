@@ -195,6 +195,117 @@ namespace MY_WEB_APPLICATION.Controllers
 				int count =
 					data.Count();
 
+				//if (string.IsNullOrWhiteSpace(inputViewModel.SortFieldName))
+				//{
+				//	data =
+				//		data
+				//		.OrderByDescending(current => current.InsertDateTime);
+				//}
+				//else
+				//{
+				//	switch (inputViewModel.SortFieldName.ToUpper())
+				//	{
+				//		case "ISACTIVE":
+				//		{
+				//			if (inputViewModel.SortDirection == "0")
+				//			{
+				//				data =
+				//					data
+				//					.OrderBy(current => current.IsActive);
+				//			}
+				//			else
+				//			{
+				//				data =
+				//					data
+				//					.OrderByDescending(current => current.IsActive);
+				//			}
+
+				//			break;
+				//		}
+
+				//		case "AGE":
+				//		{
+				//			if (inputViewModel.SortDirection == "0")
+				//			{
+				//				data =
+				//					data
+				//					.OrderBy(current => current.Age);
+				//			}
+				//			else
+				//			{
+				//				data =
+				//					data
+				//					.OrderByDescending(current => current.Age);
+				//			}
+
+				//			break;
+				//		}
+
+				//		case "SALARY":
+				//		{
+				//			if (inputViewModel.SortDirection == "0")
+				//			{
+				//				data =
+				//					data
+				//					.OrderBy(current => current.Salary);
+				//			}
+				//			else
+				//			{
+				//				data =
+				//					data
+				//					.OrderByDescending(current => current.Salary);
+				//			}
+
+				//			break;
+				//		}
+
+				//		case "FIRSTNAME":
+				//		{
+				//			if (inputViewModel.SortDirection == "0")
+				//			{
+				//				data =
+				//					data
+				//					.OrderBy(current => current.FirstName);
+				//			}
+				//			else
+				//			{
+				//				data =
+				//					data
+				//					.OrderByDescending(current => current.FirstName);
+				//			}
+
+				//			break;
+				//		}
+
+				//		case "LASTNAME":
+				//		{
+				//			if (inputViewModel.SortDirection == "0")
+				//			{
+				//				data =
+				//					data
+				//					.OrderBy(current => current.LastName);
+				//			}
+				//			else
+				//			{
+				//				data =
+				//					data
+				//					.OrderByDescending(current => current.LastName);
+				//			}
+
+				//			break;
+				//		}
+
+				//		default:
+				//		{
+				//			data =
+				//				data
+				//				.OrderBy(current => current.InsertDateTime);
+
+				//			break;
+				//		}
+				//	}
+				//}
+
 				if (string.IsNullOrWhiteSpace(inputViewModel.SortFieldName))
 				{
 					data =
@@ -203,106 +314,17 @@ namespace MY_WEB_APPLICATION.Controllers
 				}
 				else
 				{
-					switch (inputViewModel.SortFieldName.ToUpper())
+					if (inputViewModel.SortDirection == "0")
 					{
-						case "ISACTIVE":
-						{
-							if (inputViewModel.SortDirection == "0")
-							{
-								data =
-									data
-									.OrderBy(current => current.IsActive);
-							}
-							else
-							{
-								data =
-									data
-									.OrderByDescending(current => current.IsActive);
-							}
-
-							break;
-						}
-
-						case "AGE":
-						{
-							if (inputViewModel.SortDirection == "0")
-							{
-								data =
-									data
-									.OrderBy(current => current.Age);
-							}
-							else
-							{
-								data =
-									data
-									.OrderByDescending(current => current.Age);
-							}
-
-							break;
-						}
-
-						case "SALARY":
-						{
-							if (inputViewModel.SortDirection == "0")
-							{
-								data =
-									data
-									.OrderBy(current => current.Salary);
-							}
-							else
-							{
-								data =
-									data
-									.OrderByDescending(current => current.Salary);
-							}
-
-							break;
-						}
-
-						case "FIRSTNAME":
-						{
-							if (inputViewModel.SortDirection == "0")
-							{
-								data =
-									data
-									.OrderBy(current => current.FirstName);
-							}
-							else
-							{
-								data =
-									data
-									.OrderByDescending(current => current.FirstName);
-							}
-
-							break;
-						}
-
-						case "LASTNAME":
-						{
-							if (inputViewModel.SortDirection == "0")
-							{
-								data =
-									data
-									.OrderBy(current => current.LastName);
-							}
-							else
-							{
-								data =
-									data
-									.OrderByDescending(current => current.LastName);
-							}
-
-							break;
-						}
-
-						default:
-						{
-							data =
-								data
-								.OrderBy(current => current.InsertDateTime);
-
-							break;
-						}
+						data =
+							data
+							.OrderBy(current => current.GetPropertyValue(inputViewModel.SortFieldName));
+					}
+					else
+					{
+						data =
+							data
+							.OrderByDescending(current => current.GetPropertyValue(inputViewModel.SortFieldName));
 					}
 				}
 
