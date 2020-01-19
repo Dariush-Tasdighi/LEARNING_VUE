@@ -1,0 +1,97 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn 600</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" v-cloak>
+
+		<h1>{{ title }}</h1>
+
+		<h3 v-on:click="doSomething">Click Me!</h3>
+
+		<h3 v-on:click="doSomething()">Click Me!</h3>
+
+		<h3 @@click="doSomething">Click Me!</h3>
+
+		<h3 @@click="doSomething()">Click Me!</h3>
+
+		<hr />
+
+		<button type="button" @@click="doSomethingNew">Click Me!</button>
+
+		<hr />
+
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				title: `Welcome...`
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					alert('Hello, World!')
+
+				},
+
+				//doSomethingNew: function () {
+
+				//	// Note: دستور ذیل کار نمی‌کند
+				//	//title = `I'm Dariush Tasdighi!`
+
+				//	this.title = `I'm Dariush Tasdighi!`
+
+				//	//app.title = `I'm Dariush Tasdighi!`
+
+				//},
+
+				// Learning Arrow Function!
+				// مستندات ویوو با توجه به مشکلی که در کد ذیل بوجود می‌آید
+				// استفاده نکنیم Arrow Function توصیه می‌کند که از
+
+				doSomethingNew: () => {
+
+					// کار نمی‌کند Arrow Function دقت کنید که دستور ذیل در
+					//this.title = `I'm Dariush Tasdighi!`
+
+					// Note: this.title is undefined!
+
+					app.title = `I'm Dariush Tasdighi!`
+
+				},
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

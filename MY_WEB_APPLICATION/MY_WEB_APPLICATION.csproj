@@ -102,6 +102,8 @@
     <Content Include="Content\bootstrap-rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\DariushTasdighi.jpg" />
+    <Content Include="Content\NewSite.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\NewSite.fa-IR.css" />
     <Content Include="Content\Site.fa-IR.css" />
@@ -249,6 +251,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LearningDtxGridVueController.cs" />
+    <Compile Include="Controllers\NewLearningController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -345,6 +348,13 @@
     <Content Include="Views\Home\Learn0932.cshtml" />
     <Content Include="Views\Home\Learn0933.cshtml" />
     <Content Include="Views\Home\Learn0970.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0100.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0200.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0300.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0600.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0700.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -364,6 +374,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

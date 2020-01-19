@@ -1,0 +1,73 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn 500</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" v-cloak>
+		<h1>Learning Directive!</h1>
+
+		<hr />
+
+		<div v-text="message1"></div>
+		<div v-html="message1"></div>
+
+		<hr />
+
+		<div v-text="message2"></div>
+		<div v-html="message2"></div>
+
+		<hr />
+
+		<img v-bind:src="myImage.source" v-bind:alt="myImage.alt" />
+
+		<hr />
+
+		<img :src="myImage.source" :alt="myImage.alt" />
+
+		<hr />
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				message1: 'Hello, World!',
+				message2: '<b>Hello, World!</b>',
+
+				myImage: {
+
+					alt: 'Dariush Tasdighi',
+					source: '/Content/Images/DariushTasdighi.jpg',
+
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

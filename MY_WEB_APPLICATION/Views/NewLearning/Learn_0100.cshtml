@@ -1,0 +1,78 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn 100</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app">
+		{{ title }}
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		// Step (1)
+		//new Vue();
+
+		// Step (2)
+		//new Vue()
+
+		// Step (3)
+		//const app = new Vue()
+
+		// Step (4)
+		//const app = new Vue({})
+
+		// Step (5)
+		//const app = new Vue({
+
+		//	el: '#app',
+
+		//	data: {
+
+		//		title: 'Hello, World!'
+
+		//	}
+
+		//})
+
+		// Step (6) - Adding Extra (,)
+		//const app = new Vue({
+
+		//	el: '#app',
+
+		//	data: {
+
+		//		title: 'Hello, World!',
+
+		//	},
+
+		//})
+
+		// Step (7) - Using Backtick
+		const app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				title: `Hello, World!`,
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

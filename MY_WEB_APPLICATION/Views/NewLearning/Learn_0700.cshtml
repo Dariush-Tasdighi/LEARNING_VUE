@@ -1,0 +1,79 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn 700</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" v-cloak>
+
+		<button type="button" v-on:click="toggleDisplay">Toggle Display</button>
+
+		OR
+
+		<button type="button" v-on:click="display = !display">Toggle Display</button>
+
+		<hr />
+
+		<div v-show="display">
+			Hello, World!
+		</div>
+
+		<div v-if="display">
+			Hello, World!
+		</div>
+
+		<hr />
+
+		Note: Now use Vue.js DevTools
+		<br />
+		https://github.com/vuejs/vue-devtools
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		// Note: For activating DevTools!
+		Vue.config.devtools = true
+
+		const app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				display: true,
+
+			},
+
+			methods: {
+
+				toggleDisplay: function () {
+
+					this.display = !this.display
+
+				},
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

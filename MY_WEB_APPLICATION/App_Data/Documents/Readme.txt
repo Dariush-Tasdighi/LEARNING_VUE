@@ -74,3 +74,13 @@ https://vuejs.org/v2/guide/components-slots.html
 https://en.wikipedia.org/wiki/Comparison_of_JavaScript_frameworks
 
 Filter!
+
+================================================================
+
+https://npmcharts.com/
+
+	React
+	@Angular/Core
+	Vue
+	Angularjs
+

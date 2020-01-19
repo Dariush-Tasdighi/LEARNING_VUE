@@ -1,0 +1,69 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn 300</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app1" v-cloak>
+		{{ title }}
+		<br />
+		{{ message1 }}
+	</div>
+
+	<hr />
+
+	<div id="app2" v-cloak>
+		{{ title }}
+		<br />
+		{{ message2 }}
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		const app1 = new Vue({
+
+			el: '#app1',
+
+			data: {
+
+				message1: 'Message (1)',
+				title: `Hello, World (1)!`,
+
+			},
+
+		})
+
+		const app2 = new Vue({
+
+			el: '#app2',
+
+			data: {
+
+				message2: 'Message (2)',
+				title: `Hello, World (2)!`,
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
