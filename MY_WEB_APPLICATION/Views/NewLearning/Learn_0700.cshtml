@@ -42,15 +42,23 @@
 
 		Note: Now use Vue.js DevTools
 		<br />
+		Run Google Chrome -> ... -> More Tools -> Extensions -> Vue.js DevTools -> Details -> Toggle On: Allow access to file URLs
+		-> Restart Google Chrome -> We must use [vue.js] instead of [vue.min.js]
+		<br />
 		https://github.com/vuejs/vue-devtools
+		<br />
+		https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
 	</div>
 
-	<script src="~/Scripts/vue.min.js"></script>
+	@*You are running Vue in development mode.*@
+	<script src="~/Scripts/vue.js"></script>
+
+	@*<script src="~/Scripts/vue.min.js"></script>*@
 
 	<script>
 
-		// Note: For activating DevTools!
-		Vue.config.devtools = true
+		// Note: For activating DevTools if you are using [vue.js]!
+		//Vue.config.devtools = true
 
 		const app = new Vue({
 

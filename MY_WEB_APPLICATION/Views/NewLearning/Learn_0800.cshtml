@@ -1,0 +1,153 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn 800</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="app" v-cloak>
+
+		<ul>
+			<li v-for="fullName of fullNames">{{ fullName }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-for="item in fullNames">{{ item }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-bind:style="{color:item}" v-for="item in colors">{{ item }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-bind:style="{color:item}" v-for="(item, index) in colors">{{ index }} - {{ item }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-bind:style="{color:item}" v-for="(item, index) in colors">{{ index + 1 }} - {{ item }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-for="item in people">{{ item }}</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-for="item in people">I'm {{ item.fullName }} and {{ item.age }} years old.</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-for="item in people">
+				<button type="button" class="btn btn-primary btn-sm" v-on:click="displayPersonDetails(item)">Details</button>
+				I'm {{ item.fullName }} and {{ item.age }} years old.
+			</li>
+		</ul>
+
+		<hr />
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		const allOfFullNames =
+			[
+				`Full Name (1)`,
+				`Full Name (2)`,
+				`Full Name (3)`,
+				`Full Name (4)`,
+				`Full Name (5)`,
+			]
+
+		const allOfColors = [
+			`red`,
+			`blue`,
+			`gray`,
+			`black`,
+			`green`,
+		]
+
+		const allOfPeople = [
+			{ fullName: `Full Name (1)`, age: 21, description: `Description (1)`, },
+			{ fullName: `Full Name (2)`, age: 22, description: `Description (2)`, },
+			{ fullName: `Full Name (3)`, age: 23, description: `Description (3)`, },
+			{ fullName: `Full Name (4)`, age: 24, description: `Description (4)`, },
+			{ fullName: `Full Name (5)`, age: 25, description: `Description (5)`, },
+		]
+
+		const app = new Vue({
+
+			el: '#app',
+
+			data: {
+
+				colors: allOfColors,
+				people: allOfPeople,
+				fullNames: allOfFullNames,
+
+			},
+
+			methods: {
+
+				displayPersonDetails: function (item) {
+
+					console.log(item)
+
+					// Solution (1)
+					//alert(item)
+
+					// Solution (2)
+					//let message =
+					//	'Full Name: ' +
+					//	item.fullName +
+					//	'\n' +
+					//	'Age: ' +
+					//	item.age +
+					//	'\n' +
+					//	'Description: ' +
+					//	item.description
+
+					// Solution (3)
+					let message =
+						`Full Name: ${item.fullName}\nAge: ${item.age}\nDescription: ${item.description}`
+
+					alert(message)
+
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
