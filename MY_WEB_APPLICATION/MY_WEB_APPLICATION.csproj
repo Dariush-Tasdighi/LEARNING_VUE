@@ -348,7 +348,6 @@
     <Content Include="Views\Home\Learn0932.cshtml" />
     <Content Include="Views\Home\Learn0933.cshtml" />
     <Content Include="Views\Home\Learn0970.cshtml" />
-    <Content Include="Views\NewLearning\Learn_0100.cshtml" />
     <Content Include="Views\NewLearning\Learn_0200.cshtml" />
     <Content Include="Views\NewLearning\Learn_0300.cshtml" />
     <Content Include="Views\NewLearning\Learn_0400.cshtml" />
@@ -356,6 +355,12 @@
     <Content Include="Views\NewLearning\Learn_0600.cshtml" />
     <Content Include="Views\NewLearning\Learn_0700.cshtml" />
     <Content Include="Views\NewLearning\Learn_0800.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0900.cshtml" />
+    <Content Include="Views\NewLearning\Learn_1000.cshtml" />
+    <Content Include="Views\NewLearning\Learn_0100.cshtml" />
+    <Content Include="Views\NewLearning\Learn_1100.cshtml" />
+    <None Include="Views\NewLearning\Learn_0900.cshtml.BAK" />
+    <Content Include="Views\NewLearning\Learn_1200.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -392,7 +397,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49259</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49259/</IISUrl>
+          <IISUrl>http://localhost:49260/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

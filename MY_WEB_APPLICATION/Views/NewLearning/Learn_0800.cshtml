@@ -8,7 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Learn 800</title>
+	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/NewSite.css" rel="stylesheet" />
@@ -20,129 +20,72 @@
 	</style>
 </head>
 <body>
-	<div class="container" id="app" v-cloak>
+	<div id="app" v-cloak>
 
-		<ul>
-			<li v-for="fullName of fullNames">{{ fullName }}</li>
-		</ul>
+		<button type="button" v-on:click="toggleDisplay">Toggle Display</button>
 
-		<hr />
+		OR
 
-		<ul>
-			<li v-for="item in fullNames">{{ item }}</li>
-		</ul>
+		<button type="button" v-on:click="display = !display">Toggle Display</button>
 
 		<hr />
 
-		<ul>
-			<li v-bind:style="{color:item}" v-for="item in colors">{{ item }}</li>
-		</ul>
+		<div v-show="display">
+			Hello, World!
+		</div>
+
+		<div v-if="display">
+			Hello, World!
+		</div>
 
 		<hr />
 
-		<ul>
-			<li v-bind:style="{color:item}" v-for="(item, index) in colors">{{ index }} - {{ item }}</li>
-		</ul>
+		<div v-if="display">
+			Hello, World (1)!
+		</div>
+		<div v-else="display">
+			Hello, World (2)!
+		</div>
 
 		<hr />
 
-		<ul>
-			<li v-bind:style="{color:item}" v-for="(item, index) in colors">{{ index + 1 }} - {{ item }}</li>
-		</ul>
-
-		<hr />
-
-		<ul>
-			<li v-for="item in people">{{ item }}</li>
-		</ul>
-
-		<hr />
-
-		<ul>
-			<li v-for="item in people">I'm {{ item.fullName }} and {{ item.age }} years old.</li>
-		</ul>
-
-		<hr />
-
-		<ul>
-			<li v-for="item in people">
-				<button type="button" class="btn btn-primary btn-sm" v-on:click="displayPersonDetails(item)">Details</button>
-				I'm {{ item.fullName }} and {{ item.age }} years old.
-			</li>
-		</ul>
-
-		<hr />
-
+		Note: Now use Vue.js DevTools
+		<br />
+		Run Google Chrome -> ... -> More Tools -> Extensions -> Vue.js DevTools -> Details -> Toggle On: Allow access to file URLs
+		-> Restart Google Chrome -> We must use [vue.js] instead of [vue.min.js]
+		<br />
+		https://github.com/vuejs/vue-devtools
+		<br />
+		https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
 	</div>
 
+	@*You are running Vue in development mode.*@
 	<script src="~/Scripts/vue.js"></script>
+
+	@*<script src="~/Scripts/vue.min.js"></script>*@
 
 	<script>
 
-		const allOfFullNames =
-			[
-				`Full Name (1)`,
-				`Full Name (2)`,
-				`Full Name (3)`,
-				`Full Name (4)`,
-				`Full Name (5)`,
-			]
-
-		const allOfColors = [
-			`red`,
-			`blue`,
-			`gray`,
-			`black`,
-			`green`,
-		]
-
-		const allOfPeople = [
-			{ fullName: `Full Name (1)`, age: 21, description: `Description (1)`, },
-			{ fullName: `Full Name (2)`, age: 22, description: `Description (2)`, },
-			{ fullName: `Full Name (3)`, age: 23, description: `Description (3)`, },
-			{ fullName: `Full Name (4)`, age: 24, description: `Description (4)`, },
-			{ fullName: `Full Name (5)`, age: 25, description: `Description (5)`, },
-		]
+		// Note: For activating DevTools if you are using [vue.js]!
+		//Vue.config.devtools = true
 
 		const app = new Vue({
 
-			el: '#app',
+			el: `#app`,
 
 			data: {
 
-				colors: allOfColors,
-				people: allOfPeople,
-				fullNames: allOfFullNames,
+				display: true,
 
 			},
 
 			methods: {
 
-				displayPersonDetails: function (item) {
+				toggleDisplay: function () {
 
-					console.log(item)
+					this.display = !this.display
 
-					// Solution (1)
-					//alert(item)
-
-					// Solution (2)
-					//let message =
-					//	'Full Name: ' +
-					//	item.fullName +
-					//	'\n' +
-					//	'Age: ' +
-					//	item.age +
-					//	'\n' +
-					//	'Description: ' +
-					//	item.description
-
-					// Solution (3)
-					let message =
-						`Full Name: ${item.fullName}\nAge: ${item.age}\nDescription: ${item.description}`
-
-					alert(message)
-
-				}
+				},
 
 			},
 

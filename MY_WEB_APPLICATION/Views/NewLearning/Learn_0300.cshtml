@@ -8,7 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Learn 300</title>
+	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/NewSite.css" rel="stylesheet" />
@@ -20,45 +20,25 @@
 	</style>
 </head>
 <body>
-	<div id="app1" v-cloak>
+	<div id="app" v-cloak>
 		{{ title }}
-		<br />
-		{{ message1 }}
-	</div>
 
-	<hr />
-
-	<div id="app2" v-cloak>
-		{{ title }}
 		<br />
-		{{ message2 }}
+
+		Google Chrome -> Console -> Write: app.title = 'Hello, Vue!' -> ENTER
 	</div>
 
 	<script src="~/Scripts/vue.min.js"></script>
 
 	<script>
 
-		const app1 = new Vue({
+		const app = new Vue({
 
-			el: '#app1',
-
-			data: {
-
-				message1: 'Message (1)',
-				title: `Hello, World (1)!`,
-
-			},
-
-		})
-
-		const app2 = new Vue({
-
-			el: '#app2',
+			el: `#app`,
 
 			data: {
 
-				message2: 'Message (2)',
-				title: `Hello, World (2)!`,
+				title: `Hello, World!`,
 
 			},
 

@@ -8,33 +8,22 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Learn 200</title>
+	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/NewSite.css" rel="stylesheet" />
-
-	<style>
-		[v-cloak] {
-			display: none;
-		}
-	</style>
 </head>
 <body>
-	<div id="app" v-cloak>
+	<div id="app">
 		{{ title }}
-
-		<br />
-
-		Google Chrome -> Console -> Write: app.title = 'Hello, Vue!' -> ENTER
 	</div>
 
 	<script src="~/Scripts/vue.min.js"></script>
 
 	<script>
-
 		const app = new Vue({
 
-			el: '#app',
+			el: `#app`,
 
 			data: {
 

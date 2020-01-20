@@ -8,7 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Learn 600</title>
+	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/NewSite.css" rel="stylesheet" />
@@ -21,23 +21,27 @@
 </head>
 <body>
 	<div id="app" v-cloak>
-
-		<h1>{{ title }}</h1>
-
-		<h3 v-on:click="doSomething">Click Me!</h3>
-
-		<h3 v-on:click="doSomething()">Click Me!</h3>
-
-		<h3 @@click="doSomething">Click Me!</h3>
-
-		<h3 @@click="doSomething()">Click Me!</h3>
+		<h1>Learning Directive!</h1>
 
 		<hr />
 
-		<button type="button" @@click="doSomethingNew">Click Me!</button>
+		<div v-text="message1"></div>
+		<div v-html="message1"></div>
 
 		<hr />
 
+		<div v-text="message2"></div>
+		<div v-html="message2"></div>
+
+		<hr />
+
+		<img v-bind:src="myImage.source" v-bind:alt="myImage.alt" />
+
+		<hr />
+
+		<img :src="myImage.source" :alt="myImage.alt" />
+
+		<hr />
 	</div>
 
 	<script src="~/Scripts/vue.min.js"></script>
@@ -46,47 +50,19 @@
 
 		const app = new Vue({
 
-			el: '#app',
+			el: `#app`,
 
 			data: {
 
-				title: `Welcome...`
+				message1: `Hello, World!`,
+				message2: `<b>Hello, World!</b>`,
 
-			},
+				myImage: {
 
-			methods: {
+					alt: `Dariush Tasdighi`,
+					source: `/Content/Images/DariushTasdighi.jpg`,
 
-				doSomething: function () {
-
-					alert('Hello, World!')
-
-				},
-
-				//doSomethingNew: function () {
-
-				//	// Note: دستور ذیل کار نمی‌کند
-				//	//title = `I'm Dariush Tasdighi!`
-
-				//	this.title = `I'm Dariush Tasdighi!`
-
-				//	//app.title = `I'm Dariush Tasdighi!`
-
-				//},
-
-				// Learning Arrow Function!
-				// مستندات ویوو با توجه به مشکلی که در کد ذیل بوجود می‌آید
-				// استفاده نکنیم Arrow Function توصیه می‌کند که از
-
-				doSomethingNew: () => {
-
-					// کار نمی‌کند Arrow Function دقت کنید که دستور ذیل در
-					//this.title = `I'm Dariush Tasdighi!`
-
-					// Note: this.title is undefined!
-
-					app.title = `I'm Dariush Tasdighi!`
-
-				},
+				}
 
 			},
 

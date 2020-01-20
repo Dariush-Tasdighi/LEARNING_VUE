@@ -20,17 +20,17 @@
 	</style>
 </head>
 <body>
-	<div id="app" v-cloak>
-		Full Name: {{ firstName }} {{ lastName }}
+	<div class="container" id="app" v-cloak>
+
+		Welcome {{ fullName }}!
 		<br />
-		Full Name: {{ firstName + ` ` + lastName }}
+		<input type="text" v-model="fullName" />
 		<br />
-		Full Name: {{ firstName.toLowerCase() + ` ` + lastName.toLowerCase() }}
-		<br />
-		Full Name: {{ firstName.toUpperCase() + ` ` + lastName.toUpperCase() }}
+		<input type="text" v-model="fullName" />
+
 	</div>
 
-	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 
@@ -40,8 +40,11 @@
 
 			data: {
 
-				firstName: `Dariush`,
-				lastName: `Tasdighi`,
+				fullName: `Mr. Dariush Tasdighi`,
+
+			},
+
+			methods: {
 
 			},
 
