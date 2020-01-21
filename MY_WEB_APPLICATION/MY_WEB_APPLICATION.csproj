@@ -374,6 +374,9 @@
     <Content Include="Views\NewLearning\Learn_2400.cshtml" />
     <Content Include="Views\NewLearning\Learn_2500.cshtml" />
     <Content Include="Views\NewLearning\Learn_2600.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2700.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2800.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2900.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
