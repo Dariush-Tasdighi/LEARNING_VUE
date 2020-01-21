@@ -1,0 +1,97 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="app" v-cloak>
+
+		<h3>
+			Learning Comuted!
+		</h3>
+
+		<p>
+			Google Chrome -> Inspect Elements -> Breakpoint in [z] function -> Click on [doSomething] button and Debug it!
+		</p>
+
+		<input type="text" v-model="x" />
+		<input type="text" v-model="y" />
+
+		<br />
+
+		{{ z }}
+
+		@*حالا دستور ذیل کار نمی‌کند*@
+		@*{{ z() }}*@
+
+		<br />
+
+		<button type="button" v-on:click="doSomething()">Do something!</button>
+
+		<br />
+
+		{{ t }}
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				x: 10,
+				y: 20,
+				t: 30,
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					this.t++
+
+				},
+
+			},
+
+			computed: {
+
+				// این‌گونه توابع نمی‌توانند پارامتر ورودی داشته باشند
+				z: function () {
+
+					let result =
+						this.x + this.y
+
+					return result
+
+				},
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

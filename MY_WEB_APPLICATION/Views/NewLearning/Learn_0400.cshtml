@@ -34,6 +34,20 @@
 		{{ message2 }}
 	</div>
 
+	<hr />
+
+	<div class="app3" v-cloak>
+		{{ message3 }}
+	</div>
+
+	<hr />
+
+	<div class="app3" v-cloak>
+		{{ message3 }}
+	</div>
+
+	<hr />
+
 	<script src="~/Scripts/vue.min.js"></script>
 
 	<script>
@@ -59,6 +73,19 @@
 
 				message2: `Message (2)`,
 				title: `Hello, World (2)!`,
+
+			},
+
+		})
+
+		const app3 = new Vue({
+
+			// فقط برای اولین عنصر کار می‌کند
+			el: `.app3`,
+
+			data: {
+
+				message3: `Message (3)`,
 
 			},
 

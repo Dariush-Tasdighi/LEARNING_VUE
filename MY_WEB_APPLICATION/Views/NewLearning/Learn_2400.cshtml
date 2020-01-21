@@ -1,0 +1,117 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="app" v-cloak>
+
+		@*حل مشکل تکراری بودن آیتم‌های لیست ذیل در درس بعد*@
+
+		<select v-model="selectedRole">
+			<option v-bind:value="null">[Filter by role]</option>
+			<option v-for="item in people" v-bind:value="item.role">{{ item.role }}</option>
+		</select>
+
+		<hr />
+
+		@*<div class="card" v-for="item in people" v-show="item.role === selectedRole">*@
+
+		<div class="card-columns">
+			<div class="card" v-for="item in people" v-show="selectedRole === null || item.role === selectedRole">
+				<div class="card-header bg-info" v-on:click="toggleDisplayDetails(item)">
+					{{ item.fullName }}
+				</div>
+
+				<div class="card-body" v-show="item.displayDetails">
+					@*Id: {{ item.id }}*@
+					@*<br />*@
+					Age: {{ item.age }}
+					<br />
+					Role: {{ item.role }}
+					@*<br />*@
+					@*{{ item.displayDetails }}*@
+				</div>
+
+				<div class="card-footer" v-if="item.description" v-show="item.displayDetails">
+					{{ item.description }}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		const allOfPeople = [
+			{ id: 1, fullName: `Full Name (1)`, age: 21, role: `user`, description: `Description (1)`, },
+			{ id: 2, fullName: `Full Name (2)`, age: 22, role: `manager`, description: `Description (2)`, },
+			{ id: 3, fullName: `Full Name (3)`, age: 23, role: `admin`, description: `Description (3)`, },
+			{ id: 4, fullName: `Full Name (4)`, age: 24, role: `user`, description: `Description (4)`, },
+			{ id: 5, fullName: `Full Name (5)`, age: 25, role: `manager`, },
+			{ id: 6, fullName: `Full Name (6)`, age: 26, role: `user`, description: `Description (6)`, },
+			{ id: 7, fullName: `Full Name (7)`, age: 27, role: `admin`, },
+			{ id: 8, fullName: `Full Name (8)`, age: 28, role: `user`, },
+			{ id: 9, fullName: `Full Name (9)`, age: 29, role: `user`, },
+		]
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				selectedRole: null,
+				people: allOfPeople,
+
+			},
+
+			methods: {
+
+				toggleDisplayDetails: function (item) {
+
+					//alert(item.displayDetails)
+					item.displayDetails = !item.displayDetails
+					//alert(item.displayDetails)
+
+				},
+
+			},
+
+			created: function () {
+
+				for (let index = 0; index < this.people.length; index++) {
+
+					// برای اضافه کردن یک ویژگی جدید
+					// دستور ذیل کار نمی‌کند
+					//this.people[index].displayDetails = true
+
+					Vue.set(this.people[index], `displayDetails`, true)
+
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

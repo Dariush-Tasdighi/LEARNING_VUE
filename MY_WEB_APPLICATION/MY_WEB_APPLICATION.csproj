@@ -298,9 +298,9 @@
     <Content Include="Views\Home\Learn5700.cshtml" />
     <None Include="Views\Home\Learn0550.cshtml.BAK" />
     <None Include="Views\Home\Learn0575.cshtml.BAK" />
-    <Content Include="Views\Home\Learn0583.cshtml" />
+    <None Include="Views\Home\Learn0583.cshtml.BAK" />
     <Content Include="Views\Home\Learn0850.cshtml" />
-    <Content Include="Views\Home\Learn0675.cshtml" />
+    <None Include="Views\Home\Learn0675.cshtml.BAK_COMPONETS" />
     <Content Include="Views\Home\Learn0750.cshtml" />
     <Content Include="Views\Home\Learn0875.cshtml" />
     <None Include="Views\Home\Learn0900.cshtml.BAK" />
@@ -311,7 +311,7 @@
     <None Include="Views\Home\Learn0950.cshtml.BAK" />
     <None Include="Views\Home\Learn0960.cshtml.BAK" />
     <Content Include="Views\Home\Learn7000.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
+    <None Include="Views\Home\Test.cshtml.BAK" />
     <Content Include="Views\Home\Learn7100.cshtml" />
     <Content Include="Views\Home\Learn7200.cshtml" />
     <Content Include="Views\Home\Learn7300.cshtml" />
@@ -341,13 +341,13 @@
     <Content Include="Views\LearningDtxGridVue\Learn_5000.cshtml" />
     <Content Include="Views\LearningDtxGridVue\Learn_1800.cshtml" />
     <Content Include="Views\Home\Learn6300.cshtml" />
-    <Content Include="Views\Home\Temp.cshtml" />
+    <None Include="Views\Home\Temp.cshtml.BAK" />
     <None Include="Views\Home\Learn0050.cshtml.BAK" />
     <None Include="Views\Home\Learn0525.cshtml.BAK" />
-    <Content Include="Views\Home\Learn0935.cshtml" />
-    <Content Include="Views\Home\Learn0932.cshtml" />
-    <Content Include="Views\Home\Learn0933.cshtml" />
-    <Content Include="Views\Home\Learn0970.cshtml" />
+    <None Include="Views\Home\Learn0935.cshtml.BAK" />
+    <None Include="Views\Home\Learn0932.cshtml.BAK" />
+    <None Include="Views\Home\Learn0933.cshtml.BAK" />
+    <None Include="Views\Home\Learn0970.cshtml.BAK" />
     <Content Include="Views\NewLearning\Learn_0200.cshtml" />
     <Content Include="Views\NewLearning\Learn_0300.cshtml" />
     <Content Include="Views\NewLearning\Learn_0400.cshtml" />
@@ -359,7 +359,8 @@
     <Content Include="Views\NewLearning\Learn_1000.cshtml" />
     <Content Include="Views\NewLearning\Learn_0100.cshtml" />
     <Content Include="Views\NewLearning\Learn_1100.cshtml" />
-    <None Include="Views\NewLearning\Learn_0900.cshtml.BAK" />
+    <Content Include="Views\NewLearning\Learn_2300.cshtml" />
+    <None Include="Views\NewLearning\Learn_2200.cshtml" />
     <Content Include="Views\NewLearning\Learn_1200.cshtml" />
     <Content Include="Views\NewLearning\Learn_1400.cshtml" />
     <Content Include="Views\NewLearning\Learn_1500.cshtml" />
@@ -368,6 +369,11 @@
     <Content Include="Views\NewLearning\Learn_1800.cshtml" />
     <Content Include="Views\NewLearning\Learn_1900.cshtml" />
     <Content Include="Views\NewLearning\Learn_1300.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2000.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2100.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2600.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,129 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="app" v-cloak>
+
+		@*کد را هوشمندانه‌تر می‌کنیم computed در این درس، با استفاده از*@
+
+		@*در سورس‌کد ذیل به عدم حضور () دقت نمایید*@
+
+		<select v-model="selectedRole">
+			<option v-bind:value="null">[Filter by role]</option>
+			<option v-for="item in getUniqueRoleList" v-bind:value="item">{{ item }}</option>
+		</select>
+
+		<hr />
+
+		<div class="card-columns">
+			<div class="card" v-for="item in people" v-show="selectedRole === null || item.role === selectedRole">
+				<div class="card-header bg-info" v-on:click="toggleDisplayDetails(item)">
+					{{ item.fullName }}
+				</div>
+
+				<div class="card-body" v-show="item.displayDetails">
+					Age: {{ item.age }}
+					<br />
+					Role: {{ item.role }}
+				</div>
+
+				<div class="card-footer" v-if="item.description" v-show="item.displayDetails">
+					{{ item.description }}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		const allOfPeople = [
+			{ id: 1, fullName: `Full Name (1)`, age: 21, role: `user`, description: `Description (1)`, },
+			{ id: 2, fullName: `Full Name (2)`, age: 22, role: `manager`, description: `Description (2)`, },
+			{ id: 3, fullName: `Full Name (3)`, age: 23, role: `admin`, description: `Description (3)`, },
+			{ id: 4, fullName: `Full Name (4)`, age: 24, role: `user`, description: `Description (4)`, },
+			{ id: 5, fullName: `Full Name (5)`, age: 25, role: `manager`, },
+			{ id: 6, fullName: `Full Name (6)`, age: 26, role: `user`, description: `Description (6)`, },
+			{ id: 7, fullName: `Full Name (7)`, age: 27, role: `admin`, },
+			{ id: 8, fullName: `Full Name (8)`, age: 28, role: `user`, },
+			{ id: 9, fullName: `Full Name (9)`, age: 29, role: `user`, },
+		]
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				selectedRole: null,
+				people: allOfPeople,
+
+			},
+
+			methods: {
+
+				toggleDisplayDetails: function (item) {
+
+					item.displayDetails = !item.displayDetails
+
+				},
+
+			},
+
+			computed: {
+
+				getUniqueRoleList: function () {
+
+					const roles = []
+
+					this.people.forEach(item => {
+
+						if (roles.includes(item.role) == false) {
+
+							roles.push(item.role)
+
+						}
+
+					})
+
+					return roles
+
+				},
+
+			},
+
+			created: function () {
+
+				for (let index = 0; index < this.people.length; index++) {
+
+					Vue.set(this.people[index], `displayDetails`, true)
+
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
