@@ -22,11 +22,15 @@
 <body>
 	<div id="app" v-cloak>
 
-		<button type="button" v-on:click="toggleDisplay">Toggle Display</button>
+		<button type="button" v-on:click="toggleDisplay()">Toggle Display</button>
 
+		<br />
 		OR
+		<br />
 
 		<button type="button" v-on:click="display = !display">Toggle Display</button>
+
+		@*<button type="button" v-on:click="this.display = !this.display">Toggle Display</button>*@
 
 		<hr />
 

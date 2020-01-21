@@ -95,5 +95,35 @@
 		{
 			return View();
 		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_1600()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_1700()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_1800()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_1900()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_2000()
+		{
+			return View();
+		}
 	}
 }

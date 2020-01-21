@@ -24,6 +24,11 @@
 
 		<h1>{{ title }}</h1>
 
+		<b>Note: Try always use () for calling functions!</b>
+
+		<br />
+		<br />
+
 		<h3 v-on:click="doSomething">Click Me!</h3>
 
 		<h3 v-on:click="doSomething()">Click Me!</h3>
@@ -57,12 +62,15 @@
 
 			methods: {
 
+				// **************************************************
 				doSomething: function () {
 
 					alert(`Hello, World!`)
 
 				},
+				// **************************************************
 
+				// **************************************************
 				//doSomethingNew: function () {
 
 				//	// Note: دستور ذیل کار نمی‌کند
@@ -73,21 +81,24 @@
 				//	//app.title = `I'm Dariush Tasdighi!`
 
 				//},
+				// **************************************************
 
+				// **************************************************
 				// Learning Arrow Function!
 				// مستندات ویوو با توجه به مشکلی که در کد ذیل بوجود می‌آید
-				// استفاده نکنیم Arrow Function توصیه می‌کند که از
+				// ها استفاده نکنیم Arrow Function توصیه می‌کند که از
 
-				doSomethingNew: () => {
+				//doSomethingNew: () => {
 
-					// کار نمی‌کند Arrow Function دقت کنید که دستور ذیل در
-					//this.title = `I'm Dariush Tasdighi!`
+				//	// کار نمی‌کند Arrow Function دقت کنید که دستور ذیل در
+				//	//this.title = `I'm Dariush Tasdighi!`
 
-					// Note: this.title is undefined!
+				//	// Note: this.title is undefined!
 
-					app.title = `I'm Dariush Tasdighi!`
+				//	app.title = `I'm Dariush Tasdighi!`
 
-				},
+				//},
+				// **************************************************
 
 			},
 

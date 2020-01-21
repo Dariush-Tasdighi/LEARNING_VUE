@@ -1,0 +1,175 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="app" v-cloak>
+
+		<div class="row">
+			<div class="col-12 table-responsive">
+
+				<table class="table table-bordered table-striped table-hover table-sm table-dark">
+					<tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Count</th>
+						<th>Functions</th>
+						<th>Sub Total</th>
+					</tr>
+
+					<tr v-for="(item, index) in items">
+						<td>{{ index + 1 }}</td>
+						<td>{{ item.name }}</td>
+						<td>{{ item.price }}</td>
+						<td>{{ item.count }}</td>
+						<td>
+							<button type="button" v-on:click="plus(item)" class="btn btn-primary">+</button>
+							&nbsp;
+							<button type="button" v-on:click="minus(item)" class="btn btn-danger">-</button>
+						</td>
+						<td>{{ getSubTotal(item) }}</td>
+					</tr>
+
+					<tr>
+						<td colspan="5">Total</td>
+						<td>{{ getTotal() }}</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		const products =
+			[
+				{ id: 1, name: `Name 1`, price: 10, count: 1 },
+				{ id: 2, name: `Name 2`, price: 20, count: 1 },
+				{ id: 3, name: `Name 3`, price: 30, count: 1 },
+				{ id: 4, name: `Name 4`, price: 40, count: 1 },
+				{ id: 5, name: `Name 5`, price: 50, count: 1 },
+			]
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				items: products,
+
+			},
+
+			methods: {
+
+				plus: function (item) {
+
+					if (item.count < 10) {
+
+						item.count++
+
+					}
+
+				},
+
+				minus: function (item) {
+
+					if (item.count > 0) {
+
+						item.count--
+
+					}
+
+				},
+
+				getSubTotal: function (item) {
+
+					let result =
+						item.count * item.price
+
+					if (item.count > 5) {
+
+						result *= 0.95
+
+					}
+
+					return result
+
+				},
+
+				getTotal: function () {
+
+					let total = 0
+
+					// **************************************************
+					for (let index = 0; index < this.items.length; index++) {
+
+						let currentItem = this.items[index]
+
+						total +=
+							currentItem.count * currentItem.price
+
+					}
+					// **************************************************
+
+					// **************************************************
+					//for (let index = 0; index < this.items.length; index++) {
+
+					//	let currentItem = this.items[index]
+
+					//	total +=
+					//		currentItem.count * currentItem.price
+
+					//	if (currentItem.count > 6) {
+
+					//		total *= 0.96
+
+					//	}
+
+					//}
+					// **************************************************
+
+					// **************************************************
+					//for (let index = 0; index < this.items.length; index++) {
+
+					//	let currentItem = this.items[index]
+
+					//	total +=
+					//		this.getSubTotal(currentItem)
+
+					//}
+					// **************************************************
+
+					return total
+
+				},
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

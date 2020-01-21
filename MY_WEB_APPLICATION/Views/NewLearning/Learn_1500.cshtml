@@ -1,0 +1,77 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="app" v-cloak>
+
+		<div class="row">
+			<div class="col-12 table-responsive">
+
+				<table class="table table-bordered table-striped table-hover table-sm table-dark">
+					<tr>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Count</th>
+					</tr>
+					<tr v-for="item in items">
+						<td>{{ item.name }}</td>
+						<td>{{ item.price }}</td>
+						<td>{{ item.count }}</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		const products =
+			[
+				{ id: 1, name: `Name 1`, price: 10, count: 1 },
+				{ id: 2, name: `Name 2`, price: 20, count: 1 },
+				{ id: 3, name: `Name 3`, price: 30, count: 1 },
+				{ id: 4, name: `Name 4`, price: 40, count: 1 },
+				{ id: 5, name: `Name 5`, price: 50, count: 1 },
+			]
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				items: products,
+
+			},
+
+			methods: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

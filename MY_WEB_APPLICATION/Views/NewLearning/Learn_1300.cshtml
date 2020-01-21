@@ -1,0 +1,116 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Learn</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/NewSite.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="app" v-cloak>
+
+		Welcome {{ fullName }}!
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				fullName: null,
+
+			},
+
+			methods: {
+
+			},
+
+			beforeCreate: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			// OK
+			created: function () {
+
+				// کار می‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			// OK
+			beforeMount: function () {
+
+				// کار می‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			// OK
+			mounted: function () {
+
+				// کار می‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			beforeUpdate: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			updated: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			beforeDestroy: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			destroyed: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+		})
+
+		setTimeout(function () {
+
+			app.$destroy()
+
+		}, 10000)
+
+	</script>
+</body>
+</html>
