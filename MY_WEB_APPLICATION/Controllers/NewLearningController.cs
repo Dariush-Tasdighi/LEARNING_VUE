@@ -13,6 +13,12 @@
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_0150()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_0200()
 		{
 			return View();
