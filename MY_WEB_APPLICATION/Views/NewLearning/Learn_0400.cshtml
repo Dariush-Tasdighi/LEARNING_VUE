@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -20,72 +20,25 @@
 	</style>
 </head>
 <body>
-	<div id="app1" v-cloak>
+	<div id="app" v-cloak>
 		{{ title }}
+
 		<br />
-		{{ message1 }}
+
+		Google Chrome -> Console -> Write: app.title = 'Hello, Vue!' -> ENTER
 	</div>
-
-	<hr />
-
-	<div id="app2" v-cloak>
-		{{ title }}
-		<br />
-		{{ message2 }}
-	</div>
-
-	<hr />
-
-	<div class="app3" v-cloak>
-		{{ message3 }}
-	</div>
-
-	<hr />
-
-	<div class="app3" v-cloak>
-		{{ message3 }}
-	</div>
-
-	<hr />
 
 	<script src="~/Scripts/vue.min.js"></script>
 
 	<script>
 
-		const app1 = new Vue({
+		const app = new Vue({
 
-			el: `#app1`,
-
-			data: {
-
-				message1: `Message (1)`,
-				title: `Hello, World (1)!`,
-
-			},
-
-		})
-
-		const app2 = new Vue({
-
-			el: `#app2`,
+			el: `#app`,
 
 			data: {
 
-				message2: `Message (2)`,
-				title: `Hello, World (2)!`,
-
-			},
-
-		})
-
-		const app3 = new Vue({
-
-			// فقط برای اولین عنصر کار می‌کند
-			el: `.app3`,
-
-			data: {
-
-				message3: `Message (3)`,
+				title: `Hello, World!`,
 
 			},
 

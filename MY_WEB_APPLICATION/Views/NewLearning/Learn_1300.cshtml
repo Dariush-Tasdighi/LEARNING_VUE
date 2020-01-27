@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -23,6 +23,8 @@
 	<div class="container" id="app" v-cloak>
 
 		Welcome {{ fullName }}!
+		<br />
+		<button type="button" v-on:click="doSomething()">Click Me!</button>
 
 	</div>
 
@@ -36,70 +38,65 @@
 
 			data: {
 
-				fullName: null,
+				fullName: `Mr. Dariush Tasdighi`,
 
 			},
 
 			methods: {
 
+				doSomething: function () {
+
+					this.fullName = `Mr. Ali Reza Alavi`
+
+				},
+
 			},
 
 			beforeCreate: function () {
 
-				// !کار نمی‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Before Created!`)
 
 			},
 
-			// OK
 			created: function () {
 
-				// کار می‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Created!`)
 
 			},
 
-			// OK
 			beforeMount: function () {
 
-				// کار می‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Before Mount!`)
 
 			},
 
-			// OK
 			mounted: function () {
 
-				// کار می‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Mounted!`)
 
 			},
 
 			beforeUpdate: function () {
 
-				// !کار نمی‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Before Update!`)
 
 			},
 
 			updated: function () {
 
-				// !کار نمی‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Updated!`)
 
 			},
 
 			beforeDestroy: function () {
 
-				// !کار نمی‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Before Destroy!`)
 
 			},
 
 			destroyed: function () {
 
-				// !کار نمی‌کند
-				//this.fullName = `Mr. Dariush Tasdighi`
+				console.log(`Destroyed!`)
 
 			},
 
@@ -109,7 +106,7 @@
 
 			app.$destroy()
 
-		}, 10000)
+		}, 30000)
 
 	</script>
 </body>

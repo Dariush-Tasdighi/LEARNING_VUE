@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,56 +22,33 @@
 <body>
 	<div id="app" v-cloak>
 
-		<button type="button" v-on:click="toggleDisplay()">Toggle Display</button>
+		<h1>{{ title }}</h1>
+
+		<b>Note: Try always use () for calling functions!</b>
 
 		<br />
-		OR
 		<br />
 
-		<button type="button" v-on:click="display = !display">Toggle Display</button>
+		<h3 v-on:click="doSomething">Click Me!</h3>
 
-		@*<button type="button" v-on:click="this.display = !this.display">Toggle Display</button>*@
+		<h3 v-on:click="doSomething()">Click Me!</h3>
+
+		<h3 @@click="doSomething">Click Me!</h3>
+
+		<h3 @@click="doSomething()">Click Me!</h3>
 
 		<hr />
 
-		<div v-show="display">
-			Hello, World!
-		</div>
-
-		<div v-if="display">
-			Hello, World!
-		</div>
+		@*<button type="button" @click="doSomethingNew">Click Me!</button>*@
+		<button type="button" @@click="doSomethingNew">Click Me!</button>
 
 		<hr />
 
-		<div v-if="display">
-			Hello, World (1)!
-		</div>
-		<div v-else="display">
-			Hello, World (2)!
-		</div>
-
-		<hr />
-
-		Note: Now use Vue.js DevTools
-		<br />
-		Run Google Chrome -> ... -> More Tools -> Extensions -> Vue.js DevTools -> Details -> Toggle On: Allow access to file URLs
-		-> Restart Google Chrome -> We must use [vue.js] instead of [vue.min.js]
-		<br />
-		https://github.com/vuejs/vue-devtools
-		<br />
-		https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
 	</div>
 
-	@*You are running Vue in development mode.*@
-	<script src="~/Scripts/vue.js"></script>
-
-	@*<script src="~/Scripts/vue.min.js"></script>*@
+	<script src="~/Scripts/vue.min.js"></script>
 
 	<script>
-
-		// Note: For activating DevTools if you are using [vue.js]!
-		//Vue.config.devtools = true
 
 		const app = new Vue({
 
@@ -79,17 +56,49 @@
 
 			data: {
 
-				display: true,
+				title: `Welcome...`
 
 			},
 
 			methods: {
 
-				toggleDisplay: function () {
+				// **************************************************
+				doSomething: function () {
 
-					this.display = !this.display
+					alert(`Hello, World!`)
 
 				},
+				// **************************************************
+
+				// **************************************************
+				//doSomethingNew: function () {
+
+				//	// Note: دستور ذیل کار نمی‌کند
+				//	//title = `I'm Dariush Tasdighi!`
+
+				//	this.title = `I'm Dariush Tasdighi!`
+
+				//	//app.title = `I'm Dariush Tasdighi!`
+
+				//},
+				// **************************************************
+
+				// **************************************************
+				// Learning Arrow Function!
+				// مستندات ویوو با توجه به مشکلی که در کد ذیل بوجود می‌آید
+				// ها استفاده نکنیم Arrow Function توصیه می‌کند که از
+
+				//doSomethingNew: () => {
+
+				//	// کار نمی‌کند Arrow Function دقت کنید که دستور ذیل در
+				//	//this.title = `I'm Dariush Tasdighi!`
+
+				//	// Note: this.title is undefined!
+
+				//	app.title = `I'm Dariush Tasdighi!`
+
+				//},
+				// **************************************************
 
 			},
 

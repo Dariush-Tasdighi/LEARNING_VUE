@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -27,16 +27,13 @@
 
 				<table class="table table-bordered table-striped table-hover table-sm table-dark">
 					<tr>
-						<th>#</th>
 						<th>Name</th>
 						<th>Price</th>
 						<th>Count</th>
 						<th>Functions</th>
 						<th>Sub Total</th>
 					</tr>
-
-					<tr v-for="(item, index) in items">
-						<td>{{ index + 1 }}</td>
+					<tr v-for="item in items">
 						<td>{{ item.name }}</td>
 						<td>{{ item.price }}</td>
 						<td>{{ item.count }}</td>
@@ -46,11 +43,6 @@
 							<button type="button" v-on:click="minus(item)" class="btn btn-danger">-</button>
 						</td>
 						<td>{{ getSubTotal(item) }}</td>
-					</tr>
-
-					<tr>
-						<td colspan="5">Total</td>
-						<td>{{ getTotal() }}</td>
 					</tr>
 				</table>
 
@@ -116,53 +108,6 @@
 					}
 
 					return result
-
-				},
-
-				getTotal: function () {
-
-					let total = 0
-
-					// **************************************************
-					for (let index = 0; index < this.items.length; index++) {
-
-						let currentItem = this.items[index]
-
-						total +=
-							currentItem.count * currentItem.price
-
-					}
-					// **************************************************
-
-					// **************************************************
-					//for (let index = 0; index < this.items.length; index++) {
-
-					//	let currentItem = this.items[index]
-
-					//	total +=
-					//		currentItem.count * currentItem.price
-
-					//	if (currentItem.count > 6) {
-
-					//		total *= 0.96
-
-					//	}
-
-					//}
-					// **************************************************
-
-					// **************************************************
-					//for (let index = 0; index < this.items.length; index++) {
-
-					//	let currentItem = this.items[index]
-
-					//	total +=
-					//		this.getSubTotal(currentItem)
-
-					//}
-					// **************************************************
-
-					return total
 
 				},
 

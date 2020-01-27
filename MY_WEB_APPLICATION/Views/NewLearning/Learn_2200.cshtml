@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,74 +22,31 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		<select v-model="selectedCountry1">
-			<option v-for="item in countries">{{ item }}</option>
-		</select>
+		<h3>
+			Learning Comuted!
+		</h3>
 
-		<div v-if="selectedCountry1">
-			Selected Country: {{ selectedCountry1 }}
-		</div>
+		<p>
+			Google Chrome -> Inspect Elements -> Breakpoint in [z] function -> Click on [doSomething] button and Debug it!
+		</p>
 
-		<hr />
+		<input type="text" v-model="x" />
+		<input type="text" v-model="y" />
 
-		<select v-model="selectedCountry2">
-			<option v-bind:value="null" disabled>Select an item...</option>
-			<option v-for="item in countries">{{ item }}</option>
-		</select>
+		<br />
 
-		<div v-if="selectedCountry2">
-			Selected Country: {{ selectedCountry2 }}
-		</div>
+		{{ z }}
 
-		<hr />
+		@*حالا دستور ذیل کار نمی‌کند*@
+		@*{{ z() }}*@
 
-		<select v-model="selectedCountry3">
-			<option v-bind:value="null">Select an item...</option>
-			<option v-for="item in countries">{{ item }}</option>
-		</select>
+		<br />
 
-		<div v-if="selectedCountry3">
-			Selected Country: {{ selectedCountry3 }}
-		</div>
+		<button type="button" v-on:click="doSomething()">Do something!</button>
 
-		<hr />
+		<br />
 
-		<select v-model="selectedCountry4">
-			<option v-bind:value="null">Select an item...</option>
-			<option v-for="item in countries" v-bind:value="item">{{ item }}</option>
-		</select>
-
-		<div v-if="selectedCountry4">
-			Selected Country: {{ selectedCountry4 }}
-		</div>
-
-		<hr />
-
-		<select v-model="selectedPerson">
-			<option v-bind:value="null">Select an item...</option>
-			<option v-for="item in people" v-bind:value="item">{{ item.fullName }} - {{ item.age }}</option>
-		</select>
-
-		<div v-if="selectedPerson">
-			Selected Person:
-			<br />
-			Age: {{ selectedPerson.age }}
-			<br />
-			Full Name: {{ selectedPerson.fullName }}
-		</div>
-
-		<hr />
-
-		<select v-model="selectedPersonId">
-			<option v-bind:value="null">Select an item...</option>
-			<option v-for="item in people" v-bind:value="item.id">{{ item.fullName }} - {{ item.age }}</option>
-		</select>
-
-		<div v-if="selectedPersonId">
-			Selected Person Id: {{ selectedPersonId }}
-		</div>
-
-		<hr />
+		{{ t }}
 
 	</div>
 
@@ -97,42 +54,39 @@
 
 	<script>
 
-		const allOfCountries = [
-			`Country (1)`,
-			`Country (2)`,
-			`Country (3)`,
-			`Country (4)`,
-			`Country (5)`,
-		]
-
-		const allOfPeople = [
-			{ id: 1, fullName: `Full Name (1)`, age: 21, },
-			{ id: 2, fullName: `Full Name (2)`, age: 22, },
-			{ id: 3, fullName: `Full Name (3)`, age: 23, },
-			{ id: 4, fullName: `Full Name (4)`, age: 24, },
-			{ id: 5, fullName: `Full Name (5)`, age: 25, },
-		]
-
 		const app = new Vue({
 
 			el: `#app`,
 
 			data: {
 
-				selectedCountry1: null,
-				selectedCountry2: null,
-				selectedCountry3: null,
-				selectedCountry4: null,
-
-				selectedPerson: null,
-				selectedPersonId: null,
-
-				people: allOfPeople,
-				countries: allOfCountries,
+				x: 10,
+				y: 20,
+				t: 30,
 
 			},
 
 			methods: {
+
+				doSomething: function () {
+
+					this.t++
+
+				},
+
+			},
+
+			computed: {
+
+				// این‌گونه توابع نمی‌توانند پارامتر ورودی داشته باشند
+				z: function () {
+
+					let result =
+						this.x + this.y
+
+					return result
+
+				},
 
 			},
 

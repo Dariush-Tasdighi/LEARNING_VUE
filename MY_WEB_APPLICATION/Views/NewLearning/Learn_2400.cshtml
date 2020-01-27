@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,8 +22,6 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		@*حل مشکل تکراری بودن آیتم‌های لیست ذیل در درس بعد*@
-
 		<select v-model="selectedRole">
 			<option v-bind:value="null">[Filter by role]</option>
 			<option v-for="item in people" v-bind:value="item.role">{{ item.role }}</option>
@@ -31,25 +29,21 @@
 
 		<hr />
 
-		@*<div class="card" v-for="item in people" v-show="item.role === selectedRole">*@
-
 		<div class="card-columns">
-			<div class="card" v-for="item in people" v-show="selectedRole === null || item.role === selectedRole">
-				<div class="card-header bg-info" v-on:click="toggleDisplayDetails(item)">
+			<div class="card" v-for="item in people">
+				<div class="card-header bg-info">
 					{{ item.fullName }}
 				</div>
 
-				<div class="card-body" v-show="item.displayDetails">
-					@*Id: {{ item.id }}*@
-					@*<br />*@
+				<div class="card-body">
+					Id: {{ item.id }}
+					<br />
 					Age: {{ item.age }}
 					<br />
 					Role: {{ item.role }}
-					@*<br />*@
-					@*{{ item.displayDetails }}*@
 				</div>
 
-				<div class="card-footer" v-if="item.description" v-show="item.displayDetails">
+				<div class="card-footer">
 					{{ item.description }}
 				</div>
 			</div>
@@ -85,28 +79,6 @@
 			},
 
 			methods: {
-
-				toggleDisplayDetails: function (item) {
-
-					//alert(item.displayDetails)
-					item.displayDetails = !item.displayDetails
-					//alert(item.displayDetails)
-
-				},
-
-			},
-
-			created: function () {
-
-				for (let index = 0; index < this.people.length; index++) {
-
-					// برای اضافه کردن یک ویژگی جدید
-					// دستور ذیل کار نمی‌کند
-					//this.people[index].displayDetails = true
-
-					Vue.set(this.people[index], `displayDetails`, true)
-
-				}
 
 			},
 

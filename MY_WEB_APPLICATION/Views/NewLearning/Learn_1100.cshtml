@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -24,7 +24,9 @@
 
 		Welcome {{ fullName }}!
 		<br />
-		<input type="text" v-model="fullName" />
+		Welcome {{ fullName.toLowerCase() }}!
+		<br />
+		Welcome {{ fullName.toUpperCase() }}!
 		<br />
 		<input type="text" v-model="fullName" />
 
@@ -40,7 +42,8 @@
 
 			data: {
 
-				fullName: `Mr. Dariush Tasdighi`,
+				fullName: null,
+				//fullName: `Mr. Dariush Tasdighi`,
 
 			},
 

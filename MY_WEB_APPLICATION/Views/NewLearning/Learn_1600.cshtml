@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -30,19 +30,11 @@
 						<th>Name</th>
 						<th>Price</th>
 						<th>Count</th>
-						<th>Functions</th>
-						<th>Sub Total</th>
 					</tr>
 					<tr v-for="item in items">
 						<td>{{ item.name }}</td>
 						<td>{{ item.price }}</td>
 						<td>{{ item.count }}</td>
-						<td>
-							<button type="button" v-on:click="plus(item)" class="btn btn-primary">+</button>
-							&nbsp;
-							<button type="button" v-on:click="minus(item)" class="btn btn-danger">-</button>
-						</td>
-						<td>{{ item.price * item.count }}</td>
 					</tr>
 				</table>
 
@@ -75,18 +67,6 @@
 			},
 
 			methods: {
-
-				plus: function (item) {
-
-					item.count++
-
-				},
-
-				minus: function (item) {
-
-					item.count--
-
-				},
 
 			},
 

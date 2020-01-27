@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,18 +22,7 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Price</th>
-				<th>Count</th>
-			</tr>
-			<tr v-for="item in items">
-				<td>{{ item.name }}</td>
-				<td>{{ item.price }}</td>
-				<td>{{ item.count }}</td>
-			</tr>
-		</table>
+		Welcome {{ fullName }}!
 
 	</div>
 
@@ -41,22 +30,13 @@
 
 	<script>
 
-		const products =
-			[
-				{ id: 1, name: `Name 1`, price: 10, count: 1 },
-				{ id: 2, name: `Name 2`, price: 20, count: 1 },
-				{ id: 3, name: `Name 3`, price: 30, count: 1 },
-				{ id: 4, name: `Name 4`, price: 40, count: 1 },
-				{ id: 5, name: `Name 5`, price: 50, count: 1 },
-			]
-
 		const app = new Vue({
 
 			el: `#app`,
 
 			data: {
 
-				items: products,
+				fullName: null,
 
 			},
 
@@ -64,7 +44,72 @@
 
 			},
 
+			beforeCreate: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			// OK
+			created: function () {
+
+				// کار می‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			// OK
+			beforeMount: function () {
+
+				// کار می‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			// OK
+			mounted: function () {
+
+				// کار می‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			beforeUpdate: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			updated: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			beforeDestroy: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
+			destroyed: function () {
+
+				// !کار نمی‌کند
+				//this.fullName = `Mr. Dariush Tasdighi`
+
+			},
+
 		})
+
+		setTimeout(function () {
+
+			app.$destroy()
+
+		}, 10000)
 
 	</script>
 </body>

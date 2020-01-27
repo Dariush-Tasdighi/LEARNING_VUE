@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -42,7 +42,7 @@
 							&nbsp;
 							<button type="button" v-on:click="minus(item)" class="btn btn-danger">-</button>
 						</td>
-						<td>{{ getSubTotal(item) }}</td>
+						<td>{{ item.price * item.count }}</td>
 					</tr>
 				</table>
 
@@ -78,36 +78,13 @@
 
 				plus: function (item) {
 
-					if (item.count < 10) {
-
-						item.count++
-
-					}
+					item.count++
 
 				},
 
 				minus: function (item) {
 
-					if (item.count > 0) {
-
-						item.count--
-
-					}
-
-				},
-
-				getSubTotal: function (item) {
-
-					let result =
-						item.count * item.price
-
-					if (item.count > 5) {
-
-						result *= 0.95
-
-					}
-
-					return result
+					item.count--
 
 				},
 

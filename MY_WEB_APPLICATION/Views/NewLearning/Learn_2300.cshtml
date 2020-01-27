@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,32 +22,74 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		<select v-model="selectedRole">
-			<option v-bind:value="null">[Filter by role]</option>
-			<option v-for="item in people" v-bind:value="item.role">{{ item.role }}</option>
+		<select v-model="selectedCountry1">
+			<option v-for="item in countries">{{ item }}</option>
 		</select>
+
+		<div v-if="selectedCountry1">
+			Selected Country: {{ selectedCountry1 }}
+		</div>
 
 		<hr />
 
-		<div class="card-columns">
-			<div class="card" v-for="item in people">
-				<div class="card-header bg-info">
-					{{ item.fullName }}
-				</div>
+		<select v-model="selectedCountry2">
+			<option v-bind:value="null" disabled>Select an item...</option>
+			<option v-for="item in countries">{{ item }}</option>
+		</select>
 
-				<div class="card-body">
-					Id: {{ item.id }}
-					<br />
-					Age: {{ item.age }}
-					<br />
-					Role: {{ item.role }}
-				</div>
-
-				<div class="card-footer">
-					{{ item.description }}
-				</div>
-			</div>
+		<div v-if="selectedCountry2">
+			Selected Country: {{ selectedCountry2 }}
 		</div>
+
+		<hr />
+
+		<select v-model="selectedCountry3">
+			<option v-bind:value="null">Select an item...</option>
+			<option v-for="item in countries">{{ item }}</option>
+		</select>
+
+		<div v-if="selectedCountry3">
+			Selected Country: {{ selectedCountry3 }}
+		</div>
+
+		<hr />
+
+		<select v-model="selectedCountry4">
+			<option v-bind:value="null">Select an item...</option>
+			<option v-for="item in countries" v-bind:value="item">{{ item }}</option>
+		</select>
+
+		<div v-if="selectedCountry4">
+			Selected Country: {{ selectedCountry4 }}
+		</div>
+
+		<hr />
+
+		<select v-model="selectedPerson">
+			<option v-bind:value="null">Select an item...</option>
+			<option v-for="item in people" v-bind:value="item">{{ item.fullName }} - {{ item.age }}</option>
+		</select>
+
+		<div v-if="selectedPerson">
+			Selected Person:
+			<br />
+			Age: {{ selectedPerson.age }}
+			<br />
+			Full Name: {{ selectedPerson.fullName }}
+		</div>
+
+		<hr />
+
+		<select v-model="selectedPersonId">
+			<option v-bind:value="null">Select an item...</option>
+			<option v-for="item in people" v-bind:value="item.id">{{ item.fullName }} - {{ item.age }}</option>
+		</select>
+
+		<div v-if="selectedPersonId">
+			Selected Person Id: {{ selectedPersonId }}
+		</div>
+
+		<hr />
 
 	</div>
 
@@ -55,16 +97,20 @@
 
 	<script>
 
+		const allOfCountries = [
+			`Country (1)`,
+			`Country (2)`,
+			`Country (3)`,
+			`Country (4)`,
+			`Country (5)`,
+		]
+
 		const allOfPeople = [
-			{ id: 1, fullName: `Full Name (1)`, age: 21, role: `user`, description: `Description (1)`, },
-			{ id: 2, fullName: `Full Name (2)`, age: 22, role: `manager`, description: `Description (2)`, },
-			{ id: 3, fullName: `Full Name (3)`, age: 23, role: `admin`, description: `Description (3)`, },
-			{ id: 4, fullName: `Full Name (4)`, age: 24, role: `user`, description: `Description (4)`, },
-			{ id: 5, fullName: `Full Name (5)`, age: 25, role: `manager`, },
-			{ id: 6, fullName: `Full Name (6)`, age: 26, role: `user`, description: `Description (6)`, },
-			{ id: 7, fullName: `Full Name (7)`, age: 27, role: `admin`, },
-			{ id: 8, fullName: `Full Name (8)`, age: 28, role: `user`, },
-			{ id: 9, fullName: `Full Name (9)`, age: 29, role: `user`, },
+			{ id: 1, fullName: `Full Name (1)`, age: 21, },
+			{ id: 2, fullName: `Full Name (2)`, age: 22, },
+			{ id: 3, fullName: `Full Name (3)`, age: 23, },
+			{ id: 4, fullName: `Full Name (4)`, age: 24, },
+			{ id: 5, fullName: `Full Name (5)`, age: 25, },
 		]
 
 		const app = new Vue({
@@ -73,8 +119,16 @@
 
 			data: {
 
-				selectedRole: null,
+				selectedCountry1: null,
+				selectedCountry2: null,
+				selectedCountry3: null,
+				selectedCountry4: null,
+
+				selectedPerson: null,
+				selectedPersonId: null,
+
 				people: allOfPeople,
+				countries: allOfCountries,
 
 			},
 

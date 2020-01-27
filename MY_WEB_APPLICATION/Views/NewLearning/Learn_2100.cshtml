@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -35,10 +35,10 @@
 
 		<br />
 
-		{{ z }}
+		@*دستور ذیل کار نمی‌کند*@
+		@*{{ z }}*@
 
-		@*حالا دستور ذیل کار نمی‌کند*@
-		@*{{ z() }}*@
+		{{ z() }}
 
 		<br />
 
@@ -68,23 +68,18 @@
 
 			methods: {
 
-				doSomething: function () {
-
-					this.t++
-
-				},
-
-			},
-
-			computed: {
-
-				// این‌گونه توابع نمی‌توانند پارامتر ورودی داشته باشند
 				z: function () {
 
 					let result =
 						this.x + this.y
 
 					return result
+
+				},
+
+				doSomething: function () {
+
+					this.t++
 
 				},
 

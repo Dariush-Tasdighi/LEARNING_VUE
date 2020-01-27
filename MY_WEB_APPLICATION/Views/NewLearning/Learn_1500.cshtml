@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,24 +22,18 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		<div class="row">
-			<div class="col-12 table-responsive">
-
-				<table class="table table-bordered table-striped table-hover table-sm table-dark">
-					<tr>
-						<th>Name</th>
-						<th>Price</th>
-						<th>Count</th>
-					</tr>
-					<tr v-for="item in items">
-						<td>{{ item.name }}</td>
-						<td>{{ item.price }}</td>
-						<td>{{ item.count }}</td>
-					</tr>
-				</table>
-
-			</div>
-		</div>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Count</th>
+			</tr>
+			<tr v-for="item in items">
+				<td>{{ item.name }}</td>
+				<td>{{ item.price }}</td>
+				<td>{{ item.count }}</td>
+			</tr>
+		</table>
 
 	</div>
 

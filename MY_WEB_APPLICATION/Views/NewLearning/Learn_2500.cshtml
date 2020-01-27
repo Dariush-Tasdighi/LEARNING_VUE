@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,16 +22,16 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		@*کد را هوشمندانه‌تر می‌کنیم computed در درس بعد، با استفاده از*@
-
-		@*در سورس‌کد ذیل به () دقت نمایید*@
+		@*حل مشکل تکراری بودن آیتم‌های لیست ذیل در درس بعد*@
 
 		<select v-model="selectedRole">
 			<option v-bind:value="null">[Filter by role]</option>
-			<option v-for="item in getUniqueRoleList()" v-bind:value="item">{{ item }}</option>
+			<option v-for="item in people" v-bind:value="item.role">{{ item.role }}</option>
 		</select>
 
 		<hr />
+
+		@*<div class="card" v-for="item in people" v-show="item.role === selectedRole">*@
 
 		<div class="card-columns">
 			<div class="card" v-for="item in people" v-show="selectedRole === null || item.role === selectedRole">
@@ -40,9 +40,13 @@
 				</div>
 
 				<div class="card-body" v-show="item.displayDetails">
+					@*Id: {{ item.id }}*@
+					@*<br />*@
 					Age: {{ item.age }}
 					<br />
 					Role: {{ item.role }}
+					@*<br />*@
+					@*{{ item.displayDetails }}*@
 				</div>
 
 				<div class="card-footer" v-if="item.description" v-show="item.displayDetails">
@@ -84,45 +88,9 @@
 
 				toggleDisplayDetails: function (item) {
 
+					//alert(item.displayDetails)
 					item.displayDetails = !item.displayDetails
-
-				},
-
-				getUniqueRoleList: function () {
-
-					const roles = []
-
-					// **************************************************
-					// Solution (1)
-					// **************************************************
-					//for (let index = 0; index < this.people.length; index++) {
-
-					//	let item = this.people[index]
-
-					//	if (roles.includes(item.role) == false) {
-
-					//		roles.push(item.role)
-
-					//	}
-
-					//}
-					// **************************************************
-
-					// **************************************************
-					// Solution (2) - Using Arrow Function!
-					// **************************************************
-					this.people.forEach(item => {
-
-						if (roles.includes(item.role) == false) {
-
-							roles.push(item.role)
-
-						}
-
-					})
-					// **************************************************
-
-					return roles
+					//alert(item.displayDetails)
 
 				},
 
@@ -131,6 +99,10 @@
 			created: function () {
 
 				for (let index = 0; index < this.people.length; index++) {
+
+					// برای اضافه کردن یک ویژگی جدید
+					// دستور ذیل کار نمی‌کند
+					//this.people[index].displayDetails = true
 
 					Vue.set(this.people[index], `displayDetails`, true)
 

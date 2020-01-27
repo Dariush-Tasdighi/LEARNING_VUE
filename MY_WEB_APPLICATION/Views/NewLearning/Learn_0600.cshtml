@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -21,27 +21,13 @@
 </head>
 <body>
 	<div id="app" v-cloak>
-		<h1>Learning Directive!</h1>
-
-		<hr />
-
-		<div v-text="message1"></div>
-		<div v-html="message1"></div>
-
-		<hr />
-
-		<div v-text="message2"></div>
-		<div v-html="message2"></div>
-
-		<hr />
-
-		<img v-bind:src="myImage.source" v-bind:alt="myImage.alt" />
-
-		<hr />
-
-		<img :src="myImage.source" :alt="myImage.alt" />
-
-		<hr />
+		Full Name: {{ firstName }} {{ lastName }}
+		<br />
+		Full Name: {{ firstName + ` ` + lastName }}
+		<br />
+		Full Name: {{ firstName.toLowerCase() + ` ` + lastName.toLowerCase() }}
+		<br />
+		Full Name: {{ firstName.toUpperCase() + ` ` + lastName.toUpperCase() }}
 	</div>
 
 	<script src="~/Scripts/vue.min.js"></script>
@@ -54,15 +40,8 @@
 
 			data: {
 
-				message1: `Hello, World!`,
-				message2: `<b>Hello, World!</b>`,
-
-				myImage: {
-
-					alt: `Dariush Tasdighi`,
-					source: `/Content/Images/DariushTasdighi.jpg`,
-
-				}
+				firstName: `Dariush`,
+				lastName: `Tasdighi`,
 
 			},
 

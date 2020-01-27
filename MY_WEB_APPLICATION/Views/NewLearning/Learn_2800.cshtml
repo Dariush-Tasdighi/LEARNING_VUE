@@ -11,7 +11,7 @@
 	<title>Learn</title>
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/NewSite.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
 
 	<style>
 		[v-cloak] {
@@ -22,32 +22,43 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		<h1>Learning Animation!</h1>
+		@*Dynamic Class (CSS)*@
 
-		<hr />
-
-		<button type="button" v-on:click="show = !show">Toggle</button>
+		<select v-model="selectedRole">
+			<option v-bind:value="null">[Filter by role]</option>
+			<option v-for="item in getUniqueRoleList" v-bind:value="item">{{ item }}</option>
+		</select>
 
 		<hr />
 
 		<div class="card-columns">
+			<div class="card" v-for="item in people" v-show="selectedRole === null || item.role === selectedRole">
 
-			<div class="card bg-warning" v-if="show">
+				@*<div class="card-header"
+						 v-bind:class="{'bg-info': item.displayDetails}" v-on:click="toggleDisplayDetails(item)">
+						{{ item.fullName }}
+					</div>*@
 
-				<div class="card-header">
-					Header
+				@*<div class="card-header"
+						 v-bind:class="{'bg-info': item.displayDetails, 'bg-success': !item.displayDetails}" v-on:click="toggleDisplayDetails(item)">
+						{{ item.fullName }}
+					</div>*@
+
+				<div class="card-header"
+					 v-bind:class="[item.displayDetails ? cssClass1 : cssClass2]" v-on:click="toggleDisplayDetails(item)">
+					{{ item.fullName }}
 				</div>
 
-				<div class="card-body">
-					Body
+				<div class="card-body" v-show="item.displayDetails">
+					Age: {{ item.age }}
+					<br />
+					Role: {{ item.role }}
 				</div>
 
-				<div class="card-footer">
-					Footer
+				<div class="card-footer" v-if="item.description" v-show="item.displayDetails">
+					{{ item.description }}
 				</div>
-
 			</div>
-
 		</div>
 
 	</div>
@@ -56,25 +67,71 @@
 
 	<script>
 
+		const allOfPeople = [
+			{ id: 1, fullName: `Full Name (1)`, age: 21, role: `user`, description: `Description (1)`, },
+			{ id: 2, fullName: `Full Name (2)`, age: 22, role: `manager`, description: `Description (2)`, },
+			{ id: 3, fullName: `Full Name (3)`, age: 23, role: `admin`, description: `Description (3)`, },
+			{ id: 4, fullName: `Full Name (4)`, age: 24, role: `user`, description: `Description (4)`, },
+			{ id: 5, fullName: `Full Name (5)`, age: 25, role: `manager`, },
+			{ id: 6, fullName: `Full Name (6)`, age: 26, role: `user`, description: `Description (6)`, },
+			{ id: 7, fullName: `Full Name (7)`, age: 27, role: `admin`, },
+			{ id: 8, fullName: `Full Name (8)`, age: 28, role: `user`, },
+			{ id: 9, fullName: `Full Name (9)`, age: 29, role: `user`, },
+		]
+
 		const app = new Vue({
 
 			el: `#app`,
 
 			data: {
 
-				show: true,
+				selectedRole: null,
+				people: allOfPeople,
+
+				cssClass1: `bg-info`,
+				cssClass2: `bg-success`,
 
 			},
 
 			methods: {
 
+				toggleDisplayDetails: function (item) {
+
+					item.displayDetails = !item.displayDetails
+
+				},
+
 			},
 
 			computed: {
 
+				getUniqueRoleList: function () {
+
+					const roles = []
+
+					this.people.forEach(item => {
+
+						if (roles.includes(item.role) == false) {
+
+							roles.push(item.role)
+
+						}
+
+					})
+
+					return roles
+
+				},
+
 			},
 
 			created: function () {
+
+				for (let index = 0; index < this.people.length; index++) {
+
+					Vue.set(this.people[index], `displayDetails`, true)
+
+				}
 
 			},
 
