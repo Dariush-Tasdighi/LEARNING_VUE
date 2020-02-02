@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 600</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -28,9 +24,11 @@
 		Full Name: {{ firstName.toLowerCase() + ` ` + lastName.toLowerCase() }}
 		<br />
 		Full Name: {{ firstName.toUpperCase() + ` ` + lastName.toUpperCase() }}
+		<br />
+		Full Name: {{ person.firstName.toUpperCase() + ` ` + person.lastName.toUpperCase() }}
 	</div>
 
-	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 
@@ -42,6 +40,8 @@
 
 				firstName: `Dariush`,
 				lastName: `Tasdighi`,
+
+				person: { firstName: `Dariush`, lastName: `Tasdighi` },
 
 			},
 
