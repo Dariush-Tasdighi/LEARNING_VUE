@@ -20,19 +20,20 @@
 
 		.flip-card {
 			position: relative;
-			transition: all 0.8s;
-			transform-style: preserve-3d;
 		}
 
 			.flip-card .isFlipped {
 				transform: rotateY(180deg);
+				transform-style: preserve-3d;
 			}
 
 		.flip-card-front {
 			z-index: 2;
+			margin-bottom: 16px;
+
 			transition: 1s;
 			position: relative;
-			margin-bottom: 16px;
+
 			backface-visibility: hidden;
 			transform-style: preserve-3d;
 		}
@@ -42,8 +43,10 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
+
 			transition: 1s;
 			position: absolute;
+
 			backface-visibility: hidden;
 			transform-style: preserve-3d;
 		}
