@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 800</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -29,24 +25,26 @@
 		<br />
 		<br />
 
-		<h3 v-on:click="doSomething">Click Me!</h3>
+		<h3 v-on:click="doSomething">Click Me (1)!</h3>
 
-		<h3 v-on:click="doSomething()">Click Me!</h3>
+		<h3 v-on:click="doSomething()">Click Me (2)!</h3>
 
-		<h3 @@click="doSomething">Click Me!</h3>
+		<h3 @@click="doSomething">Click Me (3)!</h3>
 
-		<h3 @@click="doSomething()">Click Me!</h3>
+		<h3 @@click="doSomething()">Click Me (4)!</h3>
 
 		<hr />
 
 		@*<button type="button" @click="doSomethingNew">Click Me!</button>*@
 		<button type="button" @@click="doSomethingNew">Click Me!</button>
 
+		@*توجه کنید type="button" در دستورات فوق به*@
+
 		<hr />
 
 	</div>
 
-	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 
@@ -56,7 +54,7 @@
 
 			data: {
 
-				title: `Welcome...`
+				title: `Welcome...`,
 
 			},
 
@@ -71,16 +69,17 @@
 				// **************************************************
 
 				// **************************************************
-				//doSomethingNew: function () {
+				doSomethingNew: function () {
 
-				//	// Note: دستور ذیل کار نمی‌کند
-				//	//title = `I'm Dariush Tasdighi!`
+					// Note: دستور ذیل کار نمی‌کند
+					//title = `I'm Dariush Tasdighi!`
 
-				//	this.title = `I'm Dariush Tasdighi!`
+					this.title = `I'm Dariush Tasdighi!`
 
-				//	//app.title = `I'm Dariush Tasdighi!`
+					//دستور ذیل خیلی عرف نیست
+					//app.title = `I'm Dariush Tasdighi!`
 
-				//},
+				},
 				// **************************************************
 
 				// **************************************************
@@ -88,16 +87,16 @@
 				// مستندات ویوو با توجه به مشکلی که در کد ذیل بوجود می‌آید
 				// ها استفاده نکنیم Arrow Function توصیه می‌کند که از
 
-				//doSomethingNew: () => {
+				doSomethingNewNew: () => {
 
-				//	// کار نمی‌کند Arrow Function دقت کنید که دستور ذیل در
-				//	//this.title = `I'm Dariush Tasdighi!`
+					// کار نمی‌کند Arrow Function دقت کنید که دستور ذیل در
+					//this.title = `I'm Dariush Tasdighi!`
 
-				//	// Note: this.title is undefined!
+					// Note: this.title is undefined!
 
-				//	app.title = `I'm Dariush Tasdighi!`
+					app.title = `I'm Dariush Tasdighi!`
 
-				//},
+				},
 				// **************************************************
 
 			},

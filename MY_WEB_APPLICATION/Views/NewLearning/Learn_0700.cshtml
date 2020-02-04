@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 700</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -25,13 +21,25 @@
 
 		<hr />
 
+		<div>{{ message1 }}</div>
+
+		<hr />
+
 		<div v-text="message1"></div>
 		<div v-html="message1"></div>
 
 		<hr />
 
+		<div>{{ message2 }}</div>
+
+		<hr />
+
 		<div v-text="message2"></div>
 		<div v-html="message2"></div>
+
+		@*دستورات ذیل غلط است*@
+		@*<div v-text="{{ message2 }}"></div>*@
+		@*<div v-html="{{ message2 }}"></div>*@
 
 		<hr />
 
@@ -44,7 +52,7 @@
 		<hr />
 	</div>
 
-	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/vue.js"></script>
 
 	<script>
 
@@ -62,7 +70,7 @@
 					alt: `Dariush Tasdighi`,
 					source: `/Content/Images/DariushTasdighi.jpg`,
 
-				}
+				},
 
 			},
 
