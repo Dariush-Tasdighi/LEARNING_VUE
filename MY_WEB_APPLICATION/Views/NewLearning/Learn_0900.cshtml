@@ -16,40 +16,45 @@
 	</style>
 </head>
 <body>
-	<div id="app" v-cloak>
+	<div id="app" class="container" v-cloak>
 
-		<button type="button" v-on:click="toggleDisplay()">Toggle Display</button>
+		<button type="button" v-on:click="display = !display">Toggle Display</button>
 
 		<br />
 		OR
 		<br />
 
-		<button type="button" v-on:click="display = !display">Toggle Display</button>
+		<button type="button" v-on:click="toggleDisplay()">Toggle Display</button>
 
+		@*دستور ذیل غلط می‌باشد*@
 		@*<button type="button" v-on:click="this.display = !this.display">Toggle Display</button>*@
 
 		<hr />
 
 		<div v-show="display">
-			Hello, World!
-		</div>
-
-		<div v-if="display">
-			Hello, World!
-		</div>
-
-		<hr />
-
-		<div v-if="display">
 			Hello, World (1)!
 		</div>
-		<div v-else="display">
+
+		<div v-if="display">
 			Hello, World (2)!
 		</div>
 
 		<hr />
 
+		<div v-if="display">
+			Hello, World (3)!
+		</div>
+		<div v-else>
+			Hello, World (4)!
+		</div>
+
+		<hr />
+
 		Note: Now use Vue.js DevTools
+		<br />
+		https://chrome.google.com/webstore/category/extensions
+		<br />
+		Search [vue devtools] and install it!
 		<br />
 		Run Google Chrome -> ... -> More Tools -> Extensions -> Vue.js DevTools -> Details -> Toggle On: Allow access to file URLs
 		-> Restart Google Chrome -> We must use [vue.js] instead of [vue.min.js]
@@ -66,7 +71,7 @@
 
 	<script>
 
-		// Note: For activating DevTools if you are using [vue.js]!
+		// Note: For activating DevTools if you are using [vue.min.js]!
 		//Vue.config.devtools = true
 
 		const app = new Vue({

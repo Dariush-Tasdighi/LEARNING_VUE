@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 1000</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -20,7 +16,7 @@
 	</style>
 </head>
 <body>
-	<div class="container" id="app" v-cloak>
+	<div id="app" class="container" v-cloak>
 
 		<ul>
 			<li v-for="fullName of fullNames">{{ fullName }}</li>
@@ -66,6 +62,15 @@
 
 		<ul>
 			<li v-for="item in people">
+				<button type="button" class="btn btn-primary btn-sm" v-on:click="displaySomething()">Display Something</button>
+				I'm {{ item.fullName }} and {{ item.age }} years old.
+			</li>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<li v-for="item in people">
 				<button type="button" class="btn btn-primary btn-sm" v-on:click="displayPersonDetails(item)">Details</button>
 				I'm {{ item.fullName }} and {{ item.age }} years old.
 			</li>
@@ -88,21 +93,23 @@
 				`Full Name (5)`,
 			]
 
-		const allOfColors = [
-			`red`,
-			`blue`,
-			`gray`,
-			`black`,
-			`green`,
-		]
+		const allOfColors =
+			[
+				`red`,
+				`blue`,
+				`gray`,
+				`black`,
+				`green`,
+			]
 
-		const allOfPeople = [
-			{ fullName: `Full Name (1)`, age: 21, description: `Description (1)`, },
-			{ fullName: `Full Name (2)`, age: 22, description: `Description (2)`, },
-			{ fullName: `Full Name (3)`, age: 23, description: `Description (3)`, },
-			{ fullName: `Full Name (4)`, age: 24, description: `Description (4)`, },
-			{ fullName: `Full Name (5)`, age: 25, description: `Description (5)`, },
-		]
+		const allOfPeople =
+			[
+				{ fullName: `Full Name (1)`, age: 21, description: `Description (1)`, },
+				{ fullName: `Full Name (2)`, age: 22, description: `Description (2)`, },
+				{ fullName: `Full Name (3)`, age: 23, description: `Description (3)`, },
+				{ fullName: `Full Name (4)`, age: 24, description: `Description (4)`, },
+				{ fullName: `Full Name (5)`, age: 25, description: `Description (5)`, },
+			]
 
 		const app = new Vue({
 
@@ -118,14 +125,21 @@
 
 			methods: {
 
+				displaySomething: function () {
+
+					alert(`Hello, World!`)
+
+				},
+
 				displayPersonDetails: function (item) {
 
-					console.log(item)
-
 					// Solution (1)
-					//alert(item)
+					//console.log(item)
 
 					// Solution (2)
+					//alert(item)
+
+					// Solution (3)
 					//let message =
 					//	'Full Name: ' +
 					//	item.fullName +
@@ -136,7 +150,9 @@
 					//	'Description: ' +
 					//	item.description
 
-					// Solution (3)
+					//alert(message)
+
+					// Solution (4)
 					let message =
 						`Full Name: ${item.fullName}\nAge: ${item.age}\nDescription: ${item.description}`
 
