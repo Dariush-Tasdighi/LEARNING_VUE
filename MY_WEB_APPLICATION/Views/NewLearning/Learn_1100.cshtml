@@ -25,6 +25,20 @@
 		Welcome {{ fullName.toUpperCase() }}!
 		<br />
 		<input type="text" v-model="fullName" />
+		<br />
+		<button type="button" v-on:click="doSomething()" class="btn btn-primary btn-sm">Do Something</button>
+
+		<hr />
+
+		@*Person Full Name: {{ person.fullName }}*@
+		@*<br />*@
+
+		<div v-if="person">
+			Person Full Name: {{ person.fullName }}
+		</div>
+
+		<br />
+		Person Full Name: {{ person?.fullName }}
 
 	</div>
 
@@ -38,13 +52,23 @@
 
 			data: {
 
-				fullName: null,
-				//fullName: undefined,
-				//fullName: `Mr. Dariush Tasdighi`,
+				fullName: `Mr. Dariush Tasdighi`,
+
+				//person: null,
+				//person: undefined,
+				person: {
+					fullName: `Mr. Dariush Tasdighi`,
+				},
 
 			},
 
 			methods: {
+
+				doSomething: function () {
+
+					this.fullName = `Mr. Ali Reza Alavi`
+
+				},
 
 			},
 
