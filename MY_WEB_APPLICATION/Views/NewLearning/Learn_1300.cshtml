@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 1300</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -20,12 +16,10 @@
 	</style>
 </head>
 <body>
-	<div class="container" id="app" v-cloak>
-
+	<div id="app" class="container" v-cloak>
 		Welcome {{ fullName }}!
 		<br />
-		<button type="button" v-on:click="doSomething()">Click Me!</button>
-
+		<button type="button" v-on:click="doSomething()" class="btn btn-primary">Click Me!</button>
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>
