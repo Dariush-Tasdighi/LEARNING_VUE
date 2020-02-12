@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 1600</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -20,11 +16,9 @@
 	</style>
 </head>
 <body>
-	<div class="container" id="app" v-cloak>
-
+	<div id="app" class="container" v-cloak>
 		<div class="row">
 			<div class="col-12 table-responsive">
-
 				<table class="table table-bordered table-striped table-hover table-sm table-dark">
 					<tr>
 						<th>Name</th>
@@ -37,10 +31,8 @@
 						<td>{{ item.count }}</td>
 					</tr>
 				</table>
-
 			</div>
 		</div>
-
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>
@@ -49,11 +41,11 @@
 
 		const products =
 			[
-				{ id: 1, name: `Name 1`, price: 10, count: 1 },
-				{ id: 2, name: `Name 2`, price: 20, count: 1 },
-				{ id: 3, name: `Name 3`, price: 30, count: 1 },
-				{ id: 4, name: `Name 4`, price: 40, count: 1 },
-				{ id: 5, name: `Name 5`, price: 50, count: 1 },
+				{ name: `Name 1`, price: 10, count: 1 },
+				{ name: `Name 2`, price: 20, count: 1 },
+				{ name: `Name 3`, price: 30, count: 1 },
+				{ name: `Name 4`, price: 40, count: 1 },
+				{ name: `Name 5`, price: 50, count: 1 },
 			]
 
 		const app = new Vue({

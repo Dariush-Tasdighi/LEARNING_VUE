@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 2000</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -20,15 +16,13 @@
 	</style>
 </head>
 <body>
-	<div class="container" id="app" v-cloak>
-
+	<div id="app" class="container" v-cloak>
 		<h3>
 			React.js -> Virtual DOM! (v-bind:key="item.id")
 		</h3>
 
 		<div class="row">
 			<div class="col-12 table-responsive">
-
 				<table class="table table-bordered table-striped table-hover table-sm table-dark">
 					<tr>
 						<th>#</th>
@@ -38,7 +32,6 @@
 						<th>Functions</th>
 						<th>Sub Total</th>
 					</tr>
-
 					<tr v-for="(item, index) in items" v-bind:key="item.id">
 						<td>{{ index + 1 }}</td>
 						<td>{{ item.name }}</td>
@@ -51,16 +44,13 @@
 						</td>
 						<td>{{ getSubTotal(item) }}</td>
 					</tr>
-
 					<tr>
 						<td colspan="5">Total</td>
 						<td>{{ getTotal() }}</td>
 					</tr>
 				</table>
-
 			</div>
 		</div>
-
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>
@@ -127,44 +117,14 @@
 
 					let total = 0
 
-					// **************************************************
 					for (let index = 0; index < this.items.length; index++) {
 
 						let currentItem = this.items[index]
 
 						total +=
-							currentItem.count * currentItem.price
+							this.getSubTotal(currentItem)
 
 					}
-					// **************************************************
-
-					// **************************************************
-					//for (let index = 0; index < this.items.length; index++) {
-
-					//	let currentItem = this.items[index]
-
-					//	total +=
-					//		currentItem.count * currentItem.price
-
-					//	if (currentItem.count > 6) {
-
-					//		total *= 0.96
-
-					//	}
-
-					//}
-					// **************************************************
-
-					// **************************************************
-					//for (let index = 0; index < this.items.length; index++) {
-
-					//	let currentItem = this.items[index]
-
-					//	total +=
-					//		this.getSubTotal(currentItem)
-
-					//}
-					// **************************************************
 
 					return total
 
