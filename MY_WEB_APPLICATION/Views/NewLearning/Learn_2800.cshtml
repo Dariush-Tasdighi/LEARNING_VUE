@@ -22,7 +22,9 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		@*Dynamic Class (CSS)*@
+		@*کد را هوشمندانه‌تر می‌کنیم computed در این درس، با استفاده از*@
+
+		@*در سورس‌کد ذیل به عدم حضور () دقت نمایید*@
 
 		<select v-model="selectedRole">
 			<option v-bind:value="null">[Filter by role]</option>
@@ -33,19 +35,7 @@
 
 		<div class="card-columns">
 			<div class="card" v-for="item in people" v-show="selectedRole === null || item.role === selectedRole">
-
-				@*<div class="card-header"
-						 v-bind:class="{'bg-info': item.displayDetails}" v-on:click="toggleDisplayDetails(item)">
-						{{ item.fullName }}
-					</div>*@
-
-				@*<div class="card-header"
-						 v-bind:class="{'bg-info': item.displayDetails, 'bg-success': !item.displayDetails}" v-on:click="toggleDisplayDetails(item)">
-						{{ item.fullName }}
-					</div>*@
-
-				<div class="card-header"
-					 v-bind:class="[item.displayDetails ? cssClass1 : cssClass2]" v-on:click="toggleDisplayDetails(item)">
+				<div class="card-header bg-info" v-on:click="toggleDisplayDetails(item)">
 					{{ item.fullName }}
 				</div>
 
@@ -87,9 +77,6 @@
 
 				selectedRole: null,
 				people: allOfPeople,
-
-				cssClass1: `bg-info`,
-				cssClass2: `bg-success`,
 
 			},
 

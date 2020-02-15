@@ -21,51 +21,157 @@
 </head>
 <body>
 	<div class="container" id="app" v-cloak>
-
-		<select v-model="selectedRole">
-			<option v-bind:value="null">[Filter by role]</option>
-			<option v-for="item in people" v-bind:value="item.role">{{ item.role }}</option>
-		</select>
+		<h3>
+			Working on ComboBox (DropDownList)
+		</h3>
 
 		<hr />
 
-		<div class="card-columns">
-			<div class="card" v-for="item in people">
-				<div class="card-header bg-info">
-					{{ item.fullName }}
-				</div>
+		<select v-model="selectedCountry1">
+			<option v-for="item in countries">{{ item }}</option>
+		</select>
+		<br />
+		Selected Country (1): {{ selectedCountry1 }}
 
-				<div class="card-body">
-					Id: {{ item.id }}
-					<br />
-					Age: {{ item.age }}
-					<br />
-					Role: {{ item.role }}
-				</div>
+		<hr />
 
-				<div class="card-footer">
-					{{ item.description }}
-				</div>
-			</div>
-		</div>
+		<h5>
+			With Bug!
+		</h5>
 
+		<select v-model="selectedCountry2">
+			<option v-for="item in countries">{{ item }}</option>
+		</select>
+		<br />
+		Selected Country (2): {{ selectedCountry2 }}
+
+		<hr />
+
+		<h5>
+			With Bug!
+		</h5>
+
+		<select v-model="selectedCountry3">
+			<option v-for="item in countries">{{ item }}</option>
+		</select>
+		<br />
+		Selected Country (3): {{ selectedCountry3 }}
+
+		<hr />
+
+		<select v-model="selectedCountry4">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in countries">{{ item }}</option>
+		</select>
+		<br />
+		Selected Country (4): {{ selectedCountry4 }}
+
+		<hr />
+
+		<select v-model="selectedCountry5">
+			<option v-bind:value="undefined">Select an item</option>
+			<option v-for="item in countries">{{ item }}</option>
+		</select>
+		<br />
+		Selected Country (5): {{ selectedCountry5 }}
+
+		<hr />
+		<hr />
+
+		<select v-model="selectedCity1">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in cities" v-bind:value="item">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected City (1) Id: {{ selectedCity1?.id }}
+		<br />
+		Selected City (1) Name: {{ selectedCity1?.name }}
+
+		<hr />
+
+		<select v-model="selectedCity2">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in cities" v-bind:value="item">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected City (2) Id: {{ selectedCity2?.id }}
+		<br />
+		Selected City (2) Name: {{ selectedCity2?.name }}
+
+		<hr />
+
+		<select v-model="selectedCity3">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in cities" v-bind:value="item">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected City (3) Id: {{ selectedCity3?.id }}
+		<br />
+		Selected City (3) Name: {{ selectedCity3?.name }}
+
+		<hr />
+
+		<select v-model="selectedCity4">
+			<option v-bind:value="undefined">Select an item</option>
+			<option v-for="item in cities" v-bind:value="item">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected City (4) Id: {{ selectedCity4?.id }}
+		<br />
+		Selected City (4) Name: {{ selectedCity4?.name }}
+
+		<hr />
+		<hr />
+
+		<select v-model="selectedRoleId1">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in roles" v-bind:value="item.id">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected Role Id (1) Id: {{ selectedRoleId1 }}
+
+		<hr />
+
+		<select v-model="selectedRoleId2">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in roles" v-bind:value="item.id">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected Role Id (2) Id: {{ selectedRoleId2 }}
+
+		<hr />
+
+		<select v-model="selectedRoleId3">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in roles" v-bind:value="item.id">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected Role Id (3) Id: {{ selectedRoleId3 }}
+
+		<hr />
+
+		<select v-model="selectedRoleId4">
+			<option v-bind:value="null">Select an item</option>
+			<option v-for="item in roles" v-bind:value="item.id">{{ item.name }}</option>
+		</select>
+
+		<br />
+		Selected Role Id (4) Id: {{ selectedRoleId4 }}
+
+		<hr />
+		<hr />
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>
 
 	<script>
-
-		const allOfPeople = [
-			{ id: 1, fullName: `Full Name (1)`, age: 21, role: `user`, description: `Description (1)`, },
-			{ id: 2, fullName: `Full Name (2)`, age: 22, role: `manager`, description: `Description (2)`, },
-			{ id: 3, fullName: `Full Name (3)`, age: 23, role: `admin`, description: `Description (3)`, },
-			{ id: 4, fullName: `Full Name (4)`, age: 24, role: `user`, description: `Description (4)`, },
-			{ id: 5, fullName: `Full Name (5)`, age: 25, role: `manager`, },
-			{ id: 6, fullName: `Full Name (6)`, age: 26, role: `user`, description: `Description (6)`, },
-			{ id: 7, fullName: `Full Name (7)`, age: 27, role: `admin`, },
-			{ id: 8, fullName: `Full Name (8)`, age: 28, role: `user`, },
-			{ id: 9, fullName: `Full Name (9)`, age: 29, role: `user`, },
-		]
 
 		const app = new Vue({
 
@@ -73,8 +179,43 @@
 
 			data: {
 
-				selectedRole: null,
-				people: allOfPeople,
+				countries: [
+					`Iran`,
+					`Iraq`,
+					`France`,
+					`Germany`
+				],
+
+				selectedCountry1: `Iran`,
+				selectedCountry2: null,
+				selectedCountry3: undefined,
+				selectedCountry4: null,
+				selectedCountry5: undefined,
+
+				cities: [
+					{ id: 1, name: `Karaj`, },
+					{ id: 2, name: `Tehran`, },
+					{ id: 3, name: `Shiraz`, },
+					{ id: 4, name: `Mashhad`, },
+					{ id: 5, name: `Esfehan`, },
+				],
+
+				selectedCity1: null,
+				selectedCity2: null,
+				selectedCity3: null,
+				selectedCity4: undefined,
+
+				roles: [
+					{ id: 1, name: `User`, },
+					{ id: 2, name: `Manager`, },
+					{ id: 3, name: `Supervisor`, },
+					{ id: 4, name: `Administrator`, },
+				],
+
+				selectedRoleId1: null,
+				selectedRoleId2: null,
+				selectedRoleId3: null,
+				selectedRoleId4: undefined,
 
 			},
 
@@ -82,6 +223,21 @@
 
 			},
 
+			created: function () {
+
+				// !غلط رایج و فاحش
+				// به طور جذابی در
+				// VUE.JS
+				// عمل می‌کند! ولی گول نخورید در سی‌شارپ و انگولار عمل نمی‌کند
+				this.selectedCity1 = { id: 2, name: `Tehran` }
+
+				this.selectedCity2 = this.cities[1]
+
+				this.selectedRoleId1 = 2
+
+				this.selectedRoleId2 = this.roles[1].id
+
+			},
 		})
 
 	</script>

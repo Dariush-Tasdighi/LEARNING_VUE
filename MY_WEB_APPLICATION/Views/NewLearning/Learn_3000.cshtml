@@ -17,24 +17,12 @@
 		[v-cloak] {
 			display: none;
 		}
-
-		.someName-enter-active, .someName-leave-active {
-			transition: opacity 1.5s;
-		}
-
-		.someName-enter, .someName-leave-to {
-			opacity: 0;
-		}
 	</style>
 </head>
 <body>
 	<div class="container" id="app" v-cloak>
 
-		<h1>
-			Learning Animation!
-		</h1>
-
-		@*https://vuejs.org/v2/guide/transitions.html*@
+		<h1>Learning Animation!</h1>
 
 		<hr />
 
@@ -44,23 +32,21 @@
 
 		<div class="card-columns">
 
-			<transition name="someName">
-				<div class="card bg-warning" v-if="show">
+			<div class="card bg-warning" v-if="show">
 
-					<div class="card-header">
-						Header
-					</div>
-
-					<div class="card-body">
-						Body
-					</div>
-
-					<div class="card-footer">
-						Footer
-					</div>
-
+				<div class="card-header">
+					Header
 				</div>
-			</transition>
+
+				<div class="card-body">
+					Body
+				</div>
+
+				<div class="card-footer">
+					Footer
+				</div>
+
+			</div>
 
 		</div>
 
