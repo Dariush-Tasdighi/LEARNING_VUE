@@ -359,9 +359,8 @@
     <Content Include="Views\NewLearning\Learn_1100.cshtml" />
     <Content Include="Views\NewLearning\Learn_0200.cshtml" />
     <Content Include="Views\NewLearning\Learn_1200.cshtml" />
-    <Content Include="Views\NewLearning\Learn_2500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2400.cshtml" />
     <Content Include="Views\NewLearning\Learn_0100.cshtml" />
-    <None Include="Views\NewLearning\Learn_2300.cshtml" />
     <Content Include="Views\NewLearning\Learn_1300.cshtml" />
     <Content Include="Views\NewLearning\Learn_1500.cshtml" />
     <Content Include="Views\NewLearning\Learn_1600.cshtml" />
@@ -372,6 +371,7 @@
     <Content Include="Views\NewLearning\Learn_1400.cshtml" />
     <Content Include="Views\NewLearning\Learn_2100.cshtml" />
     <Content Include="Views\NewLearning\Learn_2200.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2500.cshtml" />
     <Content Include="Views\NewLearning\Learn_2600.cshtml" />
     <Content Include="Views\NewLearning\Learn_2700.cshtml" />
     <Content Include="Views\NewLearning\Learn_2800.cshtml" />
@@ -379,8 +379,7 @@
     <Content Include="Views\NewLearning\Learn_3000.cshtml" />
     <Content Include="Views\NewLearning\Learn_3100.cshtml" />
     <Content Include="Views\NewLearning\Learn_3200.cshtml" />
-    <Content Include="Views\NewLearning\Learn_3300.cshtml" />
-    <Content Include="Views\NewLearning\Learn_2400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2300.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

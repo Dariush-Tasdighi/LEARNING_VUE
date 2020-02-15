@@ -22,13 +22,13 @@
 <body>
 	<div class="container" id="app" v-cloak>
 
-		@*کد را هوشمندانه‌تر می‌کنیم computed در درس بعد، با استفاده از*@
+		@*کد را هوشمندانه‌تر می‌کنیم computed در این درس، با استفاده از*@
 
-		@*در سورس‌کد ذیل به () دقت نمایید*@
+		@*در سورس‌کد ذیل به عدم حضور () دقت نمایید*@
 
 		<select v-model="selectedRole">
 			<option v-bind:value="null">[Filter by role]</option>
-			<option v-for="item in getUniqueRoleList()" v-bind:value="item">{{ item }}</option>
+			<option v-for="item in getUniqueRoleList" v-bind:value="item">{{ item }}</option>
 		</select>
 
 		<hr />
@@ -88,29 +88,14 @@
 
 				},
 
+			},
+
+			computed: {
+
 				getUniqueRoleList: function () {
 
 					const roles = []
 
-					// **************************************************
-					// Solution (1)
-					// **************************************************
-					//for (let index = 0; index < this.people.length; index++) {
-
-					//	let item = this.people[index]
-
-					//	if (roles.includes(item.role) == false) {
-
-					//		roles.push(item.role)
-
-					//	}
-
-					//}
-					// **************************************************
-
-					// **************************************************
-					// Solution (2) - Using Arrow Function!
-					// **************************************************
 					this.people.forEach(item => {
 
 						if (roles.includes(item.role) == false) {
@@ -120,7 +105,6 @@
 						}
 
 					})
-					// **************************************************
 
 					return roles
 
