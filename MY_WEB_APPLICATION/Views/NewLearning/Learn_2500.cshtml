@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 2500</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -20,8 +16,7 @@
 	</style>
 </head>
 <body>
-	<div class="container" id="app" v-cloak>
-
+	<div id="app" class="container" v-cloak>
 		@*حل مشکل تکراری بودن آیتم‌های لیست ذیل در درس بعد*@
 
 		<select v-model="selectedRole">
@@ -54,7 +49,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>
@@ -100,7 +94,8 @@
 
 				for (let index = 0; index < this.people.length; index++) {
 
-					// برای اضافه کردن یک ویژگی جدید
+					// بر خلاف جاوااسکریپت، برای اضافه کردن یک ویژگی/فیلد جدید در
+					// VUE.JS
 					// دستور ذیل کار نمی‌کند
 					//this.people[index].displayDetails = true
 
