@@ -1,14 +1,10 @@
-﻿@{
-	Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<title>Learn 3100</title>
 
-	<title>Learn</title>
+	<meta name="viewport" content="width=device-width" />
 
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/Content/Site.css" rel="stylesheet" />
@@ -18,82 +14,48 @@
 			display: none;
 		}
 
-		.flip-card {
-			position: relative;
-			transition: all 0.8s;
-			transform-style: preserve-3d;
+		.someName-enter-active, .someName-leave-active {
+			transition: opacity 1.5s;
 		}
 
-			.flip-card:hover .flip-card-front {
-				transform: rotateY(180deg);
-			}
-
-			.flip-card:hover .flip-card-back {
-				transform: rotateY(0deg);
-			}
-
-		.flip-card-front {
-			z-index: 2;
-			transition: 1s;
-			position: relative;
-			margin-bottom: 16px;
-			backface-visibility: hidden;
-			transform-style: preserve-3d;
-		}
-
-		.flip-card-back {
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			transition: 1s;
-			position: absolute;
-			transform: rotateY(-180deg);
-			backface-visibility: hidden;
-			transform-style: preserve-3d;
+		.someName-enter, .someName-leave-to {
+			opacity: 0;
 		}
 	</style>
 </head>
 <body>
-	<div class="container" id="app" v-cloak>
-
+	<div id="app" class="container" v-cloak>
 		<h1>
-			Flashcards!
+			Learning Animation!
 		</h1>
 
+		@*https://vuejs.org/v2/guide/transitions.html*@
+
 		<hr />
 
-		<br />
-		<br />
+		<button type="button" v-on:click="show = !show">Toggle</button>
 
-		<div class="row">
+		<hr />
 
-			<div class="col-sm-3" v-for="item in flashcards">
-				<div class="flip-card">
-					<div class="flip-card-front">
-						<div class="card text-center bg-info border-secondary">
-							<div class="card-body">
-								{{ item.front }}
-							</div>
-						</div>
+		<div class="card-columns">
+			<transition name="someName">
+				<div class="card bg-warning" v-if="show">
+
+					<div class="card-header">
+						Header
 					</div>
-					<div class="flip-card-back">
-						<div class="card text-center bg-warning border-secondary">
-							<div class="card-body">
-								{{ item.back }}
-							</div>
-						</div>
+
+					<div class="card-body">
+						Body
 					</div>
+
+					<div class="card-footer">
+						Footer
+					</div>
+
 				</div>
-			</div>
-
+			</transition>
 		</div>
-
-		<br />
-		<br />
-
-		<hr />
-
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>
@@ -106,15 +68,7 @@
 
 			data: {
 
-				flashcards: [
-					{ front: `Front Text 1`, back: `Back Text 1` },
-					{ front: `Front Text 2`, back: `Back Text 2` },
-					{ front: `Front Text 3`, back: `Back Text 3` },
-					{ front: `Front Text 4`, back: `Back Text 4` },
-					{ front: `Front Text 5`, back: `Back Text 5` },
-					{ front: `Front Text 6`, back: `Back Text 6` },
-					{ front: `Front Text 7`, back: `Back Text 7` },
-				]
+				show: true,
 
 			},
 

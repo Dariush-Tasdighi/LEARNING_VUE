@@ -13,48 +13,94 @@
 		[v-cloak] {
 			display: none;
 		}
+
+		div.class1 {
+			color: red;
+		}
+
+		div.class2 {
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body>
 	<div id="app" class="container" v-cloak>
-		@*Dynamic Class (CSS)*@
-
-		<select v-model="selectedRole">
-			<option v-bind:value="null">[Filter by role]</option>
-			<option v-for="item in getUniqueRoleList" v-bind:value="item">{{ item }}</option>
-		</select>
+		<h3>
+			Class and Style Bindings
+		</h3>
 
 		<hr />
 
-		<div class="card-columns">
-			<div class="card" v-for="item in people" v-show="selectedRole === null || item.role === selectedRole">
-
-				@*<div class="card-header"
-						 v-bind:class="{'bg-info': item.displayDetails}" v-on:click="toggleDisplayDetails(item)">
-						{{ item.fullName }}
-					</div>*@
-
-				@*<div class="card-header"
-						 v-bind:class="{'bg-info': item.displayDetails, 'bg-success': !item.displayDetails}" v-on:click="toggleDisplayDetails(item)">
-						{{ item.fullName }}
-					</div>*@
-
-				<div class="card-header"
-					 v-bind:class="[item.displayDetails ? cssClass1 : cssClass2]" v-on:click="toggleDisplayDetails(item)">
-					{{ item.fullName }}
-				</div>
-
-				<div class="card-body" v-show="item.displayDetails">
-					Age: {{ item.age }}
-					<br />
-					Role: {{ item.role }}
-				</div>
-
-				<div class="card-footer" v-if="item.description" v-show="item.displayDetails">
-					{{ item.description }}
-				</div>
-			</div>
+		<div class="class1">
+			Hello, World (1)!
 		</div>
+
+		<hr />
+
+		<div class="class2">
+			Hello, World (2)!
+		</div>
+
+		<hr />
+
+		<div class="class1 class2">
+			Hello, World (3)!
+		</div>
+
+		<hr />
+
+		<input type="checkbox" v-model="hasSomeClass1" />
+		Has Some Class 1
+
+		<br />
+
+		<div v-bind:class="{ class1: hasSomeClass1 }">
+			Hello, World (4)!
+		</div>
+
+		<hr />
+
+		<input type="checkbox" v-model="hasSomeClass2" />
+		Has Some Class 2
+
+		<br />
+
+		<input type="checkbox" v-model="hasSomeClass3" />
+		Has Some Class 3
+
+		<br />
+
+		<div v-bind:class="{ class1: hasSomeClass2, class2: hasSomeClass3 }">
+			Hello, World (5)!
+		</div>
+
+		<hr />
+
+		<button type="button" class="btn btn-primary btn-sm" v-on:click="toggleClass1()">Toggle</button>
+
+		<br />
+
+		<div v-bind:class="cssClass">
+			Hello, World (6)!
+		</div>
+
+		<hr />
+
+		<div v-bind:class="[cssClass1, cssClass2]">
+			Hello, World (7)!
+		</div>
+
+		<hr />
+
+		<button type="button" class="btn btn-primary btn-sm" v-on:click="toggleClass2()">Toggle</button>
+
+		<br />
+
+		<div v-bind:class="[someBoolean ? cssClass1 : cssClass2]">
+			Hello, World (8)!
+		</div>
+
+		<hr />
 
 	</div>
 
@@ -62,37 +108,45 @@
 
 	<script>
 
-		const allOfPeople = [
-			{ id: 1, fullName: `Full Name (1)`, age: 21, role: `user`, description: `Description (1)`, },
-			{ id: 2, fullName: `Full Name (2)`, age: 22, role: `manager`, description: `Description (2)`, },
-			{ id: 3, fullName: `Full Name (3)`, age: 23, role: `admin`, description: `Description (3)`, },
-			{ id: 4, fullName: `Full Name (4)`, age: 24, role: `user`, description: `Description (4)`, },
-			{ id: 5, fullName: `Full Name (5)`, age: 25, role: `manager`, },
-			{ id: 6, fullName: `Full Name (6)`, age: 26, role: `user`, description: `Description (6)`, },
-			{ id: 7, fullName: `Full Name (7)`, age: 27, role: `admin`, },
-			{ id: 8, fullName: `Full Name (8)`, age: 28, role: `user`, },
-			{ id: 9, fullName: `Full Name (9)`, age: 29, role: `user`, },
-		]
-
 		const app = new Vue({
 
 			el: `#app`,
 
 			data: {
 
-				selectedRole: null,
-				people: allOfPeople,
+				hasSomeClass1: false,
+				hasSomeClass2: false,
+				hasSomeClass3: false,
 
-				cssClass1: `bg-info`,
-				cssClass2: `bg-success`,
+				cssClass: `class1`,
+
+				cssClass1: `class1`,
+				cssClass2: `class2`,
+
+				someBoolean: true,
 
 			},
 
 			methods: {
 
-				toggleDisplayDetails: function (item) {
+				toggleClass1: function () {
 
-					item.displayDetails = !item.displayDetails
+					if (this.cssClass === `class1`) {
+
+						this.cssClass = `class2`
+
+					}
+					else {
+
+						this.cssClass = `class1`
+
+					}
+
+				},
+
+				toggleClass2: function () {
+
+					this.someBoolean = !this.someBoolean
 
 				},
 
@@ -100,33 +154,9 @@
 
 			computed: {
 
-				getUniqueRoleList: function () {
-
-					const roles = []
-
-					this.people.forEach(item => {
-
-						if (roles.includes(item.role) == false) {
-
-							roles.push(item.role)
-
-						}
-
-					})
-
-					return roles
-
-				},
-
 			},
 
 			created: function () {
-
-				for (let index = 0; index < this.people.length; index++) {
-
-					Vue.set(this.people[index], `displayDetails`, true)
-
-				}
 
 			},
 

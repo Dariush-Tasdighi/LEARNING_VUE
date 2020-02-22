@@ -374,12 +374,13 @@
     <Content Include="Views\NewLearning\Learn_2500.cshtml" />
     <Content Include="Views\NewLearning\Learn_2600.cshtml" />
     <Content Include="Views\NewLearning\Learn_2700.cshtml" />
-    <Content Include="Views\NewLearning\Learn_2800.cshtml" />
     <Content Include="Views\NewLearning\Learn_2900.cshtml" />
     <Content Include="Views\NewLearning\Learn_3000.cshtml" />
     <Content Include="Views\NewLearning\Learn_3100.cshtml" />
     <Content Include="Views\NewLearning\Learn_3200.cshtml" />
+    <Content Include="Views\NewLearning\Learn_3300.cshtml" />
     <Content Include="Views\NewLearning\Learn_2300.cshtml" />
+    <Content Include="Views\NewLearning\Learn_2800.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

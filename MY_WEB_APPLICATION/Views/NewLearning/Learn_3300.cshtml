@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Learn 3200</title>
+	<title>Learn 3300</title>
 
 	<meta name="viewport" content="width=device-width" />
 
@@ -16,23 +16,18 @@
 
 		.flip-card {
 			position: relative;
-			transition: all 0.8s;
-			transform-style: preserve-3d;
 		}
 
-			.flip-card:hover .flip-card-front {
+			.flip-card .isFlipped {
 				transform: rotateY(180deg);
-			}
-
-			.flip-card:hover .flip-card-back {
-				transform: rotateY(0deg);
+				transform-style: preserve-3d;
 			}
 
 		.flip-card-front {
 			z-index: 2;
+			margin-bottom: 16px;
 			transition: 1s;
 			position: relative;
-			margin-bottom: 16px;
 			backface-visibility: hidden;
 			transform-style: preserve-3d;
 		}
@@ -44,7 +39,6 @@
 			height: 100%;
 			transition: 1s;
 			position: absolute;
-			transform: rotateY(-180deg);
 			backface-visibility: hidden;
 			transform-style: preserve-3d;
 		}
@@ -62,17 +56,18 @@
 		<br />
 
 		<div class="row">
-
 			<div class="col-sm-3" v-for="item in flashcards">
-				<div class="flip-card">
-					<div class="flip-card-front">
+				<div class="flip-card" v-on:click="doSomething(item)">
+					<div class="flip-card-front"
+						 v-bind:class="[item.isFlipped ? isFlippedCssClass : null]">
 						<div class="card text-center bg-info border-secondary">
 							<div class="card-body">
 								{{ item.front }}
 							</div>
 						</div>
 					</div>
-					<div class="flip-card-back">
+					<div class="flip-card-back"
+						 v-bind:class="[item.isFlipped ? null : isFlippedCssClass]">
 						<div class="card text-center bg-warning border-secondary">
 							<div class="card-body">
 								{{ item.back }}
@@ -81,7 +76,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<br />
@@ -100,19 +94,27 @@
 
 			data: {
 
+				isFlippedCssClass: `isFlipped`,
+
 				flashcards: [
-					{ front: `Front Text 1`, back: `Back Text 1` },
-					{ front: `Front Text 2`, back: `Back Text 2` },
-					{ front: `Front Text 3`, back: `Back Text 3` },
-					{ front: `Front Text 4`, back: `Back Text 4` },
-					{ front: `Front Text 5`, back: `Back Text 5` },
-					{ front: `Front Text 6`, back: `Back Text 6` },
-					{ front: `Front Text 7`, back: `Back Text 7` },
+					{ front: `Front Text 1`, back: `Back Text 1`, isFlipped: false },
+					{ front: `Front Text 2`, back: `Back Text 2`, isFlipped: false },
+					{ front: `Front Text 3`, back: `Back Text 3`, isFlipped: false },
+					{ front: `Front Text 4`, back: `Back Text 4`, isFlipped: false },
+					{ front: `Front Text 5`, back: `Back Text 5`, isFlipped: false },
+					{ front: `Front Text 6`, back: `Back Text 6`, isFlipped: false },
+					{ front: `Front Text 7`, back: `Back Text 7`, isFlipped: false },
 				]
 
 			},
 
 			methods: {
+
+				doSomething: function (item) {
+
+					item.isFlipped = !item.isFlipped
+
+				}
 
 			},
 
