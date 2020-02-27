@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 3400</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h1>
+			Connecting To Backend (Service)!
+		</h1>
+
+		<button type="button" class="btn btn-primary" v-on:click="doSomething()">Do Something</button>
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/axios.min.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+			},
+
+			// قرار گیرد data بهتر است تابع ذیل بعد از
+			created: function () {
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					let url = `/NewLearning/DoSomething`
+					//let url = `/NewLearning/DoSomething1`
+					//let url = `/NewLearning/DoSomething2`
+					//let url = `/NewLearning/DoSomething3`
+					//let url = `/NewLearning/DoSomething4`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.log(`[Then]`)
+							console.log(response)
+
+						})
+						.catch(error => {
+
+							console.error(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

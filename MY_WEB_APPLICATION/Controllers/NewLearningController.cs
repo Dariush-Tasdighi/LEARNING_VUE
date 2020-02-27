@@ -169,12 +169,6 @@
 		}
 
 		[System.Web.Mvc.HttpGet]
-		public System.Web.Mvc.ViewResult Learn_200()
-		{
-			return View();
-		}
-
-		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_2800()
 		{
 			return View();
@@ -217,6 +211,37 @@
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public void DoSomething1()
+		{
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething2()
+		{
+			return null;
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething3()
+		{
+			return null;
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething4()
+		{
+			throw new System.Exception("Some Error Message!");
+		}
+
+		//[System.Web.Mvc.HttpGet]
+		//public System.Web.Mvc.JsonResult DoSomething2()
+		//{
+		//	string data = "Hello, World";
+
+		//	return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		//}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_3500()
 		{
 			return View();
@@ -248,6 +273,66 @@
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_4000()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4100()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4200()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4300()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4400()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4500()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4600()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4700()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4800()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4900()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5000()
 		{
 			return View();
 		}

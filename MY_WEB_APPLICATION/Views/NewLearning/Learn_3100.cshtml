@@ -14,13 +14,49 @@
 			display: none;
 		}
 
-		.someName-enter-active, .someName-leave-active {
+		.someName-enter {
+			color: red;
+			opacity: 0.2;
+			font-weight: 100;
+		}
+
+		/*خیلی عرف نیست Style این*/
+		/*.someName-enter-to {
+			color: blue;
+			opacity: .8;
+			font-weight: 900;
+		}*/
+
+		.someName-enter-active {
+			transition: all 10000ms;
+		}
+
+		/*خیلی عرف نیست Style این*/
+		/*.someName-leave {
+			color: blue;
+			opacity: 0.8;
+			font-weight: 900;
+		}*/
+
+		.someName-leave-to {
+			color: red;
+			opacity: 0.2;
+			font-weight: 100;
+		}
+
+		.someName-leave-active {
+			transition: all 4000ms;
+		}
+
+		/*طریقه استفاده ساده از انیمیشن در ویوو*/
+
+		/*.someName-enter-active, .someName-leave-active {
 			transition: opacity 1.5s;
 		}
 
 		.someName-enter, .someName-leave-to {
 			opacity: 0;
-		}
+		}*/
 	</style>
 </head>
 <body>
@@ -40,7 +76,6 @@
 		<div class="card-columns">
 			<transition name="someName">
 				<div class="card bg-warning" v-if="show">
-
 					<div class="card-header">
 						Header
 					</div>
@@ -52,7 +87,6 @@
 					<div class="card-footer">
 						Footer
 					</div>
-
 				</div>
 			</transition>
 		</div>
@@ -68,7 +102,7 @@
 
 			data: {
 
-				show: true,
+				show: false,
 
 			},
 
