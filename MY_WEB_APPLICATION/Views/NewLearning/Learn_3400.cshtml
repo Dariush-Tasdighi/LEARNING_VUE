@@ -17,10 +17,18 @@
 </head>
 <body>
 	<div id="app" class="container" v-cloak>
-		<h1>
+		<h3>
 			Connecting To Backend (Service)!
-		</h1>
-
+		</h3>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething1()">Do Something (1)</button>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething2()">Do Something (2)</button>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething3()">Do Something (3)</button>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething4()">Do Something (4)</button>
+		<hr />
 		<button type="button" class="btn btn-primary" v-on:click="doSomething()">Do Something</button>
 	</div>
 
@@ -44,25 +52,135 @@
 
 			methods: {
 
-				doSomething: function () {
+				doSomething1: function () {
 
-					let url = `/NewLearning/DoSomething`
-					//let url = `/NewLearning/DoSomething1`
-					//let url = `/NewLearning/DoSomething2`
-					//let url = `/NewLearning/DoSomething3`
-					//let url = `/NewLearning/DoSomething4`
+					let url = `/NewLearning/DoSomething1`
 
 					axios.get(url)
 
 						.then(response => {
 
+							console.clear()
 							console.log(`[Then]`)
 							console.log(response)
 
 						})
 						.catch(error => {
 
-							console.error(`[Error]`)
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething2: function () {
+
+					let url = `/NewLearning/DoSomething2`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething3: function () {
+
+					let url = `/NewLearning/DoSomething3`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething4: function () {
+
+					let url = `/NewLearning/DoSomething4`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething: function () {
+
+					let url = `/NewLearning/DoSomething`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
 							console.error(error)
 
 						})

@@ -84,3 +84,27 @@ https://npmcharts.com/
 	Vue
 	Angularjs
 
+================================================================
+
+Install-Package axios
+
+HTTP 1.0
+
+	GET
+	POST
+
+HTTP 1.1 (RESTful API = REST API)
+
+	GET
+	POST
+	PUT
+	DELETE
+	(1 More)
+
+HTTP 2.0
+
+	GET
+	POST
+	PUT
+	DELETE
+	(11 More)

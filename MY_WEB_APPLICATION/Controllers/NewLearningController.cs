@@ -233,14 +233,6 @@
 			throw new System.Exception("Some Error Message!");
 		}
 
-		//[System.Web.Mvc.HttpGet]
-		//public System.Web.Mvc.JsonResult DoSomething2()
-		//{
-		//	string data = "Hello, World";
-
-		//	return Json(data: data, behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
-		//}
-
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_3500()
 		{
