@@ -108,3 +108,38 @@ HTTP 2.0
 	PUT
 	DELETE
 	(11 More)
+
+================================================================
+
+JSON آموزش
+http://vrgl.ir/MrAN8
+
+معرفی PostMan
+https://www.postman.com/
+
+http://localhost:49260/NewLearning/DoSomething2_4
+
+نکته
+
+هر
+JSON
+قطعا می‌تواند در نقش یک شیء
+JavaScript
+باشد
+
+{ firstName: "Dariush", lastName: "Tasdighi" }
+{ 'firstName': 'Dariush', 'lastName': 'Tasdighi' }
+{ `firstName`: `Dariush`, `lastName`: `Tasdighi` }
+{ "firstName": `Dariush`, 'lastName': "Tasdighi" }
+
+{ "firstName": "Dariush", "lastName": "Tasdighi" }
+
+ولی لزوما هر شیء
+JavaScript
+لزوما یک
+JSON
+نیست
+
+
+
+================================================================

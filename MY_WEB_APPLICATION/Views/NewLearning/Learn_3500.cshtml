@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 3500</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Connecting To Backend (Service) -> With Return Value!
+		</h3>
+		<hr />
+		<h3 v-if="message">
+			{{ message }}
+		</h3>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething1()">Do Something (1)</button>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething2()">Do Something (2)</button>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething3()">Do Something (3)</button>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething4()">Do Something (4)</button>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				message: null,
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				doSomething1: function () {
+
+					this.message = null
+
+					let url =
+						`/NewLearning/DoSomething2_1`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+							this.message = response.data
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething2: function () {
+
+					this.message = null
+
+					let url =
+						`/NewLearning/DoSomething2_2`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+							// Error!
+							//this.message = response.data
+
+							// Error!
+							//this.message = response.data.message
+
+							this.message = response.data.Message
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething3: function () {
+
+					this.message = null
+
+					let url =
+						`/NewLearning/DoSomething2_3`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+							this.message = response.data.Message
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething4: function () {
+
+					this.message = null
+
+					let url =
+						`/NewLearning/DoSomething2_4`
+
+					axios.post(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+							this.message = response.data.Message
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

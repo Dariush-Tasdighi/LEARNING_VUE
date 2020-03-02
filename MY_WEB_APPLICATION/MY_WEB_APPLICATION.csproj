@@ -283,8 +283,8 @@
     <Content Include="Views\Home\Learn0600.cshtml" />
     <Content Include="Views\Home\Learn0700.cshtml" />
     <Content Include="Views\Home\Learn0800.cshtml" />
-    <Content Include="Views\Home\Learn5000.cshtml" />
-    <Content Include="Views\Home\Learn5100.cshtml" />
+    <None Include="Views\Home\Learn5000.cshtml.BAK" />
+    <None Include="Views\Home\Learn5100.cshtml.BAK" />
     <Content Include="Views\Home\Learn5200.cshtml" />
     <Content Include="Views\Home\Learn5300.cshtml" />
     <Content Include="Views\Home\Learn5400.cshtml" />
@@ -382,6 +382,7 @@
     <Content Include="Views\NewLearning\Learn_2300.cshtml" />
     <Content Include="Views\NewLearning\Learn_2800.cshtml" />
     <Content Include="Views\NewLearning\Learn_3400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_3500.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

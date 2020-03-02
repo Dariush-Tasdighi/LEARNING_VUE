@@ -240,6 +240,63 @@
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething2_1()
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			string message = "Hello, World!";
+
+			return Json(data: message,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething2_2()
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			ViewModels.MessageViewModel viewModel =
+				new ViewModels.MessageViewModel
+				{
+					Message = "Hello, World!",
+				};
+
+			return Json(data: viewModel,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething2_3()
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = "Hello, World" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		/// <summary>
+		/// Test With PostMan!
+		/// </summary>
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething2_4()
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = "Hello, World" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_3600()
 		{
 			return View();
