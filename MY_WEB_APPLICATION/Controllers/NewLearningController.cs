@@ -303,9 +303,61 @@
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething3_1(string name)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"GET RESULT: Hello, { name }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething3_2(string name)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"POST RESULT: Hello, { name }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_3700()
 		{
 			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething4_1(string firstName, string lastName)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"GET RESULT: Hello, { firstName } { lastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething4_2(string firstName, string lastName)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"POST RESULT: Hello, { firstName } { lastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -314,10 +366,68 @@
 			return View();
 		}
 
+		/// <summary>
+		/// Note: Using Model and ViewModel is better than partial fields!
+		/// </summary>
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething5_1(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"GET RESULT: Hello, { viewModel.FirstName } { viewModel.LastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		/// <summary>
+		/// Note: Using Model and ViewModel is better than partial fields!
+		/// </summary>
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething5_2(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"POST RESULT: Hello, { viewModel.FirstName } { viewModel.LastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_3900()
 		{
 			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.JsonResult DoSomething6_1(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"GET RESULT: Hello, { viewModel.FirstName } { viewModel.LastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething6_2(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"POST RESULT: Hello, { viewModel.FirstName } { viewModel.LastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]

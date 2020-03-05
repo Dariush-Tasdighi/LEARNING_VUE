@@ -270,6 +270,7 @@
     <Compile Include="ViewModels\Home\GetData6200InputViewModel.cs" />
     <Compile Include="ViewModels\LearningDtxGridVue\InputGetDataViewModel.cs" />
     <Compile Include="ViewModels\MessageViewModel.cs" />
+    <Compile Include="ViewModels\PersonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -383,6 +384,10 @@
     <Content Include="Views\NewLearning\Learn_2800.cshtml" />
     <Content Include="Views\NewLearning\Learn_3400.cshtml" />
     <Content Include="Views\NewLearning\Learn_3500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_3600.cshtml" />
+    <Content Include="Views\NewLearning\Learn_3700.cshtml" />
+    <Content Include="Views\NewLearning\Learn_3800.cshtml" />
+    <Content Include="Views\NewLearning\Learn_3900.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

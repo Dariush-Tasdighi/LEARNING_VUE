@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 3900</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Connecting To Backend (Service) -> With Input Value!
+		</h3>
+		<hr />
+		<h5>
+			1. Using POST is better than GET!
+			<br />
+			2. Object binding is better than field binding!
+		</h5>
+		<hr />
+		<h3 v-if="message">
+			{{ message }}
+		</h3>
+		<hr />
+		First Name:
+		<br />
+		<input type="text" v-model="person.firstName" />
+		<br />
+		Last Name:
+		<br />
+		<input type="text" v-model="person.lastName" />
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething1()">Do Something (1)</button>
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething2()">Do Something (2)</button>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				message: null,
+
+				//lastName: null,
+				//firstName: null,
+
+				person: {
+					lastName: null,
+					firstName: null,
+				},
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				doSomething1: function () {
+
+					this.message = null
+
+					let url =
+						`/NewLearning/DoSomething6_1?firstName=${this.person.firstName}&lastName=${this.person.lastName}`
+
+					axios.get(url)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+							this.message = response.data.Message
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+				doSomething2: function () {
+
+					this.message = null
+
+					let url =
+						`/NewLearning/DoSomething6_2`
+
+					//let postData =
+					//	{ firstName: this.person.firstName, lastName: this.person.lastName }
+
+					let postData = this.person
+
+					axios.post(url, postData)
+
+						.then(response => {
+
+							console.clear()
+							console.log(`[Then]`)
+							console.log(response)
+
+							this.message = response.data.Message
+
+						})
+						.catch(error => {
+
+							console.clear()
+							console.log(`[Error]`)
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							console.log(`[Finally]`)
+
+						})
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
