@@ -436,6 +436,19 @@
 			return View();
 		}
 
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething7_1(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"POST RESULT: Hello, { viewModel.FirstName } { viewModel.LastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_4100()
 		{

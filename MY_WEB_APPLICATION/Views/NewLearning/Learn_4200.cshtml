@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 4200</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Adding Loading!
+		</h3>
+
+		<div v-if="loading" class="text-danger">
+			<hr />
+			<h5>
+				Loading... Please Wait!
+			</h5>
+		</div>
+
+		<div v-if="message">
+			<hr />
+			<h5>
+				{{ message }}
+			</h5>
+		</div>
+
+		<hr />
+		First Name:
+		<br />
+		<input type="text" v-model="person.firstName" v-bind:disabled="loading" />
+		@*<input type="text" v-model="person.firstName" v-bind:readonly="loading" />*@
+		<br />
+		Last Name:
+		<br />
+		<input type="text" v-model="person.lastName" v-bind:disabled="loading" />
+		@*<input type="text" v-model="person.lastName" v-bind:readonly="loading" />*@
+
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething()" v-bind:disabled="loading">Do Something</button>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				message: null,
+				loading: false,
+
+				person: {
+					lastName: null,
+					firstName: null,
+				},
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					this.loading = true
+					this.message = null
+
+					let url =
+						`/NewLearning/DoSomething7_1`
+
+					axios.post(url, this.person)
+
+						.then(response => {
+
+							this.message = response.data.Message
+
+						})
+						.catch(error => {
+
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							this.loading = false
+
+						})
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
