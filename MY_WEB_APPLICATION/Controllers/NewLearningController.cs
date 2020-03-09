@@ -473,10 +473,36 @@
 			return View();
 		}
 
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult DoSomething8_1(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { Message = $"POST RESULT: Hello, { viewModel.FirstName } { viewModel.LastName }" };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_4500()
 		{
 			return View();
+		}
+
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult GetPersonDetails_1(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			var data =
+				new { CellPhoneNumber = $"09121087461", EmailAddress = "DariushT@GMail.com", };
+
+			return Json(data: data,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
 		}
 
 		[System.Web.Mvc.HttpGet]
@@ -485,28 +511,109 @@
 			return View();
 		}
 
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult GetPersonDetails_2(ViewModels.PersonViewModel viewModel)
+		{
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
+
+			Dtx.ViewModels.ResultWithDataViewModel<ViewModels.NewLearning.GetPersonDetailsViewModel>
+				result = new Dtx.ViewModels.ResultWithDataViewModel<ViewModels.NewLearning.GetPersonDetailsViewModel>();
+
+			try
+			{
+				// Do Something!
+
+				ViewModels.NewLearning.GetPersonDetailsViewModel resultViewModel =
+					new ViewModels.NewLearning.GetPersonDetailsViewModel
+					{
+						CellPhoneNumber = $"09121087461",
+						EmailAddress = "DariushT@GMail.com",
+					};
+
+				result.Succeeded = true;
+				result.Data = resultViewModel;
+
+				result.AddErrorMessage("Error Message 1");
+
+				result.AddHiddenMessage("Hidden Message 1");
+				result.AddHiddenMessage("Hidden Message 2");
+
+				result.AddInformationMessage("Information Message 1");
+				result.AddInformationMessage("Information Message 2");
+				result.AddInformationMessage("Information Message 3");
+			}
+			catch //(System.Exception ex)
+			{
+				// Log(ex)
+
+				result.ClearNonHiddenMessages();
+
+				result.AddErrorMessage("Unexpected Error!");
+			}
+			finally
+			{
+			}
+
+			return Json(data: result,
+				behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+		}
+
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_4700()
 		{
 			return View();
 		}
 
-		[System.Web.Mvc.HttpGet]
-		public System.Web.Mvc.ViewResult Learn_4800()
+		[System.Web.Mvc.HttpPost]
+		public System.Web.Mvc.JsonResult GetPersonDetails_3(ViewModels.PersonViewModel viewModel)
 		{
-			return View();
-		}
+			// ایجاد یک لختی تصنعی
+			System.Threading.Thread.Sleep(millisecondsTimeout: 5000);
 
-		[System.Web.Mvc.HttpGet]
-		public System.Web.Mvc.ViewResult Learn_4900()
-		{
-			return View();
-		}
+			Dtx.ViewModels.ResultWithDataViewModel<ViewModels.NewLearning.GetPersonDetailsViewModel>
+				result = new Dtx.ViewModels.ResultWithDataViewModel<ViewModels.NewLearning.GetPersonDetailsViewModel>();
 
-		[System.Web.Mvc.HttpGet]
-		public System.Web.Mvc.ViewResult Learn_5000()
-		{
-			return View();
+			try
+			{
+				// Do Something!
+
+				ViewModels.NewLearning.GetPersonDetailsViewModel
+					resultViewModel = new ViewModels.NewLearning.GetPersonDetailsViewModel
+					{
+						CellPhoneNumber = $"09121087461",
+						EmailAddress = "DariushT@GMail.com",
+					};
+
+				result.Succeeded = true;
+				result.Data = resultViewModel;
+
+				result.AddErrorMessage("Error Message 1");
+
+				result.AddHiddenMessage("Hidden Message 1");
+				result.AddHiddenMessage("Hidden Message 2");
+
+				result.AddInformationMessage("Information Message 1");
+				result.AddInformationMessage("Information Message 2");
+				result.AddInformationMessage("Information Message 3");
+			}
+			catch //(System.Exception ex)
+			{
+				// Log(ex)
+
+				result.ClearNonHiddenMessages();
+
+				result.AddErrorMessage("Unexpected Error!");
+			}
+			finally
+			{
+			}
+
+			//return Json(data: result,
+			//	behavior: System.Web.Mvc.JsonRequestBehavior.AllowGet);
+
+			return new Infrastructure.JsonNetResult { Data = result };
 		}
 	}
 }
+

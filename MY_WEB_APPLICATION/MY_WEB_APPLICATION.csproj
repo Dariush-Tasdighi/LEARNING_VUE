@@ -252,6 +252,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LearningDtxGridVueController.cs" />
     <Compile Include="Controllers\NewLearningController.cs" />
+    <Compile Include="Dtx\Text\Utility.cs" />
+    <Compile Include="Dtx\ViewModels\ResultViewModel.cs" />
+    <Compile Include="Dtx\ViewModels\ResultWithDataViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,6 +273,7 @@
     <Compile Include="ViewModels\Home\GetData6200InputViewModel.cs" />
     <Compile Include="ViewModels\LearningDtxGridVue\InputGetDataViewModel.cs" />
     <Compile Include="ViewModels\MessageViewModel.cs" />
+    <Compile Include="ViewModels\NewLearning\GetPersonDetailsViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -392,6 +396,10 @@
     <Content Include="Views\NewLearning\Learn_4100.cshtml" />
     <Content Include="Views\NewLearning\Learn_4200.cshtml" />
     <Content Include="Views\NewLearning\Learn_4300.cshtml" />
+    <Content Include="Views\NewLearning\Learn_4400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_4600.cshtml" />
+    <Content Include="Views\NewLearning\Learn_4500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_4700.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

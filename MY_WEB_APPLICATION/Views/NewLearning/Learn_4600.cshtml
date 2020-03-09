@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 4600</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<div class="alert alert-danger" v-if="result?.ErrorMessages?.length > 0">
+			<ul>
+				<li v-for="item in result.ErrorMessages">{{ item }}</li>
+			</ul>
+		</div>
+
+		<div class="alert alert-info" v-if="result?.InformationMessages?.length > 0">
+			<ul>
+				<li v-for="item in result.InformationMessages">{{ item }}</li>
+			</ul>
+		</div>
+
+		First Name:
+		<br />
+		<input type="text" v-model="person.firstName" />
+		<br />
+		Last Name:
+		<br />
+		<input type="text" v-model="person.lastName" />
+
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething()">Do Something</button>
+
+		<div v-if="result?.Data">
+			<hr />
+			Cell Phone Number: {{ result?.Data?.CellPhoneNumber }}
+			<br />
+			Email Address: {{ result?.Data?.EmailAddress }}
+		</div>
+
+		<div id="loadingModal" class="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">
+							Loading...
+						</h5>
+					</div>
+					<div class="modal-body">
+						<p class="text-danger">
+							Please Wait!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+	<script src="~/Scripts/axios.min.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				result: null,
+
+				person: {
+					lastName: null,
+					firstName: null,
+				},
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					this.result = null
+
+					$(`div#loadingModal`).modal({ backdrop: false, keyboard: false, })
+
+					let url =
+						`/NewLearning/GetPersonDetails_2`
+
+					axios.post(url, this.person)
+
+						.then(response => {
+
+							this.result = response.data
+
+							this.result.HiddenMessages.forEach(item => {
+
+								console.log(item)
+
+							})
+
+						})
+						.catch(error => {
+
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							$(`div#loadingModal`).modal('hide')
+
+						})
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
