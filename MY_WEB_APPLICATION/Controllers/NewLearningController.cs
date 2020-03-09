@@ -528,7 +528,7 @@
 					new ViewModels.NewLearning.GetPersonDetailsViewModel
 					{
 						CellPhoneNumber = $"09121087461",
-						EmailAddress = "DariushT@GMail.com",
+						EmailAddress = $"DariushT@GMail.com",
 					};
 
 				result.Succeeded = true;
@@ -582,7 +582,7 @@
 					resultViewModel = new ViewModels.NewLearning.GetPersonDetailsViewModel
 					{
 						CellPhoneNumber = $"09121087461",
-						EmailAddress = "DariushT@GMail.com",
+						EmailAddress = $"DariushT@GMail.com",
 					};
 
 				result.Succeeded = true;
