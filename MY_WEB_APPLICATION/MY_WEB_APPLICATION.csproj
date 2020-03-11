@@ -407,6 +407,8 @@
     <Content Include="Views\NewLearning\Learn_5200.cshtml" />
     <Content Include="Views\NewLearning\Learn_5300.cshtml" />
     <Content Include="Views\NewLearning\Learn_5400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5600.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

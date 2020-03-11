@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 5600</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h5>
+			بر خلاف
+			<br />
+			Angular, AngularJS, React, ...
+			<br />
+			Vue validate html of template and will fix it!
+		</h5>
+
+		<hr />
+
+		<my-component></my-component>
+
+		<hr />
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		Vue.component(`my-component`, {
+
+			template: `<h5><i>Hello, World!`,
+			//template: `<h5><i>Hello, World!</i></h5>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+		})
+
+	</script>
+</body>
+</html>

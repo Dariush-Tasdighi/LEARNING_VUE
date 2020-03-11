@@ -656,6 +656,18 @@
 		{
 			return View();
 		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5500()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5600()
+		{
+			return View();
+		}
 	}
 }
 

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 5500</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h5>
+			Component template should have root element!
+		</h5>
+
+		<hr />
+
+		<first-component></first-component>
+
+		<hr />
+
+		<second-component></second-component>
+
+		<hr />
+
+		<third-component></third-component>
+
+		<hr />
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		//Error
+		Vue.component(`first-component`, {
+
+			//template: `Hello, World!`,
+
+		})
+
+		// OK - Note: <h5> is root element!
+		Vue.component(`second-component`, {
+
+			template: `<h5>Hello, World!</h5>`,
+
+		})
+
+		// OK - Note: Using fake root component!
+		Vue.component(`third-component`, {
+
+			template: `<template>Hello, World!</template>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+		})
+
+	</script>
+</body>
+</html>
