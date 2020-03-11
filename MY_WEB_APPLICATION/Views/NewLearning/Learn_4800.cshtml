@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 4800</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<ul>
+			@*کار می‌کند*@
+			<todo-item></todo-item>
+
+			@*کار می‌کند*@
+			<todo-item />
+
+			@*کار نمی‌کند*@
+			<todoItem></todoItem>
+
+			@*کار نمی‌کند*@
+			<todoItem />
+		</ul>
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		// توصیه می‌شود که اسامی
+		// Componenet
+		// ها از حداقل دو کلمه تشکیل شوند
+
+		Vue.component(`todo-item`, {
+
+			template: `<li>This is a todo item!</li>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+		})
+
+	</script>
+</body>
+</html>

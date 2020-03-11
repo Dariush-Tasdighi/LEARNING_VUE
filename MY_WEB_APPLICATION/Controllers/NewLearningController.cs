@@ -614,6 +614,48 @@
 
 			return new Infrastructure.JsonNetResult { Data = result };
 		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4800()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_4900()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5000()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5100()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5200()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5300()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_5400()
+		{
+			return View();
+		}
 	}
 }
 

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 5400</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h5>
+			1) Only kabab case will be work in HTML!
+			<br />
+			2) The kabab case will considered as camel case!
+		</h5>
+
+		<hr />
+
+		<ul>
+			<todoItem v-for="item of todos" v-bind:key="item.id" v-bind:todoObject="item"></todoItem>
+		</ul>
+
+		<hr />
+
+		<ul>
+			<todo-item v-for="item of todos" v-bind:key="item.id" v-bind:todo-object="item"></todo-item>
+		</ul>
+
+		<hr />
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		Vue.component(`todoItem`, {
+
+			props: [`todoObject`],
+
+			template: `<li>{{ todoObject.id }} - {{ todoObject.text }}</li>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				todos: [
+					{ id: 1, text: `Learn CSS 3`, },
+					{ id: 2, text: `Learn HTML 5`, },
+					{ id: 3, text: `Learn VUE.JS`, },
+					{ id: 4, text: `Learn JavaScript`, },
+				],
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

@@ -285,9 +285,9 @@
     <None Include="Views\Home\Learn0200.cshtml.BAK" />
     <None Include="Views\Home\Learn0300.cshtml.BAK" />
     <None Include="Views\Home\Learn0400.cshtml.BAK" />
-    <Content Include="Views\Home\Learn0600.cshtml" />
-    <Content Include="Views\Home\Learn0700.cshtml" />
-    <Content Include="Views\Home\Learn0800.cshtml" />
+    <None Include="Views\Home\Learn0600.cshtml.BAK" />
+    <None Include="Views\Home\Learn0700.cshtml.BAK" />
+    <None Include="Views\Home\Learn0800.cshtml.BAK" />
     <None Include="Views\Home\Learn5000.cshtml.BAK" />
     <None Include="Views\Home\Learn5100.cshtml.BAK" />
     <None Include="Views\Home\Learn5200.cshtml.BAK" />
@@ -298,15 +298,15 @@
     <Content Include="Views\Home\Learn6000.cshtml" />
     <Content Include="Views\Home\Learn6100.cshtml" />
     <Content Include="Views\Home\Learn6200.cshtml" />
-    <Content Include="Views\Home\Learn0650.cshtml" />
+    <None Include="Views\Home\Learn0650.cshtml.BAK" />
     <None Include="Views\Home\Learn5350.cshtml.BAK" />
     <Content Include="Views\Home\Learn5700.cshtml" />
     <None Include="Views\Home\Learn0550.cshtml.BAK" />
     <None Include="Views\Home\Learn0575.cshtml.BAK" />
     <None Include="Views\Home\Learn0583.cshtml.BAK" />
     <Content Include="Views\Home\Learn0850.cshtml" />
-    <None Include="Views\Home\Learn0675.cshtml.BAK_COMPONETS" />
-    <Content Include="Views\Home\Learn0750.cshtml" />
+    <None Include="Views\Home\Learn0675.cshtml.BAK" />
+    <None Include="Views\Home\Learn0750.cshtml.BAK" />
     <Content Include="Views\Home\Learn0875.cshtml" />
     <None Include="Views\Home\Learn0900.cshtml.BAK" />
     <None Include="Views\Home\Learn0910.cshtml.BAK" />
@@ -400,6 +400,13 @@
     <Content Include="Views\NewLearning\Learn_4600.cshtml" />
     <Content Include="Views\NewLearning\Learn_4500.cshtml" />
     <Content Include="Views\NewLearning\Learn_4700.cshtml" />
+    <Content Include="Views\NewLearning\Learn_4800.cshtml" />
+    <Content Include="Views\NewLearning\Learn_4900.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5000.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5100.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5200.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5300.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5400.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

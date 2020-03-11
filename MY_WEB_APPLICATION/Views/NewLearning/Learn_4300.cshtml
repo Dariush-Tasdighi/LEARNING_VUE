@@ -113,7 +113,7 @@
 
 					this.message = null
 
-					//$('#loadingModal').modal()
+					//$(`#loadingModal`).modal()
 					$(`div#loadingModal`).modal({ backdrop: false, keyboard: false, })
 
 					let url =
@@ -133,7 +133,7 @@
 						})
 						.finally(() => {
 
-							$(`div#loadingModal`).modal('hide')
+							$(`div#loadingModal`).modal(`hide`)
 
 						})
 

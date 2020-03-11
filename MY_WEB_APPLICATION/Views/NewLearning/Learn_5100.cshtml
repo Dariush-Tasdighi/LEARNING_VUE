@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 5100</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Learning Nested Components!
+		</h3>
+
+		<hr />
+
+		<todo-items></todo-items>
+	</div>
+
+	<script src="~/Scripts/vue.min.js"></script>
+
+	<script>
+
+		Vue.component(`todo-item`, {
+
+			template: `<li>This is a todo item!</li>`,
+
+		})
+
+		Vue.component(`todo-items`, {
+
+			template:
+				`<ul>
+					<todo-item></todo-item>
+					<todo-item></todo-item>
+					<todo-item></todo-item>
+					<todo-item></todo-item>
+					<todo-item></todo-item>
+				</ul>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+		})
+
+	</script>
+</body>
+</html>
