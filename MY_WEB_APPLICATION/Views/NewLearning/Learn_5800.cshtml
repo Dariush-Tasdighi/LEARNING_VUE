@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 5800</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<dtx-header v-bind:message="'Based on Learn 4700!'"></dtx-header>
+		<dtx-error-messages v-bind:result="result"></dtx-error-messages>
+		<dtx-information-messages v-bind:result="result"></dtx-information-messages>
+
+		First Name:
+		<br />
+		<input type="text" v-model="person.firstName" />
+		<br />
+		Last Name:
+		<br />
+		<input type="text" v-model="person.lastName" />
+
+		<hr />
+		<button type="button" class="btn btn-primary" v-on:click="doSomething()">Do Something</button>
+
+		<div v-if="result?.data">
+			<hr />
+			Cell Phone Number: {{ result.data.cellPhoneNumber }}
+			<br />
+			Email Address: {{ result.data.emailAddress }}
+		</div>
+
+		<dtx-modal></dtx-modal>
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-header`, {
+
+			props: [`message`],
+
+			template:
+				`<h3>
+					{{ message }}
+				</h3>`,
+
+		})
+
+		Vue.component(`dtx-error-messages`, {
+
+			props: [`result`],
+
+			template:
+				`<div class="alert alert-danger" v-if="result?.errorMessages?.length > 0">
+					<ul>
+						<li v-for="item in result.errorMessages">{{ item }}</li>
+					</ul>
+				</div>`,
+
+		})
+
+		Vue.component(`dtx-information-messages`, {
+
+			props: [`result`],
+
+			template:
+				`<div class="alert alert-info" v-if="result?.informationMessages?.length > 0">
+					<ul>
+						<li v-for="item in result.informationMessages">{{ item }}</li>
+					</ul>
+				</div>`,
+
+		})
+
+		Vue.component(`dtx-modal`, {
+
+			template:
+				`<div id="loadingModal" class="modal" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">
+									Loading...
+								</h5>
+							</div>
+							<div class="modal-body">
+								<p class="text-danger">
+									Please Wait!
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				result: null,
+
+				person: {
+					lastName: null,
+					firstName: null,
+				},
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				doSomething: function () {
+
+					this.result = null
+
+					$(`div#loadingModal`).modal({ backdrop: false, keyboard: false, })
+
+					let url =
+						`/NewLearning/GetPersonDetails_3`
+
+					axios.post(url, this.person)
+
+						.then(response => {
+
+							this.result = response.data
+
+							this.result.hiddenMessages.forEach(item => {
+
+								console.log(item)
+
+							})
+
+						})
+						.catch(error => {
+
+							console.error(error)
+
+						})
+						.finally(() => {
+
+							$(`div#loadingModal`).modal(`hide`)
+
+						})
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

@@ -160,6 +160,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\Learning\dtx-library.js" />
+    <Content Include="Scripts\Learning\learn_6100.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -292,15 +294,15 @@
     <None Include="Views\Home\Learn5100.cshtml.BAK" />
     <None Include="Views\Home\Learn5200.cshtml.BAK" />
     <None Include="Views\Home\Learn5300.cshtml.BAK" />
-    <Content Include="Views\Home\Learn5400.cshtml" />
-    <Content Include="Views\Home\Learn5500.cshtml" />
-    <Content Include="Views\Home\Learn5600.cshtml" />
+    <None Include="Views\Home\Learn5400.cshtml.BAK" />
+    <None Include="Views\Home\Learn5500.cshtml.BAK" />
+    <None Include="Views\Home\Learn5600.cshtml.BAK" />
     <Content Include="Views\Home\Learn6000.cshtml" />
     <Content Include="Views\Home\Learn6100.cshtml" />
     <Content Include="Views\Home\Learn6200.cshtml" />
     <None Include="Views\Home\Learn0650.cshtml.BAK" />
     <None Include="Views\Home\Learn5350.cshtml.BAK" />
-    <Content Include="Views\Home\Learn5700.cshtml" />
+    <None Include="Views\Home\Learn5700.cshtml.BAK" />
     <None Include="Views\Home\Learn0550.cshtml.BAK" />
     <None Include="Views\Home\Learn0575.cshtml.BAK" />
     <None Include="Views\Home\Learn0583.cshtml.BAK" />
@@ -409,6 +411,11 @@
     <Content Include="Views\NewLearning\Learn_5400.cshtml" />
     <Content Include="Views\NewLearning\Learn_5500.cshtml" />
     <Content Include="Views\NewLearning\Learn_5600.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5700.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5800.cshtml" />
+    <Content Include="Views\NewLearning\Learn_5900.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6000.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6100.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
