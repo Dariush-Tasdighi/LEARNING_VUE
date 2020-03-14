@@ -11,6 +11,7 @@
 </head>
 <body>
 	<div id="app" class="container" v-cloak>
+		<dtx-modal></dtx-modal>
 		<dtx-header v-bind:message="'Based on Learn 4700! External CSS and JS'"></dtx-header>
 		<dtx-error-messages v-bind:result="result"></dtx-error-messages>
 		<dtx-information-messages v-bind:result="result"></dtx-information-messages>
@@ -32,9 +33,6 @@
 			<br />
 			Email Address: {{ result.data.emailAddress }}
 		</div>
-
-		<dtx-modal></dtx-modal>
-
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>

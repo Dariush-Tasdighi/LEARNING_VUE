@@ -19,7 +19,7 @@
 
 			this.result = null;
 
-			$(`div#loadingModal`).modal({ backdrop: false, keyboard: false, });
+			$(`div#loadingModal`).modal({ backdrop: false, keyboard: false });
 
 			let url =
 				`/NewLearning/GetPersonDetails_3`;
