@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 7100</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Solving Problem: Two Way Binding From Parent to Child! - Step (1)
+		</h3>
+
+		<hr />
+
+		<input type="text" class="form-control" v-model="message" />
+		<br />
+		<dtx-component v-bind:internal-message="message" v-on:value-updated="updateMessage($event)"></dtx-component>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-component`, {
+
+			props: [`internalMessage`],
+
+			data: function () {
+
+				return ({
+
+				})
+
+			},
+
+			created: function () {
+
+			},
+
+			template:
+				`<div>
+					<input
+						type="text"
+						class="form-control"
+						v-bind:value="internalMessage"
+						v-on:input="doSomething($event.target.value)" />
+				</div>`,
+
+			methods: {
+
+				doSomething: function (e) {
+
+					this.$emit(`value-updated`, e)
+
+				},
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				message: `Hello, World!`,
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				updateMessage: function (e) {
+
+					this.message = e
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

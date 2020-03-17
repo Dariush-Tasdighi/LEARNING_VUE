@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 7000</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Event Bubbling - With More Than One Parameter!
+		</h3>
+
+		<hr />
+
+		<dtx-component v-on:button-clicked="internalButtonClicked($event)"></dtx-component>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-component`, {
+
+			props: [],
+
+			data: function () {
+
+				return ({
+
+					message1: `Hello, World!`,
+					message2: `My name is Dariush Tasdighi!`,
+
+				})
+
+			},
+
+			created: function () {
+
+			},
+
+			template:
+				`<div>
+					<input type="text" class="form-control" v-model="message1" />
+					<br />
+					<input type="text" class="form-control" v-model="message2" />
+					<br />
+					<button type="button" class="btn btn-primary" v-on:click="doSomething()">Click Me!</button>
+				</div>`,
+
+			methods: {
+
+				doSomething: function () {
+
+					// دستور ذیل غلط می‌باشد
+					//this.$emit(`button-clicked`, this.message1, this.message2)
+
+					let result =
+						{ a: this.message1, b: this.message2, }
+
+					this.$emit(`button-clicked`, result)
+
+				},
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				internalButtonClicked: function (e) {
+
+					alert(`A: ` + e.a + `\rB: ` + e.b)
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

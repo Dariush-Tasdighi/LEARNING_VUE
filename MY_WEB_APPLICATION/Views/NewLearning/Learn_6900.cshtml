@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 6900</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Event Bubbling -  With One Parameter!
+		</h3>
+
+		<hr />
+
+		<dtx-component v-on:button-clicked="internalButtonClicked($event)"></dtx-component>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-component`, {
+
+			props: [],
+
+			data: function () {
+
+				return ({
+
+					message: `Hello, World!`,
+
+				})
+
+			},
+
+			created: function () {
+
+			},
+
+			template:
+				`<div>
+					<input type="text" v-model="message" />
+					<button type="button" v-on:click="doSomething()">Click Me!</button>
+				</div>`,
+
+			methods: {
+
+				doSomething: function () {
+
+					this.$emit(`button-clicked`, this.message)
+
+				},
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				internalButtonClicked: function (e) {
+
+					alert(e)
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

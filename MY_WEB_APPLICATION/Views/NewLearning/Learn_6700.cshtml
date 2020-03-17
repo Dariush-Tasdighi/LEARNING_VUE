@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 6700</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			There is not any problem with two way binding from parent to child with reference types!
+		</h3>
+
+		<hr />
+
+		<input type="text" v-model="person.fullName" />
+		<br />
+		<dtx-component v-bind:external-person="person"></dtx-component>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-component`, {
+
+			props: [`externalPerson`],
+
+			data: function() {
+
+				return ({
+
+				})
+
+			},
+
+			created: function (){
+
+			},
+
+			template:
+				`<div>
+					<input type="text" v-model="externalPerson.fullName" />
+					<br />
+					External Person Full Name: {{ externalPerson.fullName }}!
+				</div>`,
+
+			methods: {
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				person:
+				{
+					fullName: `Dariush Tasdihgi`,
+				},
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

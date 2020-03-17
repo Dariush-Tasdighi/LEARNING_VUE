@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 6400</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Define Optional Input Parameters!
+		</h3>
+
+		<dtx-currency-converter v-bind:dollars="dollars1"></dtx-currency-converter>
+		<dtx-currency-converter v-bind:dollars="dollars2" v-bind:rate="120000"></dtx-currency-converter>
+		<dtx-currency-converter v-bind:dollars="dollars3"></dtx-currency-converter>
+		<dtx-currency-converter v-bind:dollars="dollars4" v-bind:rate="130000"></dtx-currency-converter>
+		<dtx-currency-converter v-bind:dollars="dollars5"></dtx-currency-converter>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-currency-converter`, {
+
+			props: [`dollars`, `rate`],
+
+			data: function() {
+
+				return ({
+
+					rials: null,
+
+				})
+
+			},
+
+			created: function (){
+
+				if(this.rate === undefined) {
+
+					this.rate = 150000
+
+				}
+
+			},
+
+			template:
+				`<div>
+					{{ dollars }}$
+					<button type="button" class="btn btn-primary btn-sm" v-on:click="convert()">Convert</button>
+					<span v-if="rials">
+						<b>{{ rials }} Rials</b> (Rate: {{ rate }})
+					</span>
+					<hr />
+				</div>`,
+
+			methods: {
+
+				convert: function () {
+
+					this.rials =
+						this.rate * this.dollars;
+
+				},
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				dollars1: 100,
+				dollars2: 110,
+				dollars3: 120,
+				dollars4: 130,
+				dollars5: 140,
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

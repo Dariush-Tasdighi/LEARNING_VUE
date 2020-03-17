@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 6200</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			دقت کنید external-message و externalMessage به
+		</h3>
+
+		<hr />
+
+		<dtx-component v-bind:external-message="message"></dtx-component>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-component`, {
+
+			props: [`externalMessage`],
+
+			data: function() {
+
+				return ({
+
+					internalMessage: `Dariush Tasdighi`,
+
+				})
+
+			},
+
+			template:
+				`<div>
+					{{ externalMessage }} My name is {{ internalMessage }}!
+				</div>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				message: null,
+
+			},
+
+			created: function () {
+
+				this.message = `Hello, World!`
+
+			},
+
+			methods: {
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

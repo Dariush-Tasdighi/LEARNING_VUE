@@ -306,10 +306,10 @@
     <None Include="Views\Home\Learn0550.cshtml.BAK" />
     <None Include="Views\Home\Learn0575.cshtml.BAK" />
     <None Include="Views\Home\Learn0583.cshtml.BAK" />
-    <Content Include="Views\Home\Learn0850.cshtml" />
+    <None Include="Views\Home\Learn0850.cshtml.BAK" />
     <None Include="Views\Home\Learn0675.cshtml.BAK" />
     <None Include="Views\Home\Learn0750.cshtml.BAK" />
-    <Content Include="Views\Home\Learn0875.cshtml" />
+    <None Include="Views\Home\Learn0875.cshtml.BAK" />
     <None Include="Views\Home\Learn0900.cshtml.BAK" />
     <None Include="Views\Home\Learn0910.cshtml.BAK" />
     <None Include="Views\Home\Learn0920.cshtml.BAK" />
@@ -416,6 +416,19 @@
     <Content Include="Views\NewLearning\Learn_5900.cshtml" />
     <Content Include="Views\NewLearning\Learn_6000.cshtml" />
     <Content Include="Views\NewLearning\Learn_6100.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6200.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6300.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6600.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6800.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6900.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7000.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7100.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7200.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7300.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7400.cshtml" />
+    <Content Include="Views\NewLearning\Learn_6700.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

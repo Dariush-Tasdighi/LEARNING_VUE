@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 6800</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Event Bubbling - Without Parameter!
+			<br />
+			We recommend you always use kebab-case for event names.
+		</h3>
+
+		<hr />
+
+		<dtx-component v-on:button-clicked="internalButtonClicked()"></dtx-component>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-component`, {
+
+			props: [],
+
+			data: function () {
+
+				return ({
+
+				})
+
+			},
+
+			created: function () {
+
+			},
+
+			template:
+				`<div>
+					<button type="button" v-on:click="doSomething()">Click Me!</button>
+				</div>`,
+
+			methods: {
+
+				doSomething: function () {
+
+					// دستور ذیل کار نمی‌کند
+					//this.$emit(`buttonClicked`)
+
+					this.$emit(`button-clicked`)
+
+				},
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+				internalButtonClicked: function () {
+
+					alert(`Internal Button Clicked!`)
+
+				},
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
