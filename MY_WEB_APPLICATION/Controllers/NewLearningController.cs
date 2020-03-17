@@ -718,6 +718,12 @@
 		}
 
 		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_6450()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_6500()
 		{
 			return View();
@@ -725,6 +731,12 @@
 
 		[System.Web.Mvc.HttpGet]
 		public System.Web.Mvc.ViewResult Learn_6600()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_6650()
 		{
 			return View();
 		}

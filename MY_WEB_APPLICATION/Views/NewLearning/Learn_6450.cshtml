@@ -39,6 +39,8 @@
 				return ({
 
 					rials: null,
+					newRate: this.rate,
+
 
 				})
 
@@ -46,9 +48,15 @@
 
 			created: function () {
 
-				if(this.rate === undefined) {
+				//if(this.rate === undefined) {
 
-					this.rate = 150000
+				//	this.rate = 150000
+
+				//}
+
+				if(this.newRate === undefined) {
+
+					this.newRate = 150000
 
 				}
 
@@ -59,7 +67,7 @@
 					{{ dollars }}$
 					<button type="button" class="btn btn-primary btn-sm" v-on:click="convert()">Convert</button>
 					<span v-if="rials">
-						<b>{{ rials }} Rials</b> (Rate: {{ rate }})
+						<b>{{ rials }} Rials</b> (Rate: {{ newRate }})
 					</span>
 					<hr />
 				</div>`,
@@ -69,7 +77,7 @@
 				convert: function () {
 
 					this.rials =
-						this.rate * this.dollars;
+						this.newRate * this.dollars;
 
 				},
 
@@ -88,6 +96,9 @@
 				dollars3: 120,
 				dollars4: 130,
 				dollars5: 140,
+
+				dollars6: 150,
+				rate: undefined,
 
 			},
 

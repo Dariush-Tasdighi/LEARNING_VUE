@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Learn 6200</title>
+	<title>Learn 6600</title>
 
 	<meta name="viewport" content="width=device-width" />
 
@@ -12,19 +12,14 @@
 <body>
 	<div id="app" class="container" v-cloak>
 		<h3>
-			Define internal fields for components!
-			<br />
-			دقت کنید external-message و externalMessage به
+			Problem: Two Way Binding From Parent to Child!
 		</h3>
 
 		<hr />
 
+		<input type="text" v-model="message" />
+		<br />
 		<dtx-component v-bind:external-message="message"></dtx-component>
-
-		@*
-			// دستور ذیل عمل نمی‌کند و دچار خطا خواهد شد
-			<dtx-component v-bind:externalMessage="message"></dtx-component>
-		*@
 	</div>
 
 	<script src="~/Scripts/vue.js"></script>
@@ -39,23 +34,28 @@
 
 			props: [`externalMessage`],
 
-			// دستور ذیل عمل نمی‌کند و دچار خطا خواهد شد
-			//props: [`external-message`],
-
 			data: function() {
 
 				return ({
-
-					internalMessage: `Dariush Tasdighi`,
 
 				})
 
 			},
 
+			created: function () {
+
+			},
+
 			template:
 				`<div>
-					{{ externalMessage }} My name is {{ internalMessage }}!
+					<input type="text" v-bind:value="externalMessage" />
+					<br />
+					External Message: {{ externalMessage }}!
 				</div>`,
+
+			methods: {
+
+			},
 
 		})
 
@@ -65,15 +65,11 @@
 
 			data: {
 
-				message: null,
-
-				//message: `Hello, World!`,
+				message: `Hello, World!`,
 
 			},
 
 			created: function () {
-
-				this.message = `Hello, World!`
 
 			},
 
