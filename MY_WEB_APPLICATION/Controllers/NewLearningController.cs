@@ -770,5 +770,11 @@
 		{
 			return View();
 		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_7400()
+		{
+			return View();
+		}
 	}
 }
