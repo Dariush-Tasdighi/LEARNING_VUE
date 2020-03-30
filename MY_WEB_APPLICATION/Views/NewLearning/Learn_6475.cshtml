@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Learn 6450</title>
+	<title>Learn 6475</title>
 
 	<meta name="viewport" content="width=device-width" />
 
@@ -39,26 +39,12 @@
 				return ({
 
 					rials: null,
-					newRate: this.rate,
-
 
 				})
 
 			},
 
 			created: function () {
-
-				//if(this.rate === undefined) {
-
-				//	this.rate = 150000
-
-				//}
-
-				if(this.newRate === undefined) {
-
-					this.newRate = 150000
-
-				}
 
 			},
 
@@ -80,6 +66,25 @@
 						this.newRate * this.dollars;
 
 				},
+
+			},
+
+			computed: {
+
+				newRate: function () {
+
+					if (this.rate === undefined) {
+
+						return 150000
+
+					}
+					else {
+
+						return this.rate
+
+					}
+
+				}
 
 			},
 
