@@ -794,5 +794,23 @@
 		{
 			return View();
 		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_7500()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_7600()
+		{
+			return View();
+		}
+
+		[System.Web.Mvc.HttpGet]
+		public System.Web.Mvc.ViewResult Learn_7700()
+		{
+			return View();
+		}
 	}
 }

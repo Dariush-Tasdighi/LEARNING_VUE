@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 7700</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<dtx-header v-bind:message="`DTX Library!`"></dtx-header>
+
+		<hr />
+
+		<b>Full Name:</b>
+		<br />
+		{{ person?.fullName }}
+
+		<br />
+
+		<b>Birth Date:</b>
+		<br />
+		<dtx-persian-calendar v-model="person.birthDate" v-bind:min-year="1330" v-bind:max-year="1399"></dtx-persian-calendar>
+
+		<hr />
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/Learning/dtx-library.js"></script>
+	<script src="~/Scripts/Learning/learn_7700.js"></script>
+</body>
+</html>

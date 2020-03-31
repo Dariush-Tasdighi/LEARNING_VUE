@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 7500</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Numeric Select Component
+		</h3>
+
+		<hr />
+
+		<a href="https://vuejs.org/v2/guide/components-props.html">Vue.js props validation!</a>
+
+		<hr />
+
+		@*<dtx-numberic-select></dtx-numberic-select>*@
+
+		@*<dtx-numberic-select v-bind:min="null"></dtx-numberic-select>*@
+
+		@*<dtx-numberic-select v-bind:min="Dariush"></dtx-numberic-select>*@
+
+		@*<dtx-numberic-select v-bind:min="'Dariush'"></dtx-numberic-select>*@
+
+		@*<b>The min value is OK!</b><dtx-numberic-select v-bind:min="10"></dtx-numberic-select>*@
+
+		@*<b>The min value is OK!</b><dtx-numberic-select v-bind:min="10" v-bind:max="null"></dtx-numberic-select>*@
+
+		@*<b>The min value is OK!</b><dtx-numberic-select v-bind:min="10" v-bind:max="Dariush"></dtx-numberic-select>*@
+
+		@*<b>The min value is OK!</b><dtx-numberic-select v-bind:min="10" v-bind:max="'Dariush'"></dtx-numberic-select>*@
+
+		@*<b>The min and max value are OK!</b><dtx-numberic-select v-bind:min="10" v-bind:max="5"></dtx-numberic-select>*@
+
+		@*<b>The min and max value are OK!</b><dtx-numberic-select v-bind:min="10" v-bind:max="10"></dtx-numberic-select>*@
+
+		@*<b>The min and max value are OK!</b><dtx-numberic-select v-model="nullObject" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>*@
+
+		@*<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age1 }}
+			<br />
+			<dtx-numberic-select v-model="age1" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>*@
+
+		@*<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age2 }}
+			<br />
+			<dtx-numberic-select v-model="age2" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>*@
+
+		@*<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age3 }}
+			<br />
+			<dtx-numberic-select v-model="age3" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>*@
+
+		@*<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age4 }}
+			<br />
+			<dtx-numberic-select v-model="age4" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>*@
+
+		@*<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age5 }}
+			<br />
+			<dtx-numberic-select v-model="age5" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>*@
+
+		@*<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age6 }}
+			<br />
+			<dtx-numberic-select v-model="age6" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>*@
+
+		@*<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age7 }}
+			<br />
+			<dtx-numberic-select v-model="age7" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>*@
+
+		<div>
+			<b>The min and max value are OK!</b>
+			<br />
+			Age: {{ age8 }}
+			<br />
+			<input type="number" class="form-control" v-model="age8" />
+			<br />
+			<dtx-numberic-select v-model="age8" v-bind:min="10" v-bind:max="20"></dtx-numberic-select>
+		</div>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-numberic-select`, {
+
+			props: [`value`, `min`, `max`],
+
+			data: function () {
+
+				return ({
+
+					validated: false,
+
+				})
+
+			},
+
+			created: function () {
+
+				this.validated = false
+
+				if (this.min === undefined) {
+
+					console.error(`[dtx-numberic-select]: The 'min' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.min === null) {
+
+					console.error(`[dtx-numberic-select]: The 'min' can not be 'null'!`)
+					return;
+
+				}
+
+				if (Number.isInteger(this.min) === false) {
+
+					console.error(`[dtx-numberic-select]: The 'min' (${ this.min }) should be an integer!`)
+					return;
+
+				}
+
+				if (this.max === undefined) {
+
+					console.error(`The 'max' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.max === null) {
+
+					console.error(`The 'max' can not be 'null'!`)
+					return;
+
+				}
+
+				if (Number.isInteger(this.max) === false) {
+
+					console.error(`The 'max' (${ this.max }) should be an integer!`)
+					return;
+
+				}
+
+				if (this.min > this.max ) {
+
+					console.error(`The 'min' (${this.min}) should be less than or equal to 'max' (${ this.max })!`)
+					return;
+
+				}
+
+				if (this.value === undefined) {
+
+					console.error(`The 'value' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.value !== null) {
+
+					if (Number.isInteger(this.value) === false) {
+
+						console.error(`The 'value' (${ this.value }) should be an integer!`)
+						return;
+
+					}
+
+					if (this.value < this.min) {
+
+						console.error(`The 'value' (${ this.value }) should be greater than or equal to 'min' (${ this.min })!`)
+						return;
+
+					}
+
+					if (this.value > this.max) {
+
+						console.error(`The 'value' (${ this.value }) should be less than or equal to 'max'(${ this.max })!`)
+						return;
+
+					}
+
+				}
+
+				this.validated = true
+
+			},
+
+			template:
+				`<select
+					class="form-control"
+					v-if="validated"
+					v-bind:value="value"
+					v-on:input="doSomething($event.target.value)"
+					>
+					<option v-bind:value="null"></option>
+					<option v-for="(item, index) in getNumbers" v-bind:value="item" v-bind:key="index">{{ item }}</option>
+				</select>`,
+
+			methods: {
+
+				doSomething: function (e) {
+
+					this.$emit(`input`, e)
+
+				},
+
+			},
+
+			computed: {
+
+				getNumbers: function () {
+
+					let numbers = []
+
+					if (this.validated) {
+
+						for (let index = this.min; index <= this.max; index++) {
+
+							numbers.push(index)
+
+						}
+
+					}
+
+					return numbers
+
+				},
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				age1: `Dariush`,
+				age2: 5,
+				age3: 25,
+				age4: 10,
+				age5: 20,
+				age6: 15,
+				age7: null,
+				age8: 15,
+				nullObject: null,
+
+			},
+
+			created: function () {
+
+			},
+
+			methods: {
+
+			},
+
+			computed: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

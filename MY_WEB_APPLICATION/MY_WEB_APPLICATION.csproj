@@ -161,6 +161,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Scripts\Learning\dtx-library.js" />
+    <Content Include="Scripts\Learning\learn_7700.js" />
     <Content Include="Scripts\Learning\learn_6100.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -432,6 +433,9 @@
     <Content Include="Views\NewLearning\Learn_6650.cshtml" />
     <Content Include="Views\NewLearning\Learn_6450.cshtml" />
     <Content Include="Views\NewLearning\Learn_6475.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7500.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7600.cshtml" />
+    <Content Include="Views\NewLearning\Learn_7700.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

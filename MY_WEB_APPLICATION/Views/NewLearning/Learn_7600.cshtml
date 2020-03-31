@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 7600</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+		<h3>
+			Persian Calendar Component
+		</h3>
+
+		<hr />
+
+		@*<dtx-persian-calendar></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-bind:min-year="null"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-bind:min-year="'Dariush'"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-bind:min-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-bind:min-year="1400" v-bind:max-year="null"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-bind:min-year="1400" v-bind:max-year="'Dariush'"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-bind:min-year="1400" v-bind:max-year="1390"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-model="date1" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-model="date2" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-model="date3" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-model="date4" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-model="date5" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-model="date6" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		@*<dtx-persian-calendar v-model="date7" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>*@
+
+		<hr />
+
+		<input type="number" v-model="date8.year" />
+		<input type="number" v-model="date8.month" />
+		<input type="number" v-model="date8.day" />
+
+		<hr />
+
+		{{ date8.year }} / {{ date8.month }} / {{ date8.day }}
+
+		<hr />
+
+		<dtx-persian-calendar v-model="date8" v-bind:min-year="1390" v-bind:max-year="1400"></dtx-persian-calendar>
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+
+	<script>
+
+		Vue.component(`dtx-numberic-select`, {
+
+			props: [`value`, `min`, `max`],
+
+			data: function () {
+
+				return ({
+
+					validated: false,
+
+				})
+
+			},
+
+			created: function () {
+
+				this.validated = false
+
+				if (this.min === undefined) {
+
+					console.error(`[dtx-numberic-select]: The 'min' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.min === null) {
+
+					console.error(`[dtx-numberic-select]: The 'min' can not be 'null'!`)
+					return;
+
+				}
+
+				if (Number.isInteger(this.min) === false) {
+
+					console.error(`[dtx-numberic-select]: The 'min' (${this.min}) should be an integer!`)
+					return;
+
+				}
+
+				if (this.max === undefined) {
+
+					console.error(`[dtx-numberic-select]: The 'max' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.max === null) {
+
+					console.error(`[dtx-numberic-select]: The 'max' can not be 'null'!`)
+					return;
+
+				}
+
+				if (Number.isInteger(this.max) === false) {
+
+					console.error(`[dtx-numberic-select]: The 'max' (${this.max}) should be an integer!`)
+					return;
+
+				}
+
+				if (this.min > this.max) {
+
+					console.error(`[dtx-numberic-select]: The 'min' (${this.min}) should be less than or equal to 'max' (${this.max})!`)
+					return;
+
+				}
+
+				if (this.value === undefined) {
+
+					console.error(`[dtx-numberic-select]: The 'value' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.value !== null) {
+
+					if (Number.isInteger(this.value) === false) {
+
+						console.error(`[dtx-numberic-select]: The 'value' (${this.value}) should be an integer!`)
+						return;
+
+					}
+
+					if (this.value < this.min) {
+
+						console.error(`[dtx-numberic-select]: The 'value' (${this.value}) should be greater than or equal to 'min' (${this.min})!`)
+						return;
+
+					}
+
+					if (this.value > this.max) {
+
+						console.error(`[dtx-numberic-select]: The 'value' (${this.value}) should be less than or equal to 'max' (${this.max})!`)
+						return;
+
+					}
+
+				}
+
+				this.validated = true
+
+			},
+
+			template:
+				`<select
+					class="form-control"
+					v-if="validated"
+					v-bind:value="value"
+					v-on:input="doSomething($event.target.value)"
+					>
+					<option v-bind:value="null"></option>
+					<option v-for="(item, index) in getNumbers" v-bind:value="item" v-bind:key="index">{{ item }}</option>
+				</select>`,
+
+			methods: {
+
+				doSomething: function (e) {
+
+					this.$emit(`input`, e)
+
+				},
+
+			},
+
+			computed: {
+
+				getNumbers: function () {
+
+					let numbers = []
+
+					if (this.validated) {
+
+						for (let index = this.min; index <= this.max; index++) {
+
+							numbers.push(index)
+
+						}
+
+					}
+
+					return numbers
+
+				},
+
+			},
+
+		})
+
+		Vue.component(`dtx-persian-calendar`, {
+
+			props: [`value`, `minYear`, `maxYear`],
+
+			data: function () {
+
+				return ({
+
+					validated: false,
+
+				})
+
+			},
+
+			created: function () {
+
+				this.validated = false
+
+				if (this.minYear === undefined) {
+
+					console.error(`[dtx-persian-calendar]: The 'minYear' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.minYear === null) {
+
+					console.error(`[dtx-persian-calendar]: The 'minYear' can not be 'null'!`)
+					return;
+
+				}
+
+				if (Number.isInteger(this.minYear) === false) {
+
+					console.error(`[dtx-persian-calendar]: The 'minYear' (${ this.minYear }) should be an integer!`)
+					return;
+
+				}
+
+				if (this.maxYear === undefined) {
+
+					console.error(`[dtx-persian-calendar]: The 'maxYear' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.maxYear === null) {
+
+					console.error(`[dtx-persian-calendar]: The 'maxYear' can not be 'null'!`)
+					return;
+
+				}
+
+				if (Number.isInteger(this.maxYear) === false) {
+
+					console.error(`[dtx-persian-calendar]: The 'maxYear' (${ this.maxYear }) should be an integer!`)
+					return;
+
+				}
+
+				if (this.minYear > this.maxYear) {
+
+					console.error(`[dtx-persian-calendar]: The 'minYear' (${this.minYear}) should be less than or equal to 'maxYear' (${ this.maxYear })!`)
+					return;
+
+				}
+
+				if (this.value === undefined) {
+
+					console.error(`[dtx-persian-calendar]: The 'value' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.value === null) {
+
+					console.error(`[dtx-persian-calendar]: The 'value' can not be 'null'!`)
+					return;
+
+				}
+
+				if (this.value.year === undefined) {
+
+					console.error(`[dtx-persian-calendar]: The 'value.year' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.value.month === undefined) {
+
+					console.error(`[dtx-persian-calendar]: The 'value.month' can not be 'undefined'!`)
+					return;
+
+				}
+
+				if (this.value.day === undefined) {
+
+					console.error(`[dtx-persian-calendar]: The 'value.day' can not be 'undefined'!`)
+					return;
+
+				}
+
+				this.validated = true
+
+			},
+
+			template:
+				`<div class="row" v-if="validated">
+					<div class="col-6">
+						<dtx-numberic-select v-model="value.year" v-bind:min="minYear" v-bind:max="maxYear"></dtx-numberic-select>
+					</div>
+					<div class="col-3">
+						<dtx-numberic-select v-model="value.month" v-bind:min="1" v-bind:max="12"></dtx-numberic-select>
+					</div>
+					<div class="col-3">
+						<dtx-numberic-select v-model="value.day" v-bind:min="1" v-bind:max="31"></dtx-numberic-select>
+					</div>
+				</div>`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+				date1: null,
+
+				date2: { a: 10, b: 20, c: 30 },
+
+				date3: { year: `Dariush` },
+				date4: { year: `Dariush`, month: `Tasdighi` },
+				date5: { year: `Dariush`, month: `Tasdighi`, day: `Hello` },
+
+				date6: { year: -1, month: -1, day: -1 },
+				date7: { year: 5000, month: 5000, day: 5000 },
+
+				date8: { year: 1395, month: 9, day: 18 },
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
