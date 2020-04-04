@@ -66,7 +66,7 @@ Vue.component(`dtx-modal`, {
 
 })
 
-Vue.component(`dtx-numberic-select`, {
+Vue.component(`dtx-numeric-select`, {
 
 	props: [`value`, `min`, `max`],
 
@@ -86,56 +86,56 @@ Vue.component(`dtx-numberic-select`, {
 
 		if (this.min === undefined) {
 
-			console.error(`[dtx-numberic-select]: The 'min' can not be 'undefined'!`)
+			console.error(`[dtx-numeric-select]: The 'min' can not be 'undefined'!`)
 			return;
 
 		}
 
 		if (this.min === null) {
 
-			console.error(`[dtx-numberic-select]: The 'min' can not be 'null'!`)
+			console.error(`[dtx-numeric-select]: The 'min' can not be 'null'!`)
 			return;
 
 		}
 
 		if (Number.isInteger(this.min) === false) {
 
-			console.error(`[dtx-numberic-select]: The 'min' (${this.min}) should be an integer!`)
+			console.error(`[dtx-numeric-select]: The 'min' (${this.min}) should be an integer!`)
 			return;
 
 		}
 
 		if (this.max === undefined) {
 
-			console.error(`[dtx-numberic-select]: The 'max' can not be 'undefined'!`)
+			console.error(`[dtx-numeric-select]: The 'max' can not be 'undefined'!`)
 			return;
 
 		}
 
 		if (this.max === null) {
 
-			console.error(`[dtx-numberic-select]: The 'max' can not be 'null'!`)
+			console.error(`[dtx-numeric-select]: The 'max' can not be 'null'!`)
 			return;
 
 		}
 
 		if (Number.isInteger(this.max) === false) {
 
-			console.error(`[dtx-numberic-select]: The 'max' (${this.max}) should be an integer!`)
+			console.error(`[dtx-numeric-select]: The 'max' (${this.max}) should be an integer!`)
 			return;
 
 		}
 
 		if (this.min > this.max) {
 
-			console.error(`[dtx-numberic-select]: The 'min' (${this.min}) should be less than or equal to 'max' (${this.max})!`)
+			console.error(`[dtx-numeric-select]: The 'min' (${this.min}) should be less than or equal to 'max' (${this.max})!`)
 			return;
 
 		}
 
 		if (this.value === undefined) {
 
-			console.error(`[dtx-numberic-select]: The 'value' can not be 'undefined'!`)
+			console.error(`[dtx-numeric-select]: The 'value' can not be 'undefined'!`)
 			return;
 
 		}
@@ -144,21 +144,21 @@ Vue.component(`dtx-numberic-select`, {
 
 			if (Number.isInteger(this.value) === false) {
 
-				console.error(`[dtx-numberic-select]: The 'value' (${this.value}) should be an integer!`)
+				console.error(`[dtx-numeric-select]: The 'value' (${this.value}) should be an integer!`)
 				return;
 
 			}
 
 			if (this.value < this.min) {
 
-				console.error(`[dtx-numberic-select]: The 'value' (${this.value}) should be greater than or equal to 'min' (${this.min})!`)
+				console.error(`[dtx-numeric-select]: The 'value' (${this.value}) should be greater than or equal to 'min' (${this.min})!`)
 				return;
 
 			}
 
 			if (this.value > this.max) {
 
-				console.error(`[dtx-numberic-select]: The 'value' (${this.value}) should be less than or equal to 'max' (${this.max})!`)
+				console.error(`[dtx-numeric-select]: The 'value' (${this.value}) should be less than or equal to 'max' (${this.max})!`)
 				return;
 
 			}
@@ -323,13 +323,13 @@ Vue.component(`dtx-persian-calendar`, {
 	template:
 		`<div class="row" v-if="validated">
 			<div class="col-6">
-				<dtx-numberic-select v-model="value.year" v-bind:min="minYear" v-bind:max="maxYear"></dtx-numberic-select>
+				<dtx-numeric-select v-model="value.year" v-bind:min="minYear" v-bind:max="maxYear"></dtx-numeric-select>
 			</div>
 			<div class="col-3">
-				<dtx-numberic-select v-model="value.month" v-bind:min="1" v-bind:max="12"></dtx-numberic-select>
+				<dtx-numeric-select v-model="value.month" v-bind:min="1" v-bind:max="12"></dtx-numeric-select>
 			</div>
 			<div class="col-3">
-				<dtx-numberic-select v-model="value.day" v-bind:min="1" v-bind:max="31"></dtx-numberic-select>
+				<dtx-numeric-select v-model="value.day" v-bind:min="1" v-bind:max="31"></dtx-numeric-select>
 			</div>
 		</div>`,
 

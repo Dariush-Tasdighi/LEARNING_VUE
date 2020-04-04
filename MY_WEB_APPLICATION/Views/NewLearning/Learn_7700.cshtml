@@ -21,9 +21,19 @@
 
 		<br />
 
+		<b>Children</b>
+		<br />
+		<dtx-numeric-select v-model="person.children" v-bind:min="0" v-bind:max="10"></dtx-numeric-select>
+
 		<b>Birth Date:</b>
 		<br />
 		<dtx-persian-calendar v-model="person.birthDate" v-bind:min-year="1330" v-bind:max-year="1399"></dtx-persian-calendar>
+
+		<hr />
+
+		<b>Children:</b> {{ person?.children }}
+		<br />
+		<b>Birth Date:</b> {{ person?.birthDate.year }} / {{ person?.birthDate.month }} / {{ person?.birthDate.day }}
 
 		<hr />
 	</div>
