@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 8100</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+
+		<dtx-button>Save</dtx-button>
+
+		<hr />
+
+		<dtx-button v-on:click="clicked($event)">Save</dtx-button>
+
+		<hr />
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script>
+
+		Vue.component('dtx-button', {
+
+			template:
+				`
+				<button type="submit" class="btn btn-primary" v-on:click="doSomething($event)">
+					<slot>
+						Submit
+					</slot>
+				</button>
+				`,
+
+			methods: {
+
+				doSomething: function (e) {
+
+					this.$emit(`click`, e)
+
+				},
+
+			},
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+			},
+
+			methods: {
+
+				clicked: function (e) {
+
+					alert(e)
+
+				}
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

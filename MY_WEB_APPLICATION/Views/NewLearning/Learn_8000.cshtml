@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 8000</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+
+		<dtx-button>
+		</dtx-button>
+
+		<hr />
+
+		<dtx-button>
+			<div slot="default">
+				Save 1
+			</div>
+		</dtx-button>
+
+		<hr />
+
+		<dtx-button>
+			<template v-slot:default>
+				Save 2
+			</template>
+		</dtx-button>
+
+		<hr />
+
+		<dtx-button>
+			Save 3
+		</dtx-button>
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script>
+
+		Vue.component('dtx-button', {
+
+			template:
+				`
+				<button type="submit" class="btn btn-primary">
+					<slot>
+						Submit
+					</slot>
+				</button>
+				`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>

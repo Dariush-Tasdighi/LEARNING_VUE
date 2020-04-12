@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Learn 7900</title>
+
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="app" class="container" v-cloak>
+
+		<dtx-box>
+			<div slot="header">
+				Header
+			</div>
+			<div slot="body">
+				Body
+			</div>
+			<div slot="footer">
+				Footer
+			</div>
+		</dtx-box>
+
+		<hr />
+
+		<dtx-box>
+			<template v-slot:header>
+				Header
+			</template>
+			<template v-slot:body>
+				Body
+			</template>
+			<template v-slot:footer>
+				Footer
+			</template>
+		</dtx-box>
+
+	</div>
+
+	<script src="~/Scripts/vue.js"></script>
+	<script src="~/Scripts/axios.js"></script>
+
+	<script>
+
+		//Vue.component('dtx-box', {
+
+		//	template:
+		//		`
+		//		<div class="panel panel-primary">
+		//			<div class="panel-heading">
+		//				<h3 class="panel-title">
+		//					<slot name="header"></slot>
+		//				</h3>
+		//			</div>
+
+		//			<div class="panel-body">
+		//				<slot name="body"></slot>
+		//			</div>
+
+		//			<div class="panel-footer">
+		//				<slot name="footer"></slot>
+		//			</div>
+		//		</div>
+		//		`,
+
+		//})
+
+		Vue.component('dtx-box', {
+
+			template:
+				`
+				<div class="card">
+					<div class="card-heading">
+						<h3 class="card-title">
+							<slot name="header"></slot>
+						</h3>
+					</div>
+
+					<div class="card-body">
+						<slot name="body"></slot>
+					</div>
+
+					<div class="card-footer">
+						<slot name="footer"></slot>
+					</div>
+				</div>
+				`,
+
+		})
+
+		const app = new Vue({
+
+			el: `#app`,
+
+			data: {
+
+			},
+
+		})
+
+	</script>
+</body>
+</html>
