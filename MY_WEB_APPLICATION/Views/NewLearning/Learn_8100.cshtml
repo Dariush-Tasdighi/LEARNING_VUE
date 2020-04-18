@@ -12,6 +12,10 @@
 <body>
 	<div id="app" class="container" v-cloak>
 
+		<dtx-button></dtx-button>
+
+		<hr />
+
 		<dtx-button>Save</dtx-button>
 
 		<hr />
@@ -31,7 +35,7 @@
 
 			template:
 				`
-				<button type="submit" class="btn btn-primary" v-on:click="doSomething($event)">
+				<button type="button" class="btn btn-primary" v-on:click="doSomething($event)">
 					<slot>
 						Submit
 					</slot>
