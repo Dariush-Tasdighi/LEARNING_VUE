@@ -1,4 +1,8 @@
-﻿JavaScript (Netscape)
+﻿All of JQuery 3.x -> Replaced To -> JQuery 3.5.0
+
+================================================================
+
+JavaScript (Netscape)
 
 VBScript, JScript
 
